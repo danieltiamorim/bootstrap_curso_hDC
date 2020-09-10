@@ -33,16 +33,16 @@
 
 <body>
   <header> 
-        <div class="container" id="nav-container">
+            <div class="container" id="nav-container">
             <nav class="navbar navbar-expand-lg fixed-top">
-					<a href="#" class="navbar-brand" alt="SysLib">  <h1> SysLib: NeS- Livraria </h1>
-					<p> <img id="logo" src="logo.png" /></p>
+					<a href="#" class="navbar-brand"> 
+					<img id="logo" src="logo.png" > SysLib: NeS- Livraria
 			        </a>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
-                 data-target="#navbar-links" 
+                 data-target="#navbar-links"
                     aria-controls="navbar-links" aria-expanded="false" 
-                    aria-label="Toggle navigation">
+                    aria-label="toggle navigation">
                     <span class="navbar-toggler-icon"></span> 
                 </button>
 
@@ -57,22 +57,21 @@
         </div>
     </header>
 
-
-
-<main>
-<div class="container">
-
- <br />
- <br />
- 
-  <br />
-   <br />
-
-<h2>Cadastro de livros </h2>
+    <main>
+        
+    <div class="container-fluid">
+    <div id="cadastro-menu">
+        <div class="container"> 
+            <div class="row">
+                <div class="col-12">      
+                    <h3>Cadastro de livros </h3>  
+                </div>
 
 <form method="post" action="syslib_cadastro.php">
+
 <ul>
-<li> Nome do Livro : <input type="Nome do Livro" name="titulo" placeholder="Nome do livro" /> <br /> </li>
+
+<li><h5> Nome do Livro</h5> : <input type="Nome do Livro" name="titulo" placeholder="Nome do livro" /> <br /> </li> 
 
 <li>Autor: <input type="Autor" name="autor" placeholder="Nome do autor" /> <br /> </li>
 
@@ -89,23 +88,19 @@
 <option value="usado_bom"> Usado - Bom Estado </option>
 <option value=" usado_aceitavel"> Usado - Aceitável</option>
 </select>
-
  <br />
  <br />
- 
-
-<li> Preço de Custo : <input type="custo" name="custo" placeholder="Custo" /> <br /><br /><br /> </li>
+ <li> Preço de Custo : <input type="custo" name="custo" placeholder="Custo" /> <br /><br /><br /> </li>
 <li> Descrição do livro : <textarea name='descricao'> </textarea><br /><br /> </li>
 </ul>
 <h3>Salvar Cadastro </h3> <input type="submit" value="Salvar"  />
-
 </form>
-
+    </div>
+   </div>
 </div>
-
+</div>
 </main>
-
-
+</div>
 </body>
 
 </html>
