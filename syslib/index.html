@@ -33,74 +33,88 @@
 
 <body>
   <header> 
-            <div class="container" id="nav-container">
-            <nav class="navbar navbar-expand-lg fixed-top">
-					<a href="#" class="navbar-brand"> 
-					<img id="logo" src="logo.png" > SysLib: NeS- Livraria
-			        </a>
+    
+		<div class="container" id="nav-container">
+			<nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+			<a class="navbar-brand" href="index.html"> 
+				<img id="logo" src="logo.png"> SysLib: NeS- Livraria
+			</a>
 
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                 data-target="#navbar-links"
-                    aria-controls="navbar-links" aria-expanded="false" 
-                    aria-label="toggle navigation">
-                    <span class="navbar-toggler-icon"></span> 
-                </button>
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+             data-target="#navbar-links"
+                aria-controls="navbar-links" aria-expanded="false" 
+                aria-label="toggle navigation">
+                <span class="navbar-toggler-icon"></span> 
+			</button>
 
-                <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
-                  <div class="navbar-nav">
-                      <a class="nav-item nav-link" id="home-menu">Home</a>
-                      <a class="nav-item nav-link" id="cadastro-menu">Cadastro</a>
-                      <a class="nav-item nav-link" id="pesquisa-menu">Pesquisa</a>
-                     </div>
-                </div>  
-            </nav>
-        </div>
+            <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
+				<div class="navbar-nav">
+                <a class="nav-item nav-link" id="home-menu" href="#"></span> Home</a>
+                <a class="nav-item nav-link" id="cadastro-menu" href="#">Cadastro</a>
+                <a class="nav-item nav-link" id="pesquisa-menu" href="#">Pesquisa</a>
+                </div>
+			</div> 
+				
+			</nav>
+			
+			
+		</div>
     </header>
 
     <main>
         
     <div class="container-fluid">
-    <div id="cadastro-menu">
-        <div class="container"> 
-            <div class="row">
-                <div class="col-12">      
-                    <h3>Cadastro de livros </h3>  
-                </div>
+		<div id="cadastro-menu">
+			<div class="container"> 
+				<div class="row">
+					<div class="col-12">      
+						<h3 class="main-title">Cadastro de livros </h3>  
+					
+					<p>  <h4 class="about-cadastro">Nesta página você pode cadastrar os mais diversos livros</h4></p>
+                	<p> Cheque cada informação e preencha os dados com cuidado</p>
+                	<p> O Número ISBN é imprescidível, e deve ser usado a máquina leitora de código de barras para a devida leitura dele</p>
+                	<p> Se for o caso de não ter código de barras, pesquise pelo título na internet e cadastre o livro ou chame o seu supervisor</p>
+               	 	<p>Ele(a) irá lhe ajudar com essa missão, boa sorte.</p>
+					</div>
+						<form method="post" action="syslib_cadastro.php">
 
-<form method="post" action="syslib_cadastro.php">
+							<ul>
 
-<ul>
+							<li>Nome do Livro: <input type="Nome do Livro" name="titulo" placeholder="Ex: Harry Potter e a Pedra Filosofal" /> <br /> </li> 
 
-<li><h5> Nome do Livro</h5> : <input type="Nome do Livro" name="titulo" placeholder="Nome do livro" /> <br /> </li> 
+							<li>Autor: <input type="Autor" name="autor" placeholder="Ex: J K Rowling - NÃO TEM NECESSIDADE DE PONTOS" /> <br /> </li>
 
-<li>Autor: <input type="Autor" name="autor" placeholder="Nome do autor" /> <br /> </li>
+							<li>ISBN: <input type="ISBN" name="isbn" placeholder="Ex: 9788532511010 " /> <br /> </li>
 
-<li>ISBN: <input type="ISBN" name="isbn" placeholder="Coloque um código ISBN" /> <br /> </li>
+							<li> Preço Venda : <input type="Preço" name="preco" placeholder="Ex: 10,00" /> <br /> </li>
+							<li> Quantidade : <input type="Quantidade" name="quantidade" placeholder="Ex: 10 - Só números inteiros" /> <br /> </li>
+							<li> Editora <input type="Editora" name="editora" placeholder="Rocco" /> <br /> </li>
+							<li> Ano: <input type="Ano" name="ano" placeholder="2001" /> <br /> </li>
+							<li> Edição: <input type="edicao" name="edicao" placeholder="No lugar de 1ª colocar 1 "/> <br /> </li>
+							<li> <label for='estado'>  Estado do Livro - Escolha a opção: </label>  : <select name="estado" id="estado"> </li> 
+							<option value="novo">Novo</option>
+							<option value="usado_novo"> Usado - Como Novo</option>
+							<option value="usado_bom"> Usado - Bom Estado </option>
+							<option value=" usado_aceitavel"> Usado - Aceitável</option>
+							</select>
+									<br />
+							<li> Preço de Custo : <input type="custo" name="custo" placeholder="Ex: 9,99" /> <br /><br /><br /> </li>
+							<li> Descrição do livro:
+								<br />	Aqui você deve descrever o livro conforme o estado de conservação dele, 
+								<p>		se estiver amarelado, com páginas amassadas, grifos, assinaturas e/ou anotações.</p>
+								<textarea name='descricao' > </textarea><br /><br /> </li>
+							
+							</ul>
+								<h3>Salvar Cadastro </h3> <input type="submit" value="Salvar"  />
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-<li> Preço Venda : <input type="Preço" name="preco" placeholder="Preço" /> <br /> </li>
-<li> Quantidade : <input type="Quantidade" name="quantidade" placeholder="Quantidade" /> <br /> </li>
-<li> Editora <input type="Editora" name="editora" placeholder="Editora" /> <br /> </li>
-<li> Ano: <input type="Ano" name="ano" placeholder="Ano" /> <br /> <br /> </li>
-<li> Edição: <input type="edicao" name="edicao" placeholder="Edição"/> <br /> </li>
-<li> <label for='estado'>  Estado do Livro </label>  : <select name="estado" id="estado"> </li> 
-<option value="novo">Novo</option>
-<option value="usado_novo"> Usado - Como Novo</option>
-<option value="usado_bom"> Usado - Bom Estado </option>
-<option value=" usado_aceitavel"> Usado - Aceitável</option>
-</select>
- <br />
- <br />
- <li> Preço de Custo : <input type="custo" name="custo" placeholder="Custo" /> <br /><br /><br /> </li>
-<li> Descrição do livro : <textarea name='descricao'> </textarea><br /><br /> </li>
-</ul>
-<h3>Salvar Cadastro </h3> <input type="submit" value="Salvar"  />
-</form>
-    </div>
-   </div>
-</div>
-</div>
-</main>
-</div>
+	</main>
+
 </body>
 
 </html>
