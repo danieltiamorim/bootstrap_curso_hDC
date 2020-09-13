@@ -82,36 +82,128 @@
 						<form method="post" action="syslib_cadastro.php">
 
 							<ul>
+								<div class="col-9">
+									<div class="row data">
+									<li> <b>	<label for="form_capa">Capa:</label> </b>
+									</div>
+								</div>
+							
+									<div class="col-9">
+										<div class="cover-area js-cover-area">
+											<input type="hidden" class="domain" value="" />
+											<input type="hidden" class="saved" value="" />
+		
+											<div class="row">
+												<div class="state col-12"></div>
+											</div>
+		
+											<div class="row">
+												<div class="image-div col-9"></div>
+		
+												<div class="image-uploader-box js-uploader-box col-8">
+													<span class="upload-box-title"> Selecione uma capa para enviar </span>
+													<input id="form_capa" accept=".png, .jpg" type="file" name="capa" value="" style="float: left;"
+														class="jfilestyle" data-buttonText="Escolher imagem" data-icon="false"
+														data-format="Por favor, utilize um arquivo no formato PNG ou JPG de até 5MB para o upload da imagem."
+													/>
+												</div>
+											</div>
+										</div>
+									</div>	
 
+								<div class="tooltip">
+									<p>
+										Faça o upload do arquivo .png ou .jpg com a foto da capa do livro.
+										O tamanho da imagem não deve ultrapassar 5 Mb.
+									</p>
+								</div>		
+								
+								<div class="col-9">
 							<li><b>Nome do Livro:</b> <input type="Nome do Livro" name="titulo" placeholder="Ex: Harry Potter e a Pedra Filosofal" /> <br /> </li> 
+						</div>
 
-							<li> <b>Autor: </b><input type="Autor" name="autor" placeholder="Ex: J K Rowling S/ PONTOS" /> <br /> </li>
+						<div class="col-9">
+							  <li><b>Autor: </b><input type="Autor" name="autor" placeholder="Ex: J K Rowling S/ PONTOS" /> <br /> </li>
+						</div>
 
+						<div class="col-9">
 							<li><b>ISBN:</b> <input type="ISBN" name="isbn" placeholder="Ex: 9788532511010 " /> <br /> </li>
+						</div>
 
+						<div class="col-9">
 							<li> <b>Preço Venda: </b> <input type="Preço" name="preco" placeholder="Ex: 10,00" /> <br /> </li>
+						</div>
+							
+							
+						<div class="col-9">
 							<li> <b>Quantidade: </b><input type="Quantidade" name="quantidade" placeholder="Ex: 10 - Só número inteiro" /> <br /> </li>
-							<li> <b>Editora: </b><input type="Editora" name="editora" placeholder="Ex: Rocco" /> <br /> </li>
-							<li> <b>Ano: </b><input type="Ano" name="ano" placeholder="Ex: 2001" /> <br /> </li>
-							<li> <b>Edição:</b> <input type="edicao" name="edicao" placeholder="No lugar de 1ª colocar 1 "/> <br /> </li>
-							<li> <label for='estado'>  <b>Estado do Livro - Escolha a opção:</b> </label>  : <select name="estado" id="estado"> </li> 
-							<option value="novo">Novo</option>
-							<option value="usado_novo"> Usado - Como Novo</option>
-							<option value="usado_bom"> Usado - Bom Estado </option>
-							<option value=" usado_aceitavel"> Usado - Aceitável</option>
+						</div>		
+						
+						
+						<div class="col-9">
+							<br /> </li>
+									<div class="row data">
+										<div class="col-3">
+											<label for="form_editora">Editora<span class="asterisk">*</span>:</label>
+										</div>
+
+										
+											<input type="Editora" name="editora" placeholder="Ex: Rocco" maxlength="30" value=""
+                                    		required autocomplete="no"
+                                   			data-empty="Editora não preenchida."
+											data-name="Editora - preenchimento incorreto. Coloque apenas o nome da editora, \n sem repetir 'Editora'. \n  Ex: digite simplesmente 'Cortez', ao invés de 'Cortez Editora'"/> <br /> </li>
+										</div>			
+									</div>
+								</div>		
+								
+								<div class="col-9">
+								<li> <b>Ano: </b><input type="Ano" name="ano" placeholder="Ex: 2001" /> <br /> </li>
+							</div>
+								<div class="col-9">
+								<li> <b>Edição:</b> <input type="edicao" name="edicao" placeholder="No lugar de 1ª colocar 1 "/> <br /> </li>
+								</div>
+								<div class="col-9">
+								<li> <b>Ano: </b><input type="Idioma" name="idioma" placeholder="Ex: Português" /> <br /> </li>
+							</div>
+								<div class="col-9">
+								<li> <label for='estado'>  <b>Estado do Livro - Escolha a opção:</b> </label>  : <select name="estado" id="estado"> </li> 
+							
+									<option value="novo">Novo</option>
+							
+									<option value="usado_novo"> Usado - Como Novo</option>
+							
+									<option value="usado_bom"> Usado - Bom Estado </option>
+							
+									<option value=" usado_aceitavel"> Usado - Aceitável</option>
 							</select>
 									<br />
-							<li> <b>Preço de Custo: </b><input type="custo" name="custo" placeholder="Ex: 9,99" /> <br /> <br /> </li>
-							<li> <b>Descrição do livro:</b>
-								<br />	<i>Aqui você deve descrever o livro conforme o estado de conservação dele, 
-									<br />	se estiver amarelado, com páginas amassadas, grifos, assinaturas e/ou anotações.  
-									<br />P.S.: Sugiro que termine sempre a descrição com a seguinte frase 
-									<br /> <b> "Mas nada que impeça uma leitura prazerosa"</b></i><br />
+								</div>
+									<div class="col-9">
+									<li> <b>Preço de Custo: </b><input type="custo" name="custo" placeholder="Ex: 9,99" /> <br /> <br /> </li>
+								</div>
+									<div class="col-9">
+									<li> <b>Descrição do livro:</b>
+						
+										<br />	<i>Aqui você deve descrever o livro conforme o estado de conservação dele, 
+						
+						
+											<br />	se estiver amarelado, com páginas amassadas, grifos, assinaturas e/ou anotações.  
+						
+											<br />P.S.: Sugiro que termine sempre a descrição com a seguinte frase 
+						
+											<br /> <b> "Mas nada que impeça uma leitura prazerosa"</b></i><br />
+
+
 
 								<textarea rows="4" placeholder="Ex: Livro com capa amassada, lateral rasgada, e amarelada, marcas de uso, assinatura do último dono, e autógrafo autor. Mas nada que impeça uma leitura prazerosa." name='descricao' > </textarea><br /><br /> </li>
-							
+							</div>
+
 							</ul>
+
+						</div>
+						<div class="col-9">
 								<p><h4>Salvar Cadastro </h4></p> <input type="submit" value="Salvar"  />
+							</div>
 							</form>
 						</div>
 					</div>

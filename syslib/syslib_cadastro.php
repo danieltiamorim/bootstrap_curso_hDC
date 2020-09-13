@@ -1,3 +1,5 @@
+
+
 <?php
 //syslib_cadastro.php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {//Check it is coming from a form
@@ -19,12 +21,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {//Check it is coming from a form
 	print " Clique aqui para cadastrar mais um super livro"; 
 }
 ?>
+
 <html>
 <head> 
 </head>
-<body>
-</br>
-<a href="http://localhost/syslib/Hello%20%20Wolrd.html"> Clique aqui para continuar cadastrando! </a>
+<body><
+/br>
+<a href="https://danieltiamorim.github.io/syslib/#"> Clique aqui para continuar cadastrando! </a>
 </body>
 
  </html>
