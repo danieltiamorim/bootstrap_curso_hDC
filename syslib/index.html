@@ -89,6 +89,7 @@
 								</div>
 							
 									<div class="col-9">
+
 										<div class="cover-area js-cover-area">
 											<input type="hidden" class="domain" value="" />
 											<input type="hidden" class="saved" value="" />
@@ -119,33 +120,42 @@
 								</div>		
 								
 								<div class="col-9">
-							<li><b>Nome do Livro:</b> <input type="Nome do Livro" name="titulo" placeholder="Ex: Harry Potter e a Pedra Filosofal" /> <br /> </li> 
-						</div>
-
-						<div class="col-9">
-							  <li><b>Autor: </b><input type="Autor" name="autor" placeholder="Ex: J K Rowling S/ PONTOS" /> <br /> </li>
-						</div>
-
-						<div class="col-9">
-							<li><b>ISBN:</b> <input type="ISBN" name="isbn" placeholder="Ex: 9788532511010 " /> <br /> </li>
-						</div>
-
-						<div class="col-9">
-							<li> <b>Preço Venda: </b> <input type="Preço" name="preco" placeholder="Ex: 10,00" /> <br /> </li>
-						</div>
-							
-							
-						<div class="col-9">
-							<li> <b>Quantidade: </b><input type="Quantidade" name="quantidade" placeholder="Ex: 10 - Só número inteiro" /> <br /> </li>
-						</div>		
-						
-						
-						<div class="col-9">
-							<br /> </li>
 									<div class="row data">
-										<div class="col-3">
-											<label for="form_editora">Editora<span class="asterisk">*</span>:</label>
-										</div>
+									<li><b>Nome do Livro:</b> <input type="Nome do Livro" name="titulo" placeholder="Ex: Harry Potter e a Pedra Filosofal" /> <br /> </li> 
+									</div>
+								</div>
+
+								<div class="col-9">	
+									<div class="row data">
+							  		<li><b>Autor: </b><input type="Autor" name="autor" placeholder="Ex: J K Rowling S/ PONTOS" /> <br /> </li>
+									</div>
+								</div>
+						
+
+								<div class="col-9">	
+									<div class="row data">
+									<li><b>ISBN:</b> <input type="ISBN" name="isbn" placeholder="Ex: 9788532511010 " /> <br /> </li>
+									</div>
+								</div>
+
+								<div class="col-9">	
+									<div class="row data">
+									<li> <b>Preço Venda: </b> <input type="Preço" name="preco" placeholder="Ex: 10,00" /> <br /> </li>
+									</div>
+								</div>
+							
+							
+								<div class="col-9">	
+									<div class="row data">
+									<li> <b>Quantidade: </b><input type="Quantidade" name="quantidade" placeholder="Ex: 10 - Só número inteiro" /> <br /> </li>
+									</div>			
+								</div>	
+						
+						
+									<div class="row data">
+										<div class="col-9">
+										<li> <b><label for="editora">Editora<span class="asterisk">*</b></span>:</label>
+										
 
 										
 											<input type="Editora" name="editora" placeholder="Ex: Rocco" maxlength="30" value=""
@@ -154,19 +164,29 @@
 											data-name="Editora - preenchimento incorreto. Coloque apenas o nome da editora, \n sem repetir 'Editora'. \n  Ex: digite simplesmente 'Cortez', ao invés de 'Cortez Editora'"/> <br /> </li>
 										</div>			
 									</div>
-								</div>		
+									
 								
-								<div class="col-9">
-								<li> <b>Ano: </b><input type="Ano" name="ano" placeholder="Ex: 2001" /> <br /> </li>
-							</div>
-								<div class="col-9">
-								<li> <b>Edição:</b> <input type="edicao" name="edicao" placeholder="No lugar de 1ª colocar 1 "/> <br /> </li>
+									<div class="row data">
+										<div class="col-9">
+										<li> <b>Ano: </b><input type="Ano" name="ano" placeholder="Ex: 2001" /> <br /> </li>
+										</div>
+									</div>
+								
+									<div class="row data">
+										<div class="col-9">
+										<li> <b>Edição:</b> <input type="edicao" name="edicao" placeholder="No lugar de 1ª colocar 1 "/> <br /> </li>
+										</div>
+									</div>
+								
+								<div class="row data">
+										<div class="col-9">
+									<li> <b>Ano: </b><input type="Idioma" name="idioma" placeholder="Ex: Português" /> <br /> </li>
 								</div>
-								<div class="col-9">
-								<li> <b>Ano: </b><input type="Idioma" name="idioma" placeholder="Ex: Português" /> <br /> </li>
 							</div>
-								<div class="col-9">
-								<li> <label for='estado'>  <b>Estado do Livro - Escolha a opção:</b> </label>  : <select name="estado" id="estado"> </li> 
+
+								<div class="row data">
+									<div class="col-9">
+									<li> <label for='estado'>  <b>Estado do Livro - Escolha a opção:</b> </label>  : <select name="estado" id="estado"> </li> 
 							
 									<option value="novo">Novo</option>
 							
@@ -175,12 +195,18 @@
 									<option value="usado_bom"> Usado - Bom Estado </option>
 							
 									<option value=" usado_aceitavel"> Usado - Aceitável</option>
-							</select>
+									</select>
 									<br />
 								</div>
-									<div class="col-9">
+							</div>
+
+								<div class="row data">
+										<div class="col-9">
 									<li> <b>Preço de Custo: </b><input type="custo" name="custo" placeholder="Ex: 9,99" /> <br /> <br /> </li>
 								</div>
+							</div>
+
+								<div class="row data">
 									<div class="col-9">
 									<li> <b>Descrição do livro:</b>
 						
@@ -193,18 +219,18 @@
 						
 											<br /> <b> "Mas nada que impeça uma leitura prazerosa"</b></i><br />
 
-
-
 								<textarea rows="4" placeholder="Ex: Livro com capa amassada, lateral rasgada, e amarelada, marcas de uso, assinatura do último dono, e autógrafo autor. Mas nada que impeça uma leitura prazerosa." name='descricao' > </textarea><br /><br /> </li>
+								</div>
 							</div>
-
 							</ul>
-
 						</div>
+
 						<div class="col-9">
 								<p><h4>Salvar Cadastro </h4></p> <input type="submit" value="Salvar"  />
-							</div>
-							</form>
+						</div>
+
+			</form>
+
 						</div>
 					</div>
 				</div>
