@@ -62,19 +62,147 @@
     </header>
 
     <main>
-        
-    <div class="container-fluid">
-		<div id="cadastro">
-			<div class="container"> 
+
+
+		<div class="container-fluid">
+			<div id="cadastro">
+				<div class="container"> 
+					<div class="row">
+						<div class="col-12">      
+							<h3 class="main-title">Cadastro de livros </h3> 
+
+
+
+	<!-- Scrips Estante Virtual--> 
+
+	<script type="text/javascript">
+		window.dataLayer = window.dataLayer || [];
+		dataLayer.push({
+		  
+		  'email': 'livrarianes@gmail.com',
+		  'userid': '5398304'
+		});
+	  </script>
+
+
+							<div id="display-camera">
+							</div>
+						
+							<div class="acervo-editar-form col-12 vspace-top">
+								<div class="row">
+									<script type="text/template" id="form_error_template">
+										<span class="error">{msg}</span>
+									</script>			
+		<div class="col-12 isbn-search">
+			<div class="isbn row">
+				<div class="col-8">
+					<div class="row">
+						<div class="col-12">
+							<label class="title">Buscar ISBN na base da Estante Virtual</label>
+						</div>
+						<div class="col-12 text-information">
+							Os dados da nossa base serão usados parar preencher automaticamente as informações do livro.
+							Se preferir,você pode alterar essas informações ou preencher os campos manualmente.
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-9">
+							<input id="isbn" class="preventEnter" type="text"
+								name="isbn" maxlength="13"
+							/>
+
+							<img src="bar-code.svg" id="btn-escanear-isbn" />
+						</div>
+						<div class="col-3 end">
+							<a href="#" class="btn-ev" id="isbn_btn">
+								Buscar
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-12" id="tooltip-isbn-scanner">
+					Clique para utilizar a câmera do seu celular como leitor de código de barras.
+
+					<span>
+						<img src="seta-tooltip.svg" id="seta-tooltip-isbn-scanner" />
+					</span>
+
+					<span>
+						<a id="esconder-tooltip-isbn-scanner">x</a>
+					</span>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-12">
+					<p class=""
+						id="busca_isbn_msg"
+						data-miss="Não foi possível recuperar dados para o ISBN informado."
+						data-error="Não foi possível recuperar dados para o ISBN informado."
+						data-processing="Buscando livro por ISBN."
+						data-found="Não foi possível preencher todos metadados desta publicação. Verifique os dados preenchidos abaixo.">
+					</p>
+				</div>
+			</div>
+			<div class="book-preview js_book_preview">
 				<div class="row">
-					<div class="col-12">      
-						<h3 class="main-title">Cadastro de livros </h3>  
+					<div class="col-2 book-preview-image">
+						<img id="book_preview_cover" class="js_book_preview_cover" width='120' height='180'/>
+						<span>Capa ilustrativa</span>
+					</div>
+					<div class="col-10 book-preview-info js_book_preview_info">
+						<p class='js_title'>
+							<b>Título: </b>
+							<span></span>
+						</p>
+						<p class='js_author'>
+							<b>Autor: </b>
+							<span></span>
+						</p>
+						<p class='js_publisher'>
+							<b>Editora: </b>
+							<span></span>
+						</p>
+						<p class='js_year'>
+							<b>Ano: </b>
+							<span></span>
+						</p>
+						<p class='js_edition'>
+							<b>Edição: </b>
+							<span></span>
+						</p>
+						<p class='js_weigth'>
+							<b>Peso: </b>
+							<span></span>
+						</p>
+						<p class='js_language'>
+							<b>Idioma: </b>
+							<span></span>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+
+
+
+
+     
 					
 					<p>  <h4 class="about-cadastro">Nesta página você pode cadastrar os mais diversos livros;</h4></p>
-                	Cheque cada informação e preencha os dados com cuidado; <br />
+                	<p>Cheque cada informação e preencha os dados com cuidado; <br />
                 	O Número ISBN é imprescidível, e deve ser usado a máquina leitora de código de barras para a devida leitura dele; <br />
                 	Se for o caso de não ter código de barras, pesquise pelo título na internet e cadastre o livro ou chame o seu supervisor; <br />
-               	 	Ele(a) irá lhe ajudar com essa missão, boa sorte. <br /> 
+						Ele(a) irá lhe ajudar com essa missão, boa sorte.  <br />
+					<b>P.S.:</b> O que estiver com <b>ASTERISCO *</b> deve ser preenchido com máxima importância. </p>
 					</div>
 
 
@@ -83,14 +211,13 @@
 							
 					
 						<tr>
-							
-								<ul>
+							<ul>
 								
 							<tr>
 								<div class="col-9">
 									<div class="row data">
-										<td> <li><b>Nome do Livro: </b> </td>
-										<td> <input type="Nome do livro" name="titulo" placeholder="Ex: Harry Potter e a Pedra Filosofal" /> <br /> </li> </td>
+										<td> <li><b>Nome do Livro<span class="asterisk">*</span>: </b> </td>
+										<td> <input type="Nome do livro" name="titulo" placeholder="Ex: Harry Potter e a Pedra Filosofal" /><br /> </li> </td>
 									</div>
 								</div>
 							</tr>
@@ -109,12 +236,27 @@
 							<tr>
 								<div class="col-9">	
 									<div class="row data">
-									<td> <li><b>ISBN: </b> </td> 
-									<td>	<input type="ISBN" name="isbn" placeholder="Ex: 9788532511010 " /> <br /> </li> </td>
-									</div>
-								</div>
+									
+									
+								
 							</tr>
-							
+							<div class="row data">
+								<div class="col-9">
+									<td> <li><b>	<label for="form_isbn" >ISBN<span class="asterisk">*</span>:</label> </b> </td> 
+								</div>
+								
+								<td>
+								
+									<input id="form_isbn" type="text"
+									data-blank="ISBN não preenchido"
+									data-invalid="ISBN inválido"
+									name="isbn" maxlength="16" value=""
+									placeholder="Ex: 9788532511010 "
+									autocomplete="no"
+									/> <br /> </li> </td>
+
+								</div>
+								</div>
 							<tr>
 								<div class="col-9">	
 									<div class="row data">
@@ -129,9 +271,250 @@
 									<div class="row data">
 										<td><li> <b>Quantidade: </b> </td>
 										<td>	<input type="Quantidade" name="quantidade" placeholder="Ex: 10 - Só número inteiro" /> <br /> </li> </td>
-									</div>			
-								</div>	
-							</tr>
+									</div>		
+									</div>	
+								</tr>
+
+								<tr>
+									<div class="row data">
+									<div class="col-9">
+									<td>	<li> <b>	<label for="form_estante">Estante<span class="asterisk">*</span>:</label></b>
+										</div>
+									</td>
+
+									<td>
+										
+											<select id="form_estante" name="estante" class="custom_select"
+											data-empty="Estante não selecionada. Escolha uma estante de destino para o seu livro."
+											>
+													
+											<option value=""> Estante de destino  </option>
+																			<option value="Administração" >
+												Administração
+											</option>
+																			<option value="Agricultura" >
+												Agricultura
+											</option>
+																			<option value="Antropologia" >
+												Antropologia
+											</option>
+																			<option value="Arqueologia" >
+												Arqueologia
+											</option>
+																			<option value="Arquitetura" >
+												Arquitetura
+											</option>
+																			<option value="Artes" >
+												Artes
+											</option>
+																			<option value="Artesanato" >
+												Artesanato
+											</option>
+																			<option value="Astronomia" >
+												Astronomia
+											</option>
+																			<option value="Auto Ajuda" >
+												Auto Ajuda
+											</option>
+																			<option value="Biografias" >
+												Biografias
+											</option>
+																			<option value="Biologia" >
+												Biologia
+											</option>
+																			<option value="Botânica" >
+												Botânica
+											</option>
+																			<option value="Brasil" >
+												Brasil
+											</option>
+																			<option value="Cinema" >
+												Cinema
+											</option>
+																			<option value="Ciência Política" >
+												Ciência Política
+											</option>
+																			<option value="Ciências Exatas" >
+												Ciências Exatas
+											</option>
+																			<option value="Coleções" >
+												Coleções
+											</option>
+																			<option value="Comportamento" >
+												Comportamento
+											</option>
+																			<option value="Comunicação" >
+												Comunicação
+											</option>
+																			<option value="Contabilidade" >
+												Contabilidade
+											</option>
+																			<option value="Contos" >
+												Contos
+											</option>
+																			<option value="Crítica Literária" >
+												Crítica Literária
+											</option>
+																			<option value="Culinária" >
+												Culinária
+											</option>
+																			<option value="Decoração" >
+												Decoração
+											</option>
+																			<option value="Dicionários" >
+												Dicionários
+											</option>
+																			<option value="Didáticos" >
+												Didáticos
+											</option>
+																			<option value="Direito" >
+												Direito
+											</option>
+																			<option value="Documentos" >
+												Documentos
+											</option>
+																			<option value="Ecologia" >
+												Ecologia
+											</option>
+																			<option value="Economia" >
+												Economia
+											</option>
+																			<option value="Enciclopédias" >
+												Enciclopédias
+											</option>
+																			<option value="Engenharia" >
+												Engenharia
+											</option>
+																			<option value="Ensino de Idiomas" >
+												Ensino de Idiomas
+											</option>
+																			<option value="Esoterismo" >
+												Esoterismo
+											</option>
+																			<option value="Esportes" >
+												Esportes
+											</option>
+																			<option value="Ficção Científica" >
+												Ficção Científica
+											</option>
+																			<option value="Filosofia" >
+												Filosofia
+											</option>
+																			<option value="Folclore" >
+												Folclore
+											</option>
+																			<option value="Fotografia" >
+												Fotografia
+											</option>
+																			<option value="Genealogia" >
+												Genealogia
+											</option>
+																			<option value="Geografia" >
+												Geografia
+											</option>
+																			<option value="Gibis" >
+												Gibis
+											</option>
+																			<option value="Guerra" >
+												Guerra
+											</option>
+																			<option value="História Geral" >
+												História Geral
+											</option>
+																			<option value="História do Brasil" >
+												História do Brasil
+											</option>
+																			<option value="Hobbies" >
+												Hobbies
+											</option>
+																			<option value="Humor" >
+												Humor
+											</option>
+																			<option value="Infanto Juvenis" >
+												Infanto Juvenis
+											</option>
+																			<option value="Informática" >
+												Informática
+											</option>
+																			<option value="Jogos" >
+												Jogos
+											</option>
+																			<option value="Jornais" >
+												Jornais
+											</option>
+																			<option value="Linguística" >
+												Linguística
+											</option>
+																			<option value="Literatura Brasileira" >
+												Literatura Brasileira
+											</option>
+																			<option value="Literatura Estrangeira" >
+												Literatura Estrangeira
+											</option>
+																			<option value="Livros Raros" >
+												Livros Raros
+											</option>
+																			<option value="Manuscritos" >
+												Manuscritos
+											</option>
+																			<option value="Medicina" >
+												Medicina
+											</option>
+																			<option value="Moda" >
+												Moda
+											</option>
+																			<option value="Música" >
+												Música
+											</option>
+																			<option value="Outros Assuntos" >
+												Outros Assuntos
+											</option>
+																			<option value="Pecuária" >
+												Pecuária
+											</option>
+																			<option value="Pedagogia" >
+												Pedagogia
+											</option>
+																			<option value="Pintura" >
+												Pintura
+											</option>
+																			<option value="Poesia" >
+												Poesia
+											</option>
+																			<option value="Psicologia" >
+												Psicologia
+											</option>
+																			<option value="Religião" >
+												Religião
+											</option>
+																			<option value="Revistas" >
+												Revistas
+											</option>
+																			<option value="Saúde" >
+												Saúde
+											</option>
+																			<option value="Sexualidade" >
+												Sexualidade
+											</option>
+																			<option value="Sociologia" >
+												Sociologia
+											</option>
+																			<option value="Teatro" >
+												Teatro
+											</option>
+																			<option value="Turismo" >
+												Turismo
+											</option>
+																		</select>
+										
+											</td>							
+											</div>
+
+									</div>
+								</tr>
+
+
+							
 									<tr>
 									<div class="row data">
 										<div class="col-9">
@@ -166,21 +549,79 @@
 								</tr>
 								
 									<tr>
-								<div class="row data">
-										<div class="col-9">
-											<td><li> <b>Idioma: </b></td>
-											<td>	<input type="Idioma" name="idioma" placeholder="Ex: Português" /> <br /> </li> </td>
-								</div>
-							</div>
+										<div class="row data">
+											<div class="col-9">
+											<td> <b>	<li> <label for="form_idioma">Idioma:</label></td> </li> </b>
+											</div>
+
+											<td>
+										
+												<select id="form_idioma" name="idioma" class="custom_select">
+																					<option value="De" >
+														Alemão
+													</option>
+																					<option value="Ch" >
+														Chinês
+													</option>
+																					<option value="Co" >
+														Coreano
+													</option>
+																					<option value="Da" >
+														Dinamarquês
+													</option>
+																					<option value="Es" >
+														Espanhol
+													</option>
+																					<option value="Fr" >
+														Francês
+													</option>
+																					<option value="El" >
+														Grego
+													</option>
+																					<option value="He" >
+														Hebraico
+													</option>
+																					<option value="Ho" >
+														Holandês
+													</option>
+																					<option value="Hu" >
+														Húngaro
+													</option>
+																					<option value="En" >
+														Inglês
+													</option>
+																					<option value="It" >
+														Italiano
+													</option>
+																					<option value="Jp" >
+														Japonês
+													</option>
+																					<option value="La" >
+														Latim
+													</option>
+																					<option value="Pl" >
+														Polonês
+													</option>
+																					<option value="Pt" selected="selected">
+														Português
+													</option>
+																					<option value="Ru" >
+														Russo
+													</option>
+													
+												</select>
+											</div>
+										</div>
+									</td>
 						</tr>
 
 							<tr>
 								<div class="row data">
 									<div class="col-9">
-										<td><li> <label for='estado'>  <b>Estado do Livro - Escolha a opção:</b> </label>  :  </td> 
+										<td><li> <label for='estado'>  <b>Estado do Livro </b> </label>:  </td> 
 									
 											<td><select name="estado" id="estado"> </li> 
-							
+												<option value="">Escolha a opção:</option>
 										<option value="novo">Novo</option>
 							
 										<option value="usado_novo"> Usado - Como Novo</option>
@@ -245,7 +686,9 @@
 									<div class="image-div col-9"></div>
 
 									<div class="image-uploader-box js-uploader-box col-8">
-										<span class="upload-box-title"> Selecione uma capa para enviar </span>
+										<span class="upload-box-title">Selecione uma capa para enviar </span>
+										 <br /> 
+										<br />
 										<input id="form_capa" accept=".png, .jpg" type="file" name="capa" value="" style="float: center;"
 											class="jfilestyle" data-buttonText="Escolher imagem" data-icon="false"
 											data-format="Por favor, utilize um arquivo no formato PNG ou JPG de até 5MB para o upload da imagem."
@@ -270,9 +713,9 @@
 
 					<tr>
 						<div class="col-9">
-							<td>	<p><h4></h4></p></td>
+							<td>	</td>
 						
-							<td> <input type="submit" value="Salvar cadastro"  /></td>
+							<td><p><h4>Salvar Novo Cadastro</h4></p> <input type="submit" value="Salvar"  /></td>
 						</div>
 					</tr>
 			</form>
@@ -287,7 +730,7 @@
 
 	<div id="copy-area">
 		<div class="container">
-		  <div class="row">
+		  
 			  <div class="col-md-12">
 				<p>Desenvolvido por <a href="https://www.n-s-tecnologia.webnode.com" target="_blank">N&S - Tecnologia</a> © 2020</p>
 			  </div>

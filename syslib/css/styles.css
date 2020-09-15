@@ -94,6 +94,16 @@ width: 50px;
     left: 0;
   }
   
+  .row {
+    text-align: left;
+    color: #444;
+    margin: auto;
+    font-size: 14px;
+    
+  }
+  }
+
+
   .about-title {
     font-size: 17px;
     color: #444;
