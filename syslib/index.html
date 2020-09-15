@@ -63,7 +63,7 @@
 
     <main>
         
-    <div class="container-fluid floatCenter ">
+    <div class="container-fluid">
 		<div id="cadastro">
 			<div class="container"> 
 				<div class="row">
@@ -85,48 +85,7 @@
 						<tr>
 							
 								<ul>
-								<div class="col-9">
-									<div class="row data">
-										<td><li> <b>	<label for="form_capa">Capa: </label> </b></td>
-									</div>
-								</div>
 								
-							
-								<td>
-									<div class="col-12">
-
-										<div class="cover-area js-cover-area">
-											<input type="hidden" class="domain" value="" />
-											<input type="hidden" class="saved" value="" />
-		
-											<div class="row">
-												<div class="state col-9"></div>
-											</div>
-		
-											<div class="row">
-												<div class="image-div col-9"></div>
-		
-												<div class="image-uploader-box js-uploader-box col-8">
-													<span class="upload-box-title"> Selecione uma capa para enviar </span>
-													<input id="form_capa" accept=".png, .jpg" type="file" name="capa" value="" style="float: center;"
-														class="jfilestyle" data-buttonText="Escolher imagem" data-icon="false"
-														data-format="Por favor, utilize um arquivo no formato PNG ou JPG de até 5MB para o upload da imagem."
-													/>
-												</div>
-											</div>
-										</div>
-									</div>
-
-							
-								<div class="tooltip">
-									<p>
-										Faça o upload do arquivo .png ou .jpg com a foto da capa do livro.
-										O tamanho da imagem não deve ultrapassar 5 Mb.
-									</p>
-								</div>	
-								</td>	
-							</tr>
-
 							<tr>
 								<div class="col-9">
 									<div class="row data">
@@ -209,7 +168,7 @@
 									<tr>
 								<div class="row data">
 										<div class="col-9">
-											<td><li> <b>Ano: </b></td>
+											<td><li> <b>Idioma: </b></td>
 											<td>	<input type="Idioma" name="idioma" placeholder="Ex: Português" /> <br /> </li> </td>
 								</div>
 							</div>
@@ -264,11 +223,56 @@
 									</ul>
 						</div>
 					</tr>
+					<div class="col-9">
+						<div class="row data">
+							<td><li> <b>	<label for="form_capa">Capa: </label> </b></td>
+						</div>
+					</div>
+					
+				
+					<td>
+						<div class="col-12">
+
+							<div class="cover-area js-cover-area">
+								<input type="hidden" class="domain" value="" />
+								<input type="hidden" class="saved" value="" />
+
+								<div class="row">
+									<div class="state col-9"></div>
+								</div>
+
+								<div class="row">
+									<div class="image-div col-9"></div>
+
+									<div class="image-uploader-box js-uploader-box col-8">
+										<span class="upload-box-title"> Selecione uma capa para enviar </span>
+										<input id="form_capa" accept=".png, .jpg" type="file" name="capa" value="" style="float: center;"
+											class="jfilestyle" data-buttonText="Escolher imagem" data-icon="false"
+											data-format="Por favor, utilize um arquivo no formato PNG ou JPG de até 5MB para o upload da imagem."
+										/> </li>
+									</div>
+								</div>
+							</div>
+						</div>
+
+				
+					<div class="tooltip">
+						<p>
+							Faça o upload do arquivo .png ou .jpg com a foto da capa do livro.
+							O tamanho da imagem não deve ultrapassar 5 Mb.
+						</p>
+					</div>	
+					</td>	
+				</tr>
+
+				<br />
+				<br /> 
 
 					<tr>
 						<div class="col-9">
-							<td>	<p><h4>Salvar Cadastro </h4></p></td>
-							<td> <input type="submit" value="Salvar"  /></td>
+							<td>	<p><h4></h4></p></td>
+						
+							<td> <input type="submit" value="Salvar cadastro"  /></td>
 						</div>
 					</tr>
 			</form>
