@@ -62,8 +62,6 @@
     </header>
 
     <main>
-
-
 		<div class="container-fluid">
 			<div id="cadastro">
 				<div class="container"> 
@@ -73,38 +71,38 @@
 
 
 
-	<!-- Scrips Estante Virtual--> 
+					<!-- Scrips Estante Virtual--> 
 
 	
 							<div id="display-camera">
 							</div>
 						
-							<div class="acervo-editar-form col-12 vspace-top">
+							<div class="acervo-editar-form col-9 vspace-top">
 								<div class="row">
 									<script type="text/template" id="form_error_template">
 										<span class="error">{msg}</span>
 									</script>			
-		<div class="col-9 isbn-search">
-			<div class="isbn row">
-				<div class="col-">
-					<div class="row">
-						<div class="col-">
-							<label class="title">Buscar ISBN na base da Estante Virtual</label>
-						</div>
-						<div class="col- text-information">
-							Os dados da nossa base serão usados parar preencher automaticamente as informações do livro.
-							Se preferir,você pode alterar essas informações ou preencher os campos manualmente.
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-">
+									<div class="col-9 isbn-search">
+								<div class="isbn row">
+								<div class="col-">
+								<div class="row">
+									<div class="col-">
+										<label class="title">Buscar ISBN na base da Estante Virtual</label>
+									</div>
+										<div class="col- text-information">
+										Os dados da nossa base serão usados parar preencher automaticamente as informações do livro.
+												Se preferir,você pode alterar essas informações ou preencher os campos manualmente.
+									</div>
+									</div>
+							<div class="row">
+						<div class="col-9">
 							<input id="isbn" class="preventEnter" type="text"
 								name="isbn" maxlength="13"
 							/>
 
 							<img src="bar-code.svg" id="btn-escanear-isbn" />
 						</div>
-						<div class="col- end">
+						<div class="col-9 end">
 							<a href="#" class="btn-ev" id="isbn_btn">
 								Buscar
 							</a>
@@ -114,7 +112,7 @@
 			</div>
 
 			<div class="row">
-				<div class="col-12 id="tooltip-isbn-scanner">
+				<div class="col-12" id="tooltip-isbn-scanner">
 					Clique para utilizar a câmera do seu celular como leitor de código de barras.
 
 					<span>
@@ -267,7 +265,7 @@
 											<select id="form_estante" name="estante" class="custom_select"
 											data-empty="Estante não selecionada. Escolha uma estante de destino para o seu livro."
 											>
-													
+											<div class="col-9">	
 											<option value=""> Estante de destino  </option>
 																			<option value="Administração" >
 												Administração
@@ -615,46 +613,51 @@
 								</div>
 							</div>
 						</tr>
-							<tr></tr>
+
+							<tr>
 								<div class="row data">
 										<div class="col-9">
 											<td><li> <b>Preço de Custo: </b> </td>
 											<td>	<input type="text" name="custo" placeholder="Ex: 9,99" /> <br /> <br /> </li> </td>
 								</div>
 							</div>
+						</tr>
 
 					<tr>
 								<div class="row data">
 									<div class="col-9">
-										<td><li> <b>Descrição do livro:</b> </td>
+										<td><li><b> Descrição do livro:</b></td>
 						
-											<td>	<br />	<i>Aqui você deve descrever o livro conforme o estado de conservação dele, 
+										<td> <p> <i>Aqui você deve descrever o livro conforme o estado de conservação dele.</p>
+											 Se estiver amarelado, com páginas amassadas, grifos, assinaturas e/ou anotações.  <br />
+						 				<p>P.S.: Sugiro que termine sempre a descrição com a seguinte frase:  <br /> </p> 
 						
-						
-											<br />	se estiver amarelado, com páginas amassadas, grifos, assinaturas e/ou anotações.  
-						
-											<br />P.S.: Sugiro que termine sempre a descrição com a seguinte frase 
-						
-											<br /> <b> "Mas nada que impeça uma leitura prazerosa"</b></i><br />
+										<p> <br /> <b> "Mas nada que impeça uma leitura prazerosa"</b></i><br /> </p>
 
 								<textarea rows="4" placeholder="Ex: Livro com capa amassada, lateral rasgada, e amarelada, marcas de uso, assinatura do último dono, e autógrafo autor. Mas nada que impeça uma leitura prazerosa." name='descricao' > </textarea><br /><br /> </li>
-							</td>		
+							</td>
+
 							</div>
 								</div>
-									</ul>
+								
+									
+								
 						</div>
 					</tr>
-					<div class="col-9">
-						<div class="row data">
-							<td><li> <b>	<label for="form_capa">Capa: </label> </b></td>
-						</div>
-					</div>
-					
-				
-					<td>
-						<div class="col-12">
 
-							<div class="cover-area js-cover-area">
+					<tr>
+
+						<div class="col-9">
+							<div class="row data">
+							<td><li> <b>	<label for="form_capa">Capa: </label> </b></td>
+							</div>
+							</div>
+					
+			
+								<div class="col-9">
+
+							
+								<div class="cover-area js-cover-area">
 								<input type="hidden" class="domain" value="" />
 								<input type="hidden" class="saved" value="" />
 
@@ -665,8 +668,8 @@
 								<div class="row">
 									<div class="image-div col-9"></div>
 
-									<div class="image-uploader-box js-uploader-box col-8">
-										<span class="upload-box-title">Selecione uma capa para enviar </span>
+									<div class="image-uploader-box js-uploader-box col-9">
+										<td>	<span class="upload-box-title">Selecione uma capa para enviar </span>  
 										 <br /> 
 										<br />
 										<input id="form_capa" accept=".png, .jpg" type="file" name="capa" value="" style="float: center;"
@@ -675,17 +678,19 @@
 										/> </li>
 									</div>
 								</div>
-							</div>
-						</div>
+								</div>
+								</div>
 
-				
+							
+							
+					
 					<div class="tooltip">
 						<p>
 							Faça o upload do arquivo .png ou .jpg com a foto da capa do livro.
 							O tamanho da imagem não deve ultrapassar 5 Mb.
 						</p>
 					</div>	
-					</td>	
+				</td>
 				</tr>
 
 				<br />
@@ -693,18 +698,24 @@
 
 					<tr>
 						<div class="col-9">
-							<td>	</td>
 						
-							<td><p><h4>Salvar Novo Cadastro</h4></p> <input type="submit" value="Salvar"  /></td>
+						
+							<td><p><h5>Salvar Cadastro</h5></p>  <input type="submit" value="Salvar"  /></td>
 						</div>
-					</tr>
+							</tr>
+
+						</ul>
+					
+						
+				</table>
 			</form>
-		</table>
+		
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	
 
 	</main>
 

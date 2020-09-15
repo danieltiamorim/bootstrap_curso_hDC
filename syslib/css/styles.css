@@ -77,6 +77,10 @@ width: 50px;
 #cadastro{
     background-color: #eeedc4ef ;
   }
+  #cadastro-area .container {
+    padding: 10px 0;
+    text-align: center;
+  }
   
   .main-title {
     color: #444;
@@ -99,9 +103,8 @@ width: 50px;
     color: #444;
     margin: auto;
     font-size: 14px;
-    
-  }
-  }
+      }
+  
 
 
   .about-title {
