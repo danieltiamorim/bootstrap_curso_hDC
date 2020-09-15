@@ -75,16 +75,7 @@
 
 	<!-- Scrips Estante Virtual--> 
 
-	<script type="text/javascript">
-		window.dataLayer = window.dataLayer || [];
-		dataLayer.push({
-		  
-		  'email': 'livrarianes@gmail.com',
-		  'userid': '5398304'
-		});
-	  </script>
-
-
+	
 							<div id="display-camera">
 							</div>
 						
@@ -93,27 +84,27 @@
 									<script type="text/template" id="form_error_template">
 										<span class="error">{msg}</span>
 									</script>			
-		<div class="col-12 isbn-search">
+		<div class="col-9 isbn-search">
 			<div class="isbn row">
-				<div class="col-8">
+				<div class="col-">
 					<div class="row">
-						<div class="col-12">
+						<div class="col-">
 							<label class="title">Buscar ISBN na base da Estante Virtual</label>
 						</div>
-						<div class="col-12 text-information">
+						<div class="col- text-information">
 							Os dados da nossa base serão usados parar preencher automaticamente as informações do livro.
 							Se preferir,você pode alterar essas informações ou preencher os campos manualmente.
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-9">
+						<div class="col-">
 							<input id="isbn" class="preventEnter" type="text"
 								name="isbn" maxlength="13"
 							/>
 
 							<img src="bar-code.svg" id="btn-escanear-isbn" />
 						</div>
-						<div class="col-3 end">
+						<div class="col- end">
 							<a href="#" class="btn-ev" id="isbn_btn">
 								Buscar
 							</a>
@@ -123,7 +114,7 @@
 			</div>
 
 			<div class="row">
-				<div class="col-12" id="tooltip-isbn-scanner">
+				<div class="col-12 id="tooltip-isbn-scanner">
 					Clique para utilizar a câmera do seu celular como leitor de código de barras.
 
 					<span>
@@ -137,7 +128,7 @@
 			</div>
 
 			<div class="row">
-				<div class="col-12">
+				<div class="col-">
 					<p class=""
 						id="busca_isbn_msg"
 						data-miss="Não foi possível recuperar dados para o ISBN informado."
@@ -149,11 +140,11 @@
 			</div>
 			<div class="book-preview js_book_preview">
 				<div class="row">
-					<div class="col-2 book-preview-image">
+					<div class="col-12 book-preview-image">
 						<img id="book_preview_cover" class="js_book_preview_cover" width='120' height='180'/>
 						<span>Capa ilustrativa</span>
 					</div>
-					<div class="col-10 book-preview-info js_book_preview_info">
+					<div class="col-9 book-preview-info js_book_preview_info">
 						<p class='js_title'>
 							<b>Título: </b>
 							<span></span>
@@ -188,32 +179,22 @@
 		</div>
 
 
-
-
-
-
-
-
-
-     
+   
 					
 					<p>  <h4 class="about-cadastro">Nesta página você pode cadastrar os mais diversos livros;</h4></p>
                 	<p>Cheque cada informação e preencha os dados com cuidado; <br />
                 	O Número ISBN é imprescidível, e deve ser usado a máquina leitora de código de barras para a devida leitura dele; <br />
                 	Se for o caso de não ter código de barras, pesquise pelo título na internet e cadastre o livro ou chame o seu supervisor; <br />
-						Ele(a) irá lhe ajudar com essa missão, boa sorte.  <br />
+					Ele(a) irá lhe ajudar com essa missão, boa sorte.  <br />
 					<b>P.S.:</b> O que estiver com <b>ASTERISCO *</b> deve ser preenchido com máxima importância. </p>
 					</div>
 
-
 					<table>	
 						<form method="post" action="syslib_cadastro.php">
-							
-					
+										
 						<tr>
 							<ul>
-								
-							<tr>
+								<tr>
 								<div class="col-9">
 									<div class="row data">
 										<td> <li><b>Nome do Livro<span class="asterisk">*</span>: </b> </td>
@@ -237,8 +218,7 @@
 								<div class="col-9">	
 									<div class="row data">
 									
-									
-								
+																	
 							</tr>
 							<div class="row data">
 								<div class="col-9">
