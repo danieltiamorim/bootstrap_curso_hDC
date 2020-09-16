@@ -82,7 +82,7 @@ width: 50px;
     color: #444;
     margin: 0 0 50 0;
     font-size: 25px;
-    text-align: center;
+    text-align: left;
   }
   
   .container {
@@ -92,6 +92,13 @@ width: 50px;
     font-size: 14px;
 
   }
+  .tabela {
+    text-align: left;
+    color: #444;
+    margin: 1 1 40px 1;
+    font-size: 14px;
+      }
+  
   
   .row {
     text-align: match-parent;
@@ -102,7 +109,8 @@ width: 50px;
   
 
 
-  .about-title {
+  .about-cadastro {
+    text-align: center;
     font-size: 17px;
     color: #444;
     text-transform: uppercase;
