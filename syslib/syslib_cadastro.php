@@ -58,6 +58,6 @@ $conn->close();
 
 ?>
 
-<a href="#"> Clique aqui para continuar cadastrando! </a>
+<a href="http://localhost/danieltiamorim.github.io/syslib/pesquisar.html#"> Clique aqui para continuar cadastrando! </a>
 
 

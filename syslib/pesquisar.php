@@ -34,7 +34,7 @@
 
 
 <body>
-  <header> 
+  <header> <br /><br />
     
 		<div class="container" id="nav-container">
 			<nav class="navbar navbar-expand-lg fixed-top navbar-dark">
@@ -58,8 +58,7 @@
 			</div> 
 				
 			</nav>
-			
-			
+						
 		</div>
     </header>
 
@@ -67,34 +66,29 @@
 
 <main>
 
-    <<div class="container-fluid">
-        <div id="cadastro">
-          <div class="container"> 
-            <div class="row">
-              <div class="col-12">      
-                <h4 class="main-title"><u>Pesquisa</u></h4> 
+    <div class="container-fluid">
+            <div id="cadastro">
+                <div class="container"> 
+                    <div class="row">
+                        <div class="col-12">      
+                        <h4 class="main-title"><u>Pesquisa</u></h4> 
 
-
-
-
-
-
-  
-                <form method="POST" action="pesquisar.php">
-                Pesquisar:<input type="text" name="pesquisar" placeholder="PESQUISAR">
-                  <input type="submit" value="ENVIAR">
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+        
+                        <form method="POST" action="pesquisar.php">
+                        Pesquisar:<input type="text" name="pesquisar" placeholder="PESQUISAR">
+                        <input type="submit" value="ENVIAR">
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>                      
+            
 
 		
-            <div class="container-fluid">
+           
 			<div id="cadastro">
-					<div class="row">
-						<div class="col-12">      
+				<div class="row">
+					<div class="col-12">      
 						<h4 class="main-title"><u>Resultados</u></h4> 
 
 
@@ -104,49 +98,48 @@
 
 
 
-<?php
-//syslib_cadastro.php
+                            <?php
+                            //syslib_cadastro.php
 
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") 
-	$host = "localhost";
-	$dbusername = "root";
-	$dbpassword = "";
-	$dbname = 'livraria' ;
-	
-	//Criar a conexao
-	$conn = new mysqli ($host, $dbusername, $dbpassword, $dbname);
-       
-    $pesquisar = $_POST['pesquisar'];
-    $result_livros = "SELECT * FROM livros WHERE titulo LIKE '%$pesquisar%' or
-        autor LIKE '%$pesquisar%' or
-    editora LIKE '%$pesquisar%' or  
-    isbn LIKE '%$pesquisar%' ";
-    $resultado= mysqli_query($conn, $result_livros);
-  
-  while ($row = mysqli_fetch_array($resultado)) {
-         echo "<table></p> <b>Nome do livro:</b> ".$row ['titulo']."<br>",
-         "<b> Autor: </b>".$row ['autor']."<br>",
-         "<b> Preço de Venda: </b>".$row ['preco_venda']."<br>",
-         "<b> Editora: </b>".$row ['editora']."<br>",
-         "<b> ISBN: </b>".$row ['isbn']."</table></p><br>";
-          
+                            if ($_SERVER["REQUEST_METHOD"] == "POST") 
+                                $host = "localhost";
+                                $dbusername = "root";
+                                $dbpassword = "";
+                                $dbname = 'livraria' ;
+                                
+                                //Criar a conexao
+                                $conn = new mysqli ($host, $dbusername, $dbpassword, $dbname);
+                                
+                                $pesquisar = $_POST['pesquisar'];
+                                $result_livros = "SELECT * FROM livros WHERE titulo LIKE '%$pesquisar%' or
+                                    autor LIKE '%$pesquisar%' or
+                                editora LIKE '%$pesquisar%' or  
+                                isbn LIKE '%$pesquisar%' ";
+                                $resultado= mysqli_query($conn, $result_livros);
+                            
+                            while ($row = mysqli_fetch_array($resultado)) {
+                                    echo "<table></p> <b>Nome do livro:</b> ".$row ['titulo']."<br>",
+                                    "<b> Autor: </b>".$row ['autor']."<br>",
+                                    "<b> Preço de Venda: </b>".$row ['preco_venda']."<br>",
+                                    "<b> Editora: </b>".$row ['editora']."<br>",
+                                    "<b> ISBN: </b>".$row ['isbn']."</table></p><br>";
+                                    
 
-   
-    
-         
-  }
+                            
+                                
+                                    
+                            }
 
-?>
+                            ?>      
+                    </div>
+                </div>
+            </div>
+
+        </div>
+                
 
 
+</body>
 
-</div>
- </div>
- </div>
-
-
-</div>
 </html>
-
- 
