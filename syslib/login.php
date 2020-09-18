@@ -1,13 +1,19 @@
 <?php
 
-$mysqli = new mysqli("127.0.0.1", "root", "", "livraria", 3306);
-if ($mysqli->connect_errno) {
-    echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
-}
+if ($_SERVER["REQUEST_METHOD"] == "POST") 
+	
+	
+	//Criar a conexao
 
-echo $mysqli->host_info . "\n";
-
-
+	
+$host = "localhost";
+	$dbusername = $login;
+	$dbpassword = $senha;
+	
+	$dbname = 'livraria' ;
+	
+	$conn = new mysqli ($host, $dbusername, $dbpassword, $dbname);	
+		
   if (isset($entrar)) {
 
     $verifica = mysql_query("SELECT * FROM usuarios WHERE login =

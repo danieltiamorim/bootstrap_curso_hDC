@@ -1,11 +1,17 @@
 <?php
 
-$mysqli = new mysqli("127.0.0.1", "root", "", "livraria", 3306);
-if ($mysqli->connect_errno) {
-    echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
-}
+$login = $_POST['login'];
+$senha = MD5($_POST['senha']);
+$host = "localhost";
+	$dbusername = "root";
+	$dbpassword = "";
+	$dbname = 'livraria' ;
+$connect = mysql_connect('localhost','root','');
+$db = mysql_select_db('livraria');
 
-echo $mysqli->host_info . "\n";
+
+
+
 
 $query_select = "SELECT login FROM usuarios WHERE login = '$login'";
 $select = mysql_query($query_select,$connect);
@@ -26,7 +32,7 @@ $logarray = $array['login'];
         die();
 
       }else{
-        $query = "INSERT INTO usuarios (login,senha) VALUES ('$login','$senha')";
+        $query = "INSERT INTO usuarios (login, senha ) VALUES ('$login','$senha')";
         $insert = mysql_query($query,$connect);
 
         if($insert){
