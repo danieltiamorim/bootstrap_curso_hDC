@@ -67,29 +67,43 @@
 
 <main>
 
-    <div id="cadastro">
-        <div class="container"> 
+    <<div class="container-fluid">
+        <div id="cadastro">
+          <div class="container"> 
             <div class="row">
               <div class="col-12">      
-                    <h4 class="main-title"><u>Pesquisa</u></h4> 
+                <h4 class="main-title"><u>Pesquisa</u></h4> 
+
+
+
+
+
 
   
-                    <form method="POST" action="pesquisar.php">
-                 Pesquisar:<input type="text" name="pesquisar" placeholder="PESQUISAR">
-                    <input type="submit" value="ENVIAR">
-                    </form>
-              
-                </div>
-             </div>
+                <form method="POST" action="pesquisar.php">
+                Pesquisar:<input type="text" name="pesquisar" placeholder="PESQUISAR">
+                  <input type="submit" value="ENVIAR">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-             <br>
-             <br>
-
+		
+            <div class="container-fluid">
 			<div id="cadastro">
-			
 					<div class="row">
 						<div class="col-12">      
 						<h4 class="main-title"><u>Resultados</u></h4> 
+
+
+                        
+
+
+
+
+
 <?php
 //syslib_cadastro.php
 
@@ -124,14 +138,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
   }
 
 ?>
+
+
+
+</div>
+ </div>
  </div>
 
 
 </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+</html>
+
  
