@@ -32,6 +32,7 @@
 </head>
 
 
+
 <body>
   <header> 
     
@@ -51,62 +52,72 @@
 				<div class="collapse navbar-collapse justify-content-end" id="navbar-links">
 					<div class="navbar-nav">
 						<a class="nav-item nav-link" id="home-menu" href="#"></span> Home</a>
-						<a class="nav-item nav-link" id="cadastro-menu" href="index.html#">Cadastro</a>
-						<a class="nav-item nav-link" id="pesquisa-menu" href="pesquisar.html#">Pesquisa</a>
+						<a class="nav-item nav-link" id="cadastro-menu" href="http://localhost/danieltiamorim.github.io/syslib/index.html#">Cadastro</a>
+						<a class="nav-item nav-link" id="pesquisa-menu" href="http://localhost/danieltiamorim.github.io/syslib/pesquisar.html#">Pesquisa</a>
 					</div>
 				</div> 
 				
 			</nav>
 			
 			</div>
-	</header>
-	
+    </header>
 	<br /><br />
 
     <main>
 
-		<div class="container-fluid">
-            <div id="cadastro">
-                <div class="container"> 
-                    <div class="row">
-                        <div class="col-12">      
-							 <h4 class="main-title"><u>Pesquisa</u></h4> 
-        
-                        <form method="POST" action="pesquisar.php">
-                        Pesquisar:<input type="text" name="pesquisar" placeholder="ISBN, Autor, Editora ou Título" size="50">
-                        <input type="submit" value="BUSCAR">
-                        </form>
-                        </div>
-                    </div>
-                </div>
-           
 
-				
+
+
+		
+		<div class="container-fluid">
 			<div id="cadastro">
 				<div class="container"> 
 					<div class="row">
 					<div class="col-12">  		
-						<h4 class="main-title"><u>Cadastro de Livros </u></h4> 		
-					  <h5 >Nesta página você pode cadastrar os mais diversos livros;</h5>
-                	Cheque cada informação e preencha os dados com cuidado; <br />
+					<p>	<h4 class="main-title"><u>Cadastro de Livros </u></h4> </p>			
+					<p>  <h5 class="about-cadastro">Nesta página você pode cadastrar os mais diversos livros;</h5></p>
+                	<p>Cheque cada informação e preencha os dados com cuidado; <br />
                 	O Número ISBN é imprescidível, e deve ser usado a máquina leitora de código de barras para a devida leitura dele; <br />
                 	Se for o caso de não ter código de barras, pesquise pelo título na internet e cadastre o livro ou chame o seu supervisor; <br />
 					Ele(a) irá lhe ajudar com essa missão, boa sorte.  <br />
-					<b>P.S.:</b> O que estiver com <b>ASTERISCO *</b> deve ser preenchido com máxima importância. 
+					<b>P.S.:</b> O que estiver com <b>ASTERISCO *</b> deve ser preenchido com máxima importância. </p>
 					</div>
 					
 					<table>	
-						<form method="post" action="syslib_cadastro.php" enctype="multipart/form-data">
-						
+						<form method="post" action="syslib_cadastro.php">
+						<div class="tabela">
 						<tr>
 							<ul>
-							
-							<tr>												
-													
-								<div class="row data">
+								<tr>
+								<div class="col-9">
+									<div class="row data">
+										<td> <li><b>Nome do Livro<span class="asterisk">*</span>: </b> </td>
+										<td> <input type="Nome do livro" name="titulo" placeholder="Ex: Harry Potter e a Pedra Filosofal" /><br /> </li> </td>
+									</div>
+								</div>
+							</tr>
+
+							<tr>
+								<div class="col-9">	
+									<div class="row data">
+										<td> <li> <b>Autor: </b> </td>
+										<td><input type="Autor" name="autor" placeholder="Ex: J K Rowling S/ PONTOS" /> <br /> </li> </td> 
+									</div>
+								
+								</div>
+							</tr>
+
+
+							<tr>
+								<div class="col-9">	
+									<div class="row data">
+									
+																	
+							</tr>
+							<div class="row data">
 								<div class="col-9">
 									<td> <li><b>	<label for="form_isbn" >ISBN<span class="asterisk">*</span>:</label> </b> </td> 
-							
+								</div>
 								
 								<td>
 								
@@ -120,43 +131,22 @@
 
 								</div>
 								</div>
-							</tr>
-							
-
-							<tr>								
-							<div class="col-9">
-									<div class="row data">
-										<td> <li><b>Nome do Livro<span class="asterisk">*</span>: </b> </td>
-										<td> <input type="Nome do livro" name="titulo"  placeholder="Ex: Harry Potter e a Pedra Filosofal" size="50" maxlength="100"/><br /> </li> </td>
-									</div>
-								</div>
-							</tr>
-
 							<tr>
 								<div class="col-9">	
 									<div class="row data">
-										<td> <li> <b>Autor*: </b> </td>
-										<td><input type="Autor" name="autor" placeholder="Ex: J K Rowling S/ PONTOS" size="50"/> <br /> </li> </td> 
+									<td> <li> <b>Preço Venda: </b> </td>
+									<td> <input type="Preço" name="preco_venda" placeholder="Ex: 10,00" /> <br /> </li> </td>
 									</div>
-								
 								</div>
 							</tr>
-
-
-									<tr>
+							
+							<tr>
+								<div class="col-9">	
 									<div class="row data">
-										<div class="col-9">
-											<td><li> <b><label for="editora">Editora<span class="asterisk">*</b></span>:</label>
-										
-
-										
-											<td> <input type="Editora" name="editora" placeholder="Ex: Rocco" maxlength="30" value=""
-                                    		required autocomplete="no" size="50"
-                                   			data-empty="Editora não preenchida."
-											data-name="Editora - preenchimento incorreto. Coloque apenas o nome da editora, \n sem repetir 'Editora'. \n  Ex: digite simplesmente 'Cortez', ao invés de 'Cortez Editora'"/> <br /> </li>
-										</td>
-										</div>			
-									</div>
+										<td><li> <b>Quantidade: </b> </td>
+										<td>	<input type="Quantidade" name="quantidade" placeholder="Ex: 10 - Só número inteiro" /> <br /> </li> </td>
+									</div>		
+									</div>	
 								</tr>
 
 								<tr>
@@ -172,7 +162,7 @@
 											data-empty="Estante não selecionada. Escolha uma estante de destino para o seu livro."
 											>
 											<div class="col-9">	
-											<option value="" size="50"> Estante de destino  </option>
+											<option value=""> Estante de destino  </option>
 																			<option value="Administração" >
 												Administração
 											</option>
@@ -399,7 +389,38 @@
 
 
 							
+									<tr>
+									<div class="row data">
+										<div class="col-9">
+											<td><li> <b><label for="editora">Editora<span class="asterisk">*</b></span>:</label>
+										
+
+										
+											<td> <input type="Editora" name="editora" placeholder="Ex: Rocco" maxlength="30" value=""
+                                    		required autocomplete="no"
+                                   			data-empty="Editora não preenchida."
+											data-name="Editora - preenchimento incorreto. Coloque apenas o nome da editora, \n sem repetir 'Editora'. \n  Ex: digite simplesmente 'Cortez', ao invés de 'Cortez Editora'"/> <br /> </li>
+										</td>
+										</div>			
+									</div>
+								</tr>
 								
+								<tr>
+									<div class="row data">
+										<div class="col-9">
+											<td><li> <b>Ano: </b> </td>
+											<td>	<input type="Ano" name="ano" placeholder="Ex: 2001" /> <br /> </li> </td>
+										</div>
+									</div>
+								</tr>
+									<tr>
+									<div class="row data">
+										<div class="col-9">
+											<td><li> <b>Edição:</b> </td>
+											<td>	<input type="edicao" name="edicao" placeholder="No lugar de 1ª colocar 1 "/> <br /> </li> </td>
+										</div>
+									</div>
+								</tr>
 								
 									<tr>
 										<div class="row data">
@@ -473,7 +494,7 @@
 									<div class="col-9">
 										<td><li> <label for='estado'>  <b>Estado do Livro </b> </label>:  </td> 
 									
-											<td><select name="estado" id="estado" > </li> 
+											<td><select name="estado" id="estado"> </li> 
 												<option value="">Escolha a opção:</option>
 										<option value="novo">Novo</option>
 							
@@ -489,67 +510,14 @@
 							</div>
 						</tr>
 
-
-						<tr>
-
-								<div class="col-9">	
-								<div class="row data">
-									<td><li> <b>Quantidade: </b> </td>
-									<td>	<input type="Quantidade" name="quantidade" placeholder="Ex: 10 - Só número inteiro" size="20"  maxlength="5" /> <br /> </li> </td>
-								</div>		
-								</div>	
-							</tr>
-						<tr>
-							<div class="col-9">	
-								<div class="row data">
-								<td> <li> <b>Preço Venda: </b> </td>
-								<td> <input type="Preço" name="preco_venda" placeholder="Ex: 10,00" size="20"   maxlength="4"/> <br /> </li> </td>
-								</div>
-							</div>
-						</tr>
-						
-						
-						
-
 							<tr>
 								<div class="row data">
 										<div class="col-9">
 											<td><li> <b>Preço de Custo: </b> </td>
-											<td>	<input type="text" name="preco_custo" placeholder="Ex: 9,99" size="20" /> <br />  </li> </td>
+											<td>	<input type="text" name="preco_custo" placeholder="Ex: 9,99" /> <br /> <br /> </li> </td>
 								</div>
 							</div>
 						</tr>
-
-						<tr>
-							<div class="row data">
-								<div class="col-9">
-									<td><li> <b>Ano: </b> </td>
-									<td>	<input type="Ano" name="ano" placeholder="Ex: 2001" size="20" maxlength="4" /> <br /> </li> </td>
-								</div>
-							</div>
-						</tr>
-							<tr>
-							<div class="row data">
-								<div class="col-9">
-									<td><li> <b>Edição:</b> </td>
-									<td>	<input type="edicao" name="edicao" placeholder="No lugar de 1ª colocar 1 " size="20"  maxlength="3" /> <br /> </li> </td>
-								</div>
-							</div>
-						</tr>
-						
-						<tr>
-							<div class="row data">
-								<div class="col-9">
-									<td><li> <b>Peso*:</b> </td>
-									<td>	<input type="peso" name="peso" placeholder="Gramas Ex: 1000 para 1kg" size="20"  maxlength="4" /> <br /> </li> </td>
-								</div>
-							</div>
-						</tr>
-						
-
-
-
-						<br />
 
 					<tr>
 								<div class="row data">
@@ -562,7 +530,7 @@
 						
 										<p> <br /> <b> "Mas nada que impeça uma leitura prazerosa"</b></i><br /> </p>
 
-								<textarea rows="4" placeholder="Ex: Livro com capa amassada, lateral rasgada, e amarelada, marcas de uso, assinatura do último dono, e autógrafo autor. Mas nada que impeça uma leitura prazerosa." name='descricao' size="50" > </textarea><br /><br /> </li>
+								<textarea rows="4" placeholder="Ex: Livro com capa amassada, lateral rasgada, e amarelada, marcas de uso, assinatura do último dono, e autógrafo autor. Mas nada que impeça uma leitura prazerosa." name='descricao' > </textarea><br /><br /> </li>
 							</td>
 
 							</div>
@@ -577,36 +545,34 @@
 
 						<div class="col-9">
 							<div class="row data">
-							<td><li> <b>	<label for="capa">Capa: </label> </b></td>
+							<td><li> <b>	<label for="form_capa">Capa: </label> </b></td>
 							</div>
 							</div>
 					
 			
 								<div class="col-9">
-									<div class="row">
+
 							
-										
-											<td>	<b> <span class="upload-box-title">Selecione uma capa para enviar </span>  </b>
-											 <br /> 
-											<br />
-	
-											<input id="capa" accept=".png, .jpg" type="file" name="capa" value="" style="float: center;"
-											data-buttonText="Escolher imagem" data-icon="false"
+								<div class="cover-area js-cover-area">
+								<input type="hidden" class="domain" value="" />
+								<input type="hidden" class="saved" value="" />
+
+								<div class="row">
+									<div class="state col-9"></div>
+								</div>
+
+								<div class="row">
+									<div class="image-div col-9"></div>
+
+									<div class="image-uploader-box js-uploader-box col-9">
+										<td>	<span class="upload-box-title">Selecione uma capa para enviar </span>  
+										 <br /> 
+										<br />
+										<input id="form_capa" accept=".png, .jpg" type="file" name="capa" value="" style="float: center;"
+											class="jfilestyle" data-buttonText="Escolher imagem" data-icon="false"
 											data-format="Por favor, utilize um arquivo no formato PNG ou JPG de até 5MB para o upload da imagem."
-											/> </li>
-
-
-												<div class="tooltip">
-													<p>
-														Faça o upload do arquivo .png ou .jpg com a foto da capa do livro.
-														O tamanho da imagem não deve ultrapassar 5 Mb.
-													</p>
-												</div>	
-
-											</div>	
-										</div>
-							
-						
+										/> </li>
+									</div>
 								</div>
 								</div>
 								</div>
@@ -614,7 +580,12 @@
 							
 							
 					
-				
+					<div class="tooltip">
+						<p>
+							Faça o upload do arquivo .png ou .jpg com a foto da capa do livro.
+							O tamanho da imagem não deve ultrapassar 5 Mb.
+						</p>
+					</div>	
 				</td>
 				</tr>
 

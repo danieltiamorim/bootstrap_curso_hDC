@@ -1,3 +1,8 @@
+<html>
+<head>
+<title> Cadastro de Usuário </title>
+</head>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -30,6 +35,8 @@
 
 </head>
 
+
+
 <body>
   <header> 
     
@@ -45,6 +52,7 @@
 					aria-label="toggle navigation">
 					<span class="navbar-toggler-icon"></span> 
 				</button>
+
 				<div class="collapse navbar-collapse justify-content-end" id="navbar-links">
 					<div class="navbar-nav">
 						<a class="nav-item nav-link" id="home-menu" href="#"></span> Home</a>
@@ -56,119 +64,19 @@
 			</nav>
 			
 			</div>
-			</header>
+	</header>
+	
 	<br /><br />
 
 
 
+<body>
+    
+<form method="POST" action="cadastro_usuario.php">
+<label>Login:</label><input type="text" name="login" id="login"><br>
+<label>Senha:</label><input type="password" name="senha" id="senha"><br>
+<input type="submit" value="Cadastrar" id="cadastrar" name="cadastrar">
+</form>
 
-			<?php
-
-
-
-			//syslib_cadastro.php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") 
-	$host = "localhost";
-	$dbusername = "root";
-	$dbpassword = "";
-	$dbname = 'livraria';
-
-	$conn = new mysqli ($host, $dbusername, $dbpassword, $dbname);
-	
-		
-	//Check it is coming from a form
-	$titulo = $_POST["titulo"]; //set PHP variables like this so we can use them anywhere in code below
-	$autor = $_POST["autor"];	
-	$isbn = $_POST ["isbn"];
-	$preco_venda = $_POST ["preco_venda"];
-	$preco_custo = $_POST ["preco_custo"];
-	$quantidade = $_POST["quantidade"];
-	$editora = $_POST["editora"];
-	$ano = $_POST["ano"];
-	$edicao = $_POST["edicao"];
-	$estado = $_POST["estado"];
-	$idioma = $_POST["idioma"];
-	$estante = $_POST["estante"];
-	$peso = $_POST["peso"];
-
-	
-
-	$filename = $_FILES["capa"]["name"]; 
-	  
-		$capas = "capas/".$capa;
-
-		//upload de capa
-	
-  
-		// Execute query 
-	
-		  
-		// Now let's move the uploaded image into the folder: image 
-		
-  
-  
-
-
-
-
-
-
-if (mysqli_connect_error()){
-die('Connect Error ('. mysqli_connect_errno() .') '
-. mysqli_connect_error());
-}
-
-else{
-$sql = "INSERT INTO livros (titulo, autor, isbn, preco_custo, preco_venda, quantidade, editora, ano, edicao, estado, idioma , estante, peso, capa)
-values ('$titulo', '$autor', '$isbn', '$preco_custo', '$preco_venda', '$quantidade', '$editora', '$ano', '$edicao', '$estado', '$idioma', '$estante', '$peso', '$filename')";
-		  
-	
-
-
-}
-
-if (move_uploaded_file($filename, $capas))  { 
-	$msg = "Image uploaded successfully"; 
-}else{ 
-	$msg = "Failed to upload image"; 
-} 
-
-
-if ($conn->query($sql)){
-		//print output text
-echo "Aí sim! Livro cadastrado com sucesso! </br>"; 
-	print " Clique aqui para cadastrar mais um super livro </br>"; 
-}
-
-
-
-
-
-
-
-
-else{
-echo "Error: ". $sql ."
-". $conn->error;
-}
-$conn->close();
-
-	
-
-
-		?>	
-
-<a href='index.html#'> Clique aqui para continuar cadastrando! </a>
-
-
-<div id='copy-area'>
-		<div class='container'>
-		  
-			  <div class='col-md-12'>
-				<p>Desenvolvido por <a href='https://www.n-s-tecnologia.webnode.com' target='_blank'>N&S - Tecnologia</a> © 2020</p>
-			  </div>
-		  </div>
-		</div>
 </body>
-		</html> 
-	
+</html>

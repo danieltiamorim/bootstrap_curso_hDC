@@ -1,21 +1,24 @@
 <?php
 
-$login = $_POST['login'];
-$senha = MD5($_POST['senha']);
-$host = "localhost";
+if ($_SERVER["REQUEST_METHOD"] == "POST") 
+
+  $host = "localhost";
 	$dbusername = "root";
 	$dbpassword = "";
-	$dbname = 'livraria' ;
-$connect = mysql_connect('localhost','root','');
-$db = mysql_select_db('livraria');
+  $dbname = 'livraria' ;
+  
+  
+   
+  //Criar a conexao
+  $conn = new mysqli ($host, $dbusername, $dbpassword, $dbname);
 
-
-
+$login = $_POST['login'];
+$senha = MD5($_POST['senha']);
 
 
 $query_select = "SELECT login FROM usuarios WHERE login = '$login'";
-$select = mysql_query($query_select,$connect);
-$array = mysql_fetch_array($select);
+$select = mysqli_query( $conn,$query_select);
+$array = mysqli_fetch_array($select);
 $logarray = $array['login'];
 
   if($login == "" || $login == null){
@@ -33,7 +36,7 @@ $logarray = $array['login'];
 
       }else{
         $query = "INSERT INTO usuarios (login, senha ) VALUES ('$login','$senha')";
-        $insert = mysql_query($query,$connect);
+        $insert = mysqli_query($conn,$query);
 
         if($insert){
           echo"<script language='javascript' type='text/javascript'>

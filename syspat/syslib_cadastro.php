@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -45,38 +46,49 @@
 					aria-label="toggle navigation">
 					<span class="navbar-toggler-icon"></span> 
 				</button>
+
 				<div class="collapse navbar-collapse justify-content-end" id="navbar-links">
 					<div class="navbar-nav">
 						<a class="nav-item nav-link" id="home-menu" href="#"></span> Home</a>
-						<a class="nav-item nav-link" id="cadastro-menu" href="index.html#">Cadastro</a>
-						<a class="nav-item nav-link" id="pesquisa-menu" href="pesquisar.html#">Pesquisa</a>
+						<a class="nav-item nav-link" id="cadastro-menu" href="http://localhost/danieltiamorim.github.io/syslib/index.html#">Cadastro</a>
+						<a class="nav-item nav-link" id="pesquisa-menu" href="http://localhost/danieltiamorim.github.io/syslib/pesquisar.html#">Pesquisa</a>
 					</div>
 				</div> 
 				
 			</nav>
 			
 			</div>
-			</header>
-	<br /><br />
-
-
 
 
 			<?php
-
-
-
-			//syslib_cadastro.php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") 
+if ($_SERVER["REQUEST_METHOD"] == "POST") 
 	$host = "localhost";
-	$dbusername = "root";
-	$dbpassword = "";
-	$dbname = 'livraria';
+	$dbusername = "$login";
+	$dbpassword = "$senha";
+	$dbname = 'livraria' ;
 
 	$conn = new mysqli ($host, $dbusername, $dbpassword, $dbname);
+	?>	
 	
-		
-	//Check it is coming from a form
+	</header>
+	<br /><br />
+<body>
+
+<?php
+
+
+//login cabeçalho
+
+
+
+//syslib_cadastro.php
+
+
+	
+	
+
+	
+	{//Check it is coming from a form
 	$titulo = $_POST["titulo"]; //set PHP variables like this so we can use them anywhere in code below
 	$autor = $_POST["autor"];	
 	$isbn = $_POST ["isbn"];
@@ -89,29 +101,7 @@
 	$estado = $_POST["estado"];
 	$idioma = $_POST["idioma"];
 	$estante = $_POST["estante"];
-	$peso = $_POST["peso"];
-
 	
-
-	$filename = $_FILES["capa"]["name"]; 
-	  
-		$capas = "capas/".$capa;
-
-		//upload de capa
-	
-  
-		// Execute query 
-	
-		  
-		// Now let's move the uploaded image into the folder: image 
-		
-  
-  
-
-
-
-
-
 
 if (mysqli_connect_error()){
 die('Connect Error ('. mysqli_connect_errno() .') '
@@ -119,32 +109,13 @@ die('Connect Error ('. mysqli_connect_errno() .') '
 }
 
 else{
-$sql = "INSERT INTO livros (titulo, autor, isbn, preco_custo, preco_venda, quantidade, editora, ano, edicao, estado, idioma , estante, peso, capa)
-values ('$titulo', '$autor', '$isbn', '$preco_custo', '$preco_venda', '$quantidade', '$editora', '$ano', '$edicao', '$estado', '$idioma', '$estante', '$peso', '$filename')";
-		  
-	
-
-
+$sql = "INSERT INTO livros (titulo, autor, isbn, preco_custo, preco_venda, quantidade, editora, ano, edicao, estado, idioma , estante)
+values ('$titulo', '$autor', '$isbn', '$preco_custo', '$preco_venda', '$quantidade', '$editora', '$ano', '$edicao', '$estado', '$idioma', '$estante')";
 }
-
-if (move_uploaded_file($filename, $capas))  { 
-	$msg = "Image uploaded successfully"; 
-}else{ 
-	$msg = "Failed to upload image"; 
-} 
-
 
 if ($conn->query($sql)){
-		//print output text
-echo "Aí sim! Livro cadastrado com sucesso! </br>"; 
-	print " Clique aqui para cadastrar mais um super livro </br>"; 
+echo "New record is inserted sucessfully";
 }
-
-
-
-
-
-
 
 
 else{
@@ -152,13 +123,18 @@ echo "Error: ". $sql ."
 ". $conn->error;
 }
 $conn->close();
+}
 
-	
+	 
+
+		//print output text
+	print "Aí sim! Livro cadastrado com sucesso!";
+	print " Clique aqui para cadastrar mais um super livro"
 
 
 		?>	
 
-<a href='index.html#'> Clique aqui para continuar cadastrando! </a>
+<a href='http://localhost/danieltiamorim.github.io/syslib/pesquisar.html#'> Clique aqui para continuar cadastrando! </a>
 
 
 <div id='copy-area'>
@@ -170,5 +146,7 @@ $conn->close();
 		  </div>
 		</div>
 </body>
-		</html> 
+		</html> "
+
+
 	

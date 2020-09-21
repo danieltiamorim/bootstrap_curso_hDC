@@ -33,38 +33,39 @@
 </head>
 
 
-
 <body>
-  <header> 
+  <header> <br /><br />
     
 		<div class="container" id="nav-container">
 			<nav class="navbar navbar-expand-lg fixed-top navbar-dark">
-				<a class="navbar-brand" href="index.html"> 
-					<img id="logo" src="logo.png"> SysLib
-				</a>
+			<a class="navbar-brand" href="index.html"> 
+				<img id="logo" src="logo.png"> SysLib
+			</a>
 
-				<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#navbar-links"
-					aria-controls="navbar-links" aria-expanded="false" 
-					aria-label="toggle navigation">
-					<span class="navbar-toggler-icon"></span> 
-				</button>
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+             data-target="#navbar-links"
+                aria-controls="navbar-links" aria-expanded="false" 
+                aria-label="toggle navigation">
+                <span class="navbar-toggler-icon"></span> 
+			</button>
 
-				<div class="collapse navbar-collapse justify-content-end" id="navbar-links">
-					<div class="navbar-nav">
-						<a class="nav-item nav-link" id="home-menu" href="#"></span> Home</a>
-						<a class="nav-item nav-link" id="cadastro-menu" href="index.html#">Cadastro</a>
-						<a class="nav-item nav-link" id="pesquisa-menu" href="pesquisar.html#">Pesquisa</a>
-					</div>
-				</div> 
+           <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
+				<div class="navbar-nav">
+                <a class="nav-item nav-link" id="home-menu" href="#"></span> Home</a>
+                <a class="nav-item nav-link" id="cadastro-menu" href="http://localhost/danieltiamorim.github.io/syslib/index.html#">Cadastro</a>
+                <a class="nav-item nav-link" id="pesquisa-menu" href="http://localhost/danieltiamorim.github.io/syslib/pesquisar.html#">Pesquisa</a>
+                </div>
+			</div> 
 				
 			</nav>
-			
-			</div>
-	</header>
+						
+		</div>
+    </header>
+
+
 
 <main>
-  <br> <br>
+
     <div class="container-fluid">
             <div id="cadastro">
                 <div class="container"> 
@@ -87,12 +88,17 @@
            
 			<div id="cadastro">
 				<div class="row">
-					<div class="col-12">  
-                    <div class="container">     
+					<div class="col-12">      
 						<h4 class="main-title"><u>Resultados</u></h4> 
-                    
 
-                          <?php
+
+                        
+
+
+
+
+
+                            <?php
                             //syslib_cadastro.php
 
 
@@ -100,7 +106,7 @@
                                 $host = "localhost";
                                 $dbusername = "root";
                                 $dbpassword = "";
-                                $dbname = 'livraria';
+                                $dbname = 'livraria' ;
                                 
                                 //Criar a conexao
                                 $conn = new mysqli ($host, $dbusername, $dbpassword, $dbname);
@@ -109,32 +115,24 @@
                                 $result_livros = "SELECT * FROM livros WHERE titulo LIKE '%$pesquisar%' or
                                     autor LIKE '%$pesquisar%' or
                                 editora LIKE '%$pesquisar%' or  
-                                isbn LIKE '%$pesquisar%' limit 5";
+                                isbn LIKE '%$pesquisar%' ";
                                 $resultado= mysqli_query($conn, $result_livros);
-
-                             
                             
                             while ($row = mysqli_fetch_array($resultado)) {
-                                    echo
+                                    echo "<table></p> <b>Nome do livro:</b> ".$row ['titulo']."<br>",
+                                    "<b> Autor: </b>".$row ['autor']."<br>",
+                                    "<b> Preço de Venda: </b>".$row ['preco_venda']."<br>",
+                                    "<b> Editora: </b>".$row ['editora']."<br>",
+                                    "<b> ISBN: </b>".$row ['isbn']."</table></p><br>";
                                     
-                                "</p>  <b>Nome do livro:</b> ".$row ['titulo']."<br>",
-                                    "  <b> Autor: </b> ".$row ['autor']."<br>",
-                                    "  <b> Preço de Venda: </b> ".$row ['preco_venda']."<br>",
-                                    "  <b> Editora: </b> ".$row ['editora']."<br>",
-                                    "  <b> Peso: </b> ".$row ['peso']."<br>",
-                                    "  <b> Estado: </b> ".$row ['estado']."<br>",
-                                    "  <b> Estante: </b> ".$row ['estante']."<br>",
-                                    "  <b> Idioma: </b> ".$row ['idioma']."<br>",
-                                    "  <b> ISBN: </b> ".$row ['isbn']."</p><br>";
-                                   
-                                                       
-                                                              
-                                                           
-                        }
-                        
-                                    ?> 
+
+                            
+                                
+                                    
+                            }
+
+                            ?>      
                     </div>
-                </div>
                 </div>
             </div>
 
