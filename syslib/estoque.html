@@ -51,8 +51,9 @@
 				<div class="collapse navbar-collapse justify-content-end" id="navbar-links">
 					<div class="navbar-nav">
 						<a class="nav-item nav-link" id="home-menu" href="#"></span> Home</a>
-						<a class="nav-item nav-link" id="cadastro-menu" href="index.html#">Cadastro</a>
+						<a class="nav-item nav-link" id="estoque-menu" href="estoque.html#">Estoque</a>
 						<a class="nav-item nav-link" id="pesquisa-menu" href="pesquisar.html#">Pesquisa</a>
+						<a class="nav-item nav-link" id="pesquisa-menu" href="pedidos.html#">Pedido</a>
 					</div>
 				</div> 
 				
@@ -96,7 +97,7 @@
 					</div>
 					
 					<table>	
-						<form method="post" action="syslib_cadastro.php" enctype="multipart/form-data">
+						<form method="post" action="estoque.php" enctype="multipart/form-data">
 						
 						<tr>
 							<ul>
@@ -105,12 +106,13 @@
 													
 								<div class="row data">
 								<div class="col-9">
-									<td> <li><b>	<label for="form_isbn" >ISBN<span class="asterisk">*</span>:</label> </b> </td> 
+									<td> <li><b>	<label for="form_isbn" >ISBN<span class="asterisk" >*</span>:</label> </b> </td> 
 							
 								
 								<td>
 								
 									<input id="form_isbn" type="text"
+									required
 									data-blank="ISBN não preenchido"
 									data-invalid="ISBN inválido"
 									name="isbn" maxlength="16" value=""
@@ -127,7 +129,7 @@
 							<div class="col-9">
 									<div class="row data">
 										<td> <li><b>Nome do Livro<span class="asterisk">*</span>: </b> </td>
-										<td> <input type="Nome do livro" name="titulo"  placeholder="Ex: Harry Potter e a Pedra Filosofal" size="50" maxlength="100"/><br /> </li> </td>
+										<td> <input type="Nome do livro" name="titulo"  placeholder="Ex: Harry Potter e a Pedra Filosofal" size="50" maxlength="100" required/><br /> </li> </td>
 									</div>
 								</div>
 							</tr>
@@ -136,7 +138,7 @@
 								<div class="col-9">	
 									<div class="row data">
 										<td> <li> <b>Autor*: </b> </td>
-										<td><input type="Autor" name="autor" placeholder="Ex: J K Rowling S/ PONTOS" size="50"/> <br /> </li> </td> 
+										<td><input type="Autor" name="autor" placeholder="Ex: J K Rowling S/ PONTOS" size="50" required/> <br /> </li> </td> 
 									</div>
 								
 								</div>
@@ -170,7 +172,7 @@
 										
 											<select id="form_estante" name="estante" class="custom_select"
 											data-empty="Estante não selecionada. Escolha uma estante de destino para o seu livro."
-											>
+											required >
 											<div class="col-9">	
 											<option value="" size="50"> Estante de destino  </option>
 																			<option value="Administração" >
@@ -471,9 +473,9 @@
 							<tr>
 								<div class="row data">
 									<div class="col-9">
-										<td><li> <label for='estado'>  <b>Estado do Livro </b> </label>:  </td> 
+										<td><li> <label for='estado'>  <b>Estado do Livro<span class="asterisk" >*</span> </b> </label>:  </td> 
 									
-											<td><select name="estado" id="estado" > </li> 
+											<td><select name="estado" id="estado" required > </li> 
 												<option value="">Escolha a opção:</option>
 										<option value="novo">Novo</option>
 							
@@ -494,16 +496,16 @@
 
 								<div class="col-9">	
 								<div class="row data">
-									<td><li> <b>Quantidade: </b> </td>
-									<td>	<input type="Quantidade" name="quantidade" placeholder="Ex: 10 - Só número inteiro" size="20"  maxlength="5" /> <br /> </li> </td>
+									<td><li> <b>Quantidade<span class="asterisk" >*</span>: </b> </td>
+									<td>	<input type="Quantidade" name="quantidade" placeholder="Ex: 10 - Só número inteiro" size="20"  maxlength="5" required /> <br /> </li> </td>
 								</div>		
 								</div>	
 							</tr>
 						<tr>
 							<div class="col-9">	
 								<div class="row data">
-								<td> <li> <b>Preço Venda: </b> </td>
-								<td> <input type="Preço" name="preco_venda" placeholder="Ex: 10,00" size="20"   maxlength="4"/> <br /> </li> </td>
+								<td> <li> <b>Preço Venda<span class="asterisk" >*</span>: </b> </td>
+								<td> <input type="Preço" name="preco_venda" placeholder="Ex: 10,00" size="20"   maxlength="4" required/> <br /> </li> </td>
 								</div>
 							</div>
 						</tr>
@@ -540,8 +542,8 @@
 						<tr>
 							<div class="row data">
 								<div class="col-9">
-									<td><li> <b>Peso*:</b> </td>
-									<td>	<input type="peso" name="peso" placeholder="Gramas Ex: 1000 para 1kg" size="20"  maxlength="4" /> <br /> </li> </td>
+									<td><li> <b>Peso<span class="asterisk" >*</span>:</b> </td>
+									<td>	<input type="peso" name="peso" placeholder="Gramas Ex: 1000 para 1kg" size="20"  maxlength="4" required/> <br /> </li> </td>
 								</div>
 							</div>
 						</tr>

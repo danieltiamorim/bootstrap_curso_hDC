@@ -48,11 +48,11 @@
 				<div class="collapse navbar-collapse justify-content-end" id="navbar-links">
 					<div class="navbar-nav">
 						<a class="nav-item nav-link" id="home-menu" href="#"></span> Home</a>
-						<a class="nav-item nav-link" id="cadastro-menu" href="index.html#">Cadastro</a>
+						<a class="nav-item nav-link" id="estoque-menu" href="estoque.html#">Estoque</a>
 						<a class="nav-item nav-link" id="pesquisa-menu" href="pesquisar.html#">Pesquisa</a>
+						<a class="nav-item nav-link" id="pesquisa-menu" href="pedidos.html#">Pedido</a>
 					</div>
 				</div> 
-				
 			</nav>
 			
 			</div>
@@ -158,11 +158,11 @@ $conn->close();
 
 		?>	
 
-<a href='index.html#'> Clique aqui para continuar cadastrando! </a>
+<a href='estoque.html#'> Clique aqui para continuar cadastrando! </a>
 
 
 <div id='copy-area'>
-		<div class='container'>
+<div class="container">
 		  
 			  <div class='col-md-12'>
 				<p>Desenvolvido por <a href='https://www.n-s-tecnologia.webnode.com' target='_blank'>N&S - Tecnologia</a> © 2020</p>

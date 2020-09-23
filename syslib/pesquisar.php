@@ -53,8 +53,9 @@
 				<div class="collapse navbar-collapse justify-content-end" id="navbar-links">
 					<div class="navbar-nav">
 						<a class="nav-item nav-link" id="home-menu" href="#"></span> Home</a>
-						<a class="nav-item nav-link" id="cadastro-menu" href="index.html#">Cadastro</a>
+						<a class="nav-item nav-link" id="estoque-menu" href="estoque.html#">Estoque</a>
 						<a class="nav-item nav-link" id="pesquisa-menu" href="pesquisar.html#">Pesquisa</a>
+						<a class="nav-item nav-link" id="pesquisa-menu" href="pedidos.html#">Pedido</a>
 					</div>
 				</div> 
 				
@@ -65,22 +66,25 @@
 
 <main>
   <br> <br>
+   
     <div class="container-fluid">
-            <div id="cadastro">
-                <div class="container"> 
-                    <div class="row">
-                        <div class="col-12">      
-                        <h4 class="main-title"><u>Pesquisa</u></h4> 
+          <div id="cadastro">
+            <div class="container"> 
+              <div class="row">
+                <div class="col-12">  
+                
+                
+                <h4 class="main-title"><u>Pesquisa</u></h4> 
 
-        
-                        <form method="POST" action="pesquisar.php">
-                        Pesquisar:<input type="text" name="pesquisar" placeholder="PESQUISAR">
-                        <input type="submit" value="ENVIAR">
-                        </form>
-                        </div>
-                    </div>
-                </div>
-            </div>                      
+ 
+                <form method="POST" action="pesquisar.php">
+                Pesquisar:<input type="text" name="pesquisar" placeholder="ISBN, Autor, Editora ou Título" size="50">
+                  <input type="submit" value="BUSCAR">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
             
 
 		
@@ -93,7 +97,7 @@
                     
 
                           <?php
-                            //syslib_cadastro.php
+                            //pesquisar.php
 
 
                             if ($_SERVER["REQUEST_METHOD"] == "POST") 
@@ -102,53 +106,103 @@
                                 $dbpassword = "";
                                 $dbname = 'livraria';
                                 
+                                
+
                                 //Criar a conexao
                                 $conn = new mysqli ($host, $dbusername, $dbpassword, $dbname);
                                 
                                 $pesquisar = $_POST['pesquisar'];
-                                $result_livros = "SELECT * FROM livros WHERE titulo LIKE '%$pesquisar%' or
-                                    autor LIKE '%$pesquisar%' or
-                                editora LIKE '%$pesquisar%' or  
-                                isbn LIKE '%$pesquisar%' limit 5";
-                                $resultado= mysqli_query($conn, $result_livros);
+                                
+                                    // tentativa de paginação
 
-                             
-                            
-                            while ($row = mysqli_fetch_array($resultado)) {
-                                    echo
-                                    
-                                "</p>  <b>Nome do livro:</b> ".$row ['titulo']."<br>",
-                                    "  <b> Autor: </b> ".$row ['autor']."<br>",
-                                    "  <b> Preço de Venda: </b> ".$row ['preco_venda']."<br>",
-                                    "  <b> Editora: </b> ".$row ['editora']."<br>",
-                                    "  <b> Peso: </b> ".$row ['peso']."<br>",
-                                    "  <b> Estado: </b> ".$row ['estado']."<br>",
-                                    "  <b> Estante: </b> ".$row ['estante']."<br>",
-                                    "  <b> Idioma: </b> ".$row ['idioma']."<br>",
-                                    "  <b> ISBN: </b> ".$row ['isbn']."</p><br>";
+                                  
                                    
-                                                       
-                                                              
-                                                           
-                        }
+                             
+$page  = (isset($_get['page'])) ? (int)$_get['page'] : 1;
+$limit = 5;
+$ini   = $page * $limit;                                     
+$result_livros = "SELECT * FROM livros WHERE titulo LIKE '%$pesquisar%' or
+autor LIKE '%$pesquisar%' or
+editora LIKE '%$pesquisar%' or  
+isbn LIKE '%$pesquisar%'  limit $ini, $limit";
+
+$resultado= mysqli_query($conn, $result_livros);
+
+print "<table border='1'>
+<tr>  <th> Nome do livro </th> 
+           <th> Autor </th>
+           <th> Preço de Venda </th>
+           <th> Editora </th> 
+           <th> Peso </th> 
+           <th> Estado </th> 
+           <th> Estante </th> 
+           <th> Idioma </th> 
+           <th> ISBN </th> 
+
+</tr>";
+
+while($exibe = mysqli_fetch_assoc($resultado)){
+    echo   "<tr>",
+                                    
+   "<td>".$exibe ['titulo']."</td>",
+       "<td>".$exibe ['autor']." </td>",
+        "  <td>".$exibe ['preco_venda']."</td>",
+        "  <td> ".$exibe ['editora']."</td>",
+        "  <td> ".$exibe ['peso']."</td>",
+        "  <td> ".$exibe ['estado']."</td>",
+        "  <td> ".$exibe ['estante']."</td>",
+        " <td> ".$exibe ['idioma']."</td>",
+        "  <td>".$exibe ['isbn']."</td>>",                                                                     
+          
+        "</tr>",
+            "</table>"
+            ;
+
+          }
+         
+
+
+                          $sql2 = "SELECT count(*) as count FROM livros";
+                          $resultado2 = mysqli_query($conn, $sql2); 
+                          $row  = mysqli_fetch_assoc($resultado2);
+                          $total_registros = $row['count'];
+                          $num_paginas     = ceil($total_registros / $limit);
+                     
+
+                          ?>
+
+
+
+<div>
+    <ul class="pagination pagination-sm pull-right">
+        <li><a href="pesquisar.php?page=<?php echo $num_paginas -1?>" id="anterior"><<</a></li>
+        <?php
+            for($i = 1; $i <= $num_paginas; $i++){ ?>
+                <li><a href="pesquisar.php?page=<?php echo $i - 1;?>"><?php echo $i;?></a></li>
+        <?php }?>   
+        <li><a href="pesquisar.php?page=0">>></a></li>
+    </ul>
+</div> 
+
+
+
                         
-                                    ?> 
                     </div>
                 </div>
                 </div>
             </div>
 
         </div>
-                
-        
-<div id="copy-area">
-		<div class="container">
-		  
-			  <div class="col-md-12">
-				<p>Desenvolvido por <a href="https://www.n-s-tecnologia.webnode.com" target="_blank">N&S - Tecnologia</a> © 2020</p>
-			  </div>
-		  </div>
-		</div>
+
+        <div id="copy-area">
+        <div class="container fixed-bottom">
+          
+      <div class="col-md-12">
+      <p>Desenvolvido por <a href="https://www.n-s-tecnologia.webnode.com" target="_blank">N&S - Tecnologia</a> © 2020</p>
+      </div>
+    </div>
+  </div>
+
 
 
 </body>
