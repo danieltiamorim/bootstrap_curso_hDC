@@ -98,13 +98,13 @@
 
                           <?php
                             //pesquisar.php
-
-
-                            if ($_SERVER["REQUEST_METHOD"] == "POST") 
-                                $host = "localhost";
-                                $dbusername = "root";
-                                $dbpassword = "";
-                                $dbname = 'livraria';
+                            
+                            // Inclui os detalhes da conexão
+                            require 'conexao.php';
+                            
+                            // Tenta conectar e executar a configuração
+                             
+                                // Cria o objeto da conexão PDO
                                 
                                 
 
@@ -114,11 +114,11 @@
                                 $pesquisar = $_POST['pesquisar'];
                                 
                                     // tentativa de paginação
-
+                            
                                   
                                    
                              
-$page  = (isset($_get['page'])) ? (int)$_get['page'] : 1;
+$page  = (isset($_POST['pesquisar'])) ? (int)$_GET['page'] : 1;
 $limit = 5;
 $ini   = $page * $limit;                                     
 $result_livros = "SELECT * FROM livros WHERE titulo LIKE '%$pesquisar%' or
@@ -128,46 +128,32 @@ isbn LIKE '%$pesquisar%'  limit $ini, $limit";
 
 $resultado= mysqli_query($conn, $result_livros);
 
-print "<table border='1'>
-<tr>  <th> Nome do livro </th> 
-           <th> Autor </th>
-           <th> Preço de Venda </th>
-           <th> Editora </th> 
-           <th> Peso </th> 
-           <th> Estado </th> 
-           <th> Estante </th> 
-           <th> Idioma </th> 
-           <th> ISBN </th> 
-
-</tr>";
-
 while($exibe = mysqli_fetch_assoc($resultado)){
-    echo   "<tr>",
+    echo   "<table>",
                                     
-   "<td>".$exibe ['titulo']."</td>",
-       "<td>".$exibe ['autor']." </td>",
-        "  <td>".$exibe ['preco_venda']."</td>",
-        "  <td> ".$exibe ['editora']."</td>",
-        "  <td> ".$exibe ['peso']."</td>",
-        "  <td> ".$exibe ['estado']."</td>",
-        "  <td> ".$exibe ['estante']."</td>",
-        " <td> ".$exibe ['idioma']."</td>",
-        "  <td>".$exibe ['isbn']."</td>>",                                                                     
-          
-        "</tr>",
-            "</table>"
-            ;
+    "</p>  <b>Nome do livro:</b> ".$exibe ['titulo']."<br>",
+        "  <b> Autor: </b> ".$exibe ['autor']."<br>",
+        "  <b> Preço de Venda: </b> ".$exibe ['preco_venda']."<br>",
+        "  <b> Editora: </b> ".$exibe ['editora']."<br>",
+        "  <b> Peso: </b> ".$exibe ['peso']."<br>",
+        "  <b> Estado: </b> ".$exibe ['estado']."<br>",
+        "  <b> Estante: </b> ".$exibe ['estante']."<br>",
+        "  <b> Idioma: </b> ".$exibe ['idioma']."<br>",
+        "  <b> ISBN: </b> ".$exibe ['isbn']."</p><br>",                                                                     
+                                  
+            "</table>";
 
           }
          
 
 
-                          $sql2 = "SELECT count(*) as count FROM livros";
-                          $resultado2 = mysqli_query($conn, $sql2); 
-                          $row  = mysqli_fetch_assoc($resultado2);
-                          $total_registros = $row['count'];
-                          $num_paginas     = ceil($total_registros / $limit);
-                     
+          $sql2 = "SELECT count(*) as count FROM livros ";
+          $resultado2 = mysqli_query($conn, $sql2); 
+          $row  = mysqli_fetch_assoc($resultado2);
+          $total_registros = $row['count'];
+          $num_paginas     = ceil($total_registros / $limit);
+     
+
 
                           ?>
 

@@ -1,22 +1,33 @@
 <?php
+  if ($_SERVER["REQUEST_METHOD"] == "POST") 
 
-  if (isset($entrar)) {
+  $host = "localhost";
+  $dbusername = "root";
+  $dbpassword = "";
+  $dbname = 'livraria';
 
-    $verifica = mysql_query("SELECT * FROM usuarios WHERE login = '$login' AND '$senha'")
-     or die("erro ao selecionar");
+$conn = new mysqli ($host, $dbusername, $dbpassword, $dbname);
+  
+ $entrar = $_POST['entrar'];
+  $login = $_POST['login'];
+  $senha=  MD5($_POST['senha']);
+                         
+ 
+     if (isset($entrar)) {
 
-      if (mysql_num_rows($verifica)<=0){
-        echo"<script language='javascript' type='text/javascript'>
-        alert('Login e/ou senha incorretos');window.location
-        .href='login.html';</script>";
+      $verifica = ("SELECT * FROM usuarios WHERE login = '$login' AND senha = '$senha'");
 
-        die();
-
-      }else{
-        setcookie("login",$login);
-        header("Location:syslib_cadastro.php");
-
-
-      }
-  }
-?>
+        if (($verifica)<=0) {
+          echo"<script language='javascript' type='text/javascript'>
+          alert('Login e/ou senha incorretos');window.location
+          .href='login.html';</script>";
+          die();
+        }else {
+          setcookie("login",$login);
+          header("Location:home.php");
+        }
+        }
+      
+    
+  
+  ?>

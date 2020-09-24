@@ -78,7 +78,7 @@
 
 
 <body>
-  <form method="POST" action="index.html">
+  <form method="POST" action="login.php">
   
   
   <div class="container center">
@@ -94,21 +94,20 @@
             <span id="reauth-email" class="reauth-email"></span>
 
             
-            <input type="text" name="login" id="login" class="form-control" placeholder="Login" required autofocus>
-            <input type="password" id="password" class="form-control" placeholder="Senha" required>
+            <input type="text"  id="login" name="login" class="form-control" placeholder="Login" required autofocus>
+            <input type="password" id="senha" name="senha" class="form-control" placeholder="Senha"  required>
             <div id="remember" class="checkbox">
                 <label>
                     <input type="checkbox" value="remember-me"> Lembre-me
                 </label>
             </div>
-            <button class="btn btn-lg btn-primary btn-block entrar" type="submit">Entrar</button>
+            <button class="btn btn-lg btn-primary btn-block submit" type="submit"  id="entrar" name="entrar" value="Entrar"> Entrar </button>
         </form><!-- /form -->
         <a href="#" class="forgot-password">
             Esqueceu a senha?
         </a>
     </div><!-- /card-container -->
 </div><!-- /container -->
-
 
 
 </div>
