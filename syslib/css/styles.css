@@ -2,7 +2,7 @@
 body {
   height: 100%;
   background-repeat: no-repeat;
-  background-image: linear-gradient(to bottom right, #ffffcc 0%, #cc9900 115%);
+  background-image: linear-gradient(to bottom right, #ffffcc 0%, #cc9900 87%);
     font-family: 'Roboto', sans-serif;
 }
 
@@ -39,7 +39,7 @@ width: 50px;
 }
 
 .navbar-brand:hover {
-    color: #FFF;
+    color: rgb(212, 226, 13);
 }
 
 #navbar-links a {
@@ -51,7 +51,7 @@ width: 50px;
 }
 
 .main-btn {
-    background-color: #65DAF9;
+    background-color: #e0bf02;
     color: #FFF;
     text-transform: uppercase;
     width: 200px;
@@ -64,13 +64,13 @@ width: 50px;
 
 .main-btn:hover {
     text-decoration: none;
-    color: #FFF;
+    color: #ffffff;
     background-color: transparent;
-    border-color: #65DAF9;
+    border-color: #e0bf02;
 }
 
 .carousel-indicators .active {
-    background-color: #65DAF9;
+    background-color: #e0bf02;
 }
 
 
@@ -147,5 +147,5 @@ width: 50px;
   
   #copy-area .container a:hover {
     text-decoration: none;
-    color: #373885;
+    color: #080cf1;
   }

@@ -15,14 +15,16 @@ $conn = new mysqli ($host, $dbusername, $dbpassword, $dbname);
  
      if (isset($entrar)) {
 
-      $verifica = ("SELECT * FROM usuarios WHERE login = '$login' AND senha = '$senha'");
+      $verifica = ("SELECT login, senha FROM usuarios WHERE login = '$login' AND senha = '$senha'");
 
-        if (($verifica)<=0) {
+        if (($verifica) == false) {
           echo"<script language='javascript' type='text/javascript'>
           alert('Login e/ou senha incorretos');window.location
           .href='login.html';</script>";
           die();
-        }else {
+        }
+        
+        if (($verifica) == true )  {
           setcookie("login",$login);
           header("Location:home.php");
         }
