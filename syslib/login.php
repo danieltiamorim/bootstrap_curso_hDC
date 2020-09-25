@@ -37,7 +37,10 @@ $conn = new mysqli ($host, $dbusername, $dbpassword, $dbname);
         endif;
 
     else: 
-        Echo "<li> Usuário e Senha não conferem </li>";
+        echo "<li> Usuário e Senha não conferem </li>";
+         echo"<script language='javascript' type='text/javascript'>
+          alert('Login e/ou senha incorretos');window.location
+          .href='login.html';</script>";
       
     endif;
   endif;

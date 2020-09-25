@@ -118,18 +118,15 @@
                                   
                                    
                              
-
+$page  = (isset($_POST['pesquisar'])) ? (int)$_GET['page'] : 1;
 $limit = 5;
-$ini   =  $limit;                                     
+$ini   = $page * $limit;                                     
 $result_livros = "SELECT * FROM livros WHERE titulo LIKE '%$pesquisar%' or
 autor LIKE '%$pesquisar%' or
 editora LIKE '%$pesquisar%' or  
-isbn LIKE '%$pesquisar%' ORDER BY titulo limit  $limit ";
+isbn LIKE '%$pesquisar%'  limit $ini, $limit";
 
 $resultado= mysqli_query($conn, $result_livros);
-
-
-
 
 while($exibe = mysqli_fetch_assoc($resultado)){
     echo   "<table>",
@@ -142,21 +139,13 @@ while($exibe = mysqli_fetch_assoc($resultado)){
         "  <b> Estado: </b> ".$exibe ['estado']."<br>",
         "  <b> Estante: </b> ".$exibe ['estante']."<br>",
         "  <b> Idioma: </b> ".$exibe ['idioma']."<br>",
-        "  <b> ISBN: </b> ".$exibe ['isbn']."<br>",                                                                     
-        "  <b> ID: </b> ".$exibe ['ID_livro']."<br>",   
-
-     
+        "  <b> ISBN: </b> ".$exibe ['isbn']."</p><br>",                                                                     
+                                  
             "</table>";
 
-            $id = $exibe['ID_livro'];
-            $isbn = $exibe['isbn'];
-            echo "<td><a href='delete.php?id=$id'>Excluir</a><br>";
-            echo "<td><a href='editar.php?id=$id?isbn=$isbn'>Editar</a> </p>"; 
-            
           }
-   
-          $delete = $conn-> query("DELETE * FROM livros  WHERE id='$id'"); // ESSA QUERY DELETA
-          
+         
+
 
           $sql2 = "SELECT count(*) as count FROM livros ";
           $resultado2 = mysqli_query($conn, $sql2); 

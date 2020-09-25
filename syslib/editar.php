@@ -1,3 +1,36 @@
+<?php
+                            //pesquisar.php
+                            
+                            // Inclui os detalhes da conexão
+                            require 'conexao.php';
+                            
+                            // Tenta conectar e executar a configuração
+                             
+                                // Cria o objeto da conexão PDO
+                                
+                                
+
+                                //Criar a conexao
+                                $conn = new mysqli ($host, $dbusername, $dbpassword, $dbname);
+                                
+                              
+                                
+                                    // tentativa de paginação
+                            
+                                  
+                              
+                             
+$id = $_GET['id'];
+$pesquisar = $_GET['isbn'];
+                                 
+$result_livros = ("SELECT * FROM livros WHERE ID_livro = '$id' ");
+
+$resultado= mysqli_query($conn, $result_livros);
+$exibe = mysqli_fetch_assoc($resultado)
+    
+
+
+?>     
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -38,7 +71,7 @@
 		<div class="container" id="nav-container">
 			<nav class="navbar navbar-expand-lg fixed-top navbar-dark">
 				<a class="navbar-brand" href="index.html"> 
-					<img id="logo" src="logo.png"> SysLib
+					<img id="logo" src="logo.png"> SysLib: Editar Livros
 				</a>
 
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -58,7 +91,7 @@
 			</nav>
 			
 			</div>
-		</header>
+			</header>
 	<br /><br />
 
     <main>
@@ -77,41 +110,38 @@
                         </div>
                     </div>
                 </div>
-           
 
-				
-			<div id="cadastro">
-				<div class="container"> 
-					<div class="row">
+           <div class="row">
+               <div class="container">
+				  <div id="cadastro">
 					<div class="col-12">  		
-						<h4 class="main-title"><u>Cadastro de Livros </u></h4> 		
-					  <h5 >Nesta página você pode cadastrar os mais diversos livros;</h5>
+						<h4 class="main-title"><u>Edição de Livros </u></h4> 		
+					  <h5 >Nesta página você pode Editar o livro "<b><?php echo $exibe['titulo']; ?>"</b>" </h5>
                 	Cheque cada informação e preencha os dados com cuidado; <br />
                 	O Número ISBN é imprescidível, e deve ser usado a máquina leitora de código de barras para a devida leitura dele; <br />
                 	Se for o caso de não ter código de barras, pesquise pelo título na internet e cadastre o livro ou chame o seu supervisor; <br />
 					Ele(a) irá lhe ajudar com essa missão, boa sorte.  <br />
 					<b>P.S.:</b> O que estiver com <b>ASTERISCO *</b> deve ser preenchido com máxima importância. 
 					</div>
-					
-					<table>	
-						<form method="post" action="estoque.php" enctype="multipart/form-data">
+                    
+                    
+				<table>     	                         
+            <form method="post" action="salvar_edicao.php" enctype="multipart/form-data">
+            
 						<tr>
 							<ul>
-							
-							<tr>												
-													
-								<div class="row data">
-								<div class="col-9">
+							<tr>																									
+								
+								
 									<td> <li><b>	<label for="form_isbn" >ISBN<span class="asterisk" >*</span>:</label> </b> </td> 
 							
 								
 								<td>
 								
 									<input id="form_isbn" type="text"
-									required
 									data-blank="ISBN não preenchido"
 									data-invalid="ISBN inválido"
-									name="isbn" maxlength="16" value=""
+									name="isbn" maxlength="16" value="<?php echo $exibe['isbn']; ?>"
 									placeholder="Ex: 9788532511010 "
 									autocomplete="no"
 									/> <br /> </li> </td>
@@ -119,13 +149,25 @@
 								</div>
 								</div>
 							</tr>
-							
+                            
+                            
+
+							<tr>								
+							<div class="col-9">
+									<div class="row data">
+										<td> <li><b>ID - Livro<span class="asterisk">*</span>: </b> </td>
+										<td> <input type="Nome do livro" name="ID_livro"  placeholder="<?php echo $exibe['ID_livro']; ?>" size="50" maxlength="100" value="<?php echo $exibe['ID_livro']; ?>" required/><br /> </li> </td>
+									</div>
+								</div>
+							</tr>
+
+
 
 							<tr>								
 							<div class="col-9">
 									<div class="row data">
 										<td> <li><b>Nome do Livro<span class="asterisk">*</span>: </b> </td>
-										<td> <input type="Nome do livro" name="titulo"  placeholder="Ex: Harry Potter e a Pedra Filosofal" size="50" maxlength="100" required/><br /> </li> </td>
+										<td> <input type="Nome do livro" name="titulo"  placeholder="Ex: Harry Potter e a Pedra Filosofal" size="50" maxlength="100" value="<?php echo $exibe['titulo']; ?>" required/><br /> </li> </td>
 									</div>
 								</div>
 							</tr>
@@ -134,30 +176,30 @@
 								<div class="col-9">	
 									<div class="row data">
 										<td> <li> <b>Autor*: </b> </td>
-										<td><input type="Autor" name="autor" placeholder="Ex: J K Rowling S/ PONTOS" size="50" required/> <br /> </li> </td> 
+										<td><input type="Autor" name="autor" placeholder="Ex: J K Rowling S/ PONTOS" size="50" value="<?php echo $exibe['autor']; ?>" required/> <br /> </li> </td> 
 									</div>
 								
 								</div>
 							</tr>
 
 
-							<tr>
+									<tr>
 									<div class="row data">
 										<div class="col-9">
 											<td><li> <b><label for="editora">Editora<span class="asterisk">*</b></span>:</label>
 										
 
 										
-											<td> <input type="Editora" name="editora" placeholder="Ex: Rocco" maxlength="30" value=""
+											<td> <input type="Editora" name="editora" placeholder="Ex: Rocco" maxlength="30" value="<?php echo $exibe['editora']; ?>"
                                     		required autocomplete="no" size="50"
                                    			data-empty="Editora não preenchida."
 											data-name="Editora - preenchimento incorreto. Coloque apenas o nome da editora, \n sem repetir 'Editora'. \n  Ex: digite simplesmente 'Cortez', ao invés de 'Cortez Editora'"/> <br /> </li>
 										</td>
 										</div>			
 									</div>
-							</tr>
+								    </tr>
 
-							<tr>
+								<tr>
 									<div class="row data">
 									<div class="col-9">
 									<td>	<li> <b>	<label for="form_estante">Estante<span class="asterisk">*</span>:</label></b>
@@ -170,7 +212,7 @@
 											data-empty="Estante não selecionada. Escolha uma estante de destino para o seu livro."
 											required >
 											<div class="col-9">	
-											<option value="" size="50"> Estante de destino  </option>
+											<option value="<?php echo $exibe['estante']; ?>" size="50" selected="selected"> <?php echo $exibe['estante'];  ?>  </option>
 																			<option value="Administração" >
 												Administração
 											</option>
@@ -393,7 +435,7 @@
 											</div>
 
 									</div>
-							</tr>
+								</tr>
 
 
 							
@@ -407,7 +449,7 @@
 
 											<td>
 										
-												<select id="form_idioma" name="idioma" class="custom_select">
+												<select id="form_idioma" name="idioma" class="custom_select" value="<?php echo $exibe['idioma']; ?>" selected="selected">
 																					<option value="De" >
 														Alemão
 													</option>
@@ -464,7 +506,7 @@
 											</div>
 										</div>
 									</td>
-						</tr>
+					            	</tr>
 
 							<tr>
 								<div class="row data">
@@ -472,8 +514,8 @@
 										<td><li> <label for='estado'>  <b>Estado do Livro<span class="asterisk" >*</span> </b> </label>:  </td> 
 									
 											<td><select name="estado" id="estado" required > </li> 
-												<option value="">Escolha a opção:</option>
-										<option value="novo">Novo</option>
+												<option value="<?php echo $exibe['estado']; ?>" selected="selected" > <?php echo $exibe['estado']; ?></option>
+										<option value="novo">Novo</option> 
 							
 										<option value="usado_novo"> Usado - Como Novo</option>
 							
@@ -485,145 +527,147 @@
 									<br />
 								</div>
 							</div>
-						</tr>
+						    </tr>
 
 
-						<tr>
+						    <tr>
+
 								<div class="col-9">	
 								<div class="row data">
 									<td><li> <b>Quantidade<span class="asterisk" >*</span>: </b> </td>
-									<td>	<input type="Quantidade" name="quantidade" placeholder="Ex: 10 - Só número inteiro" size="20"  maxlength="5" required /> <br /> </li> </td>
+									<td>	<input type="Quantidade" name="quantidade" placeholder="Ex: 10 - Só número inteiro" size="20"  maxlength="5" value="<?php echo $exibe['quantidade']; ?>" required /> <br /> </li> </td>
 								</div>		
 								</div>	
-						</tr>
-						<tr>
-							<div class="col-9">	
-								<div class="row data">
-								<td> <li> <b>Preço Venda<span class="asterisk" >*</span>: </b> </td>
-								<td> <input type="Preço" name="preco_venda" placeholder="Ex: 10,00" size="20"   maxlength="7" required/> <br /> </li> </td>
-								</div>
-							</div>
-						</tr>
-						
-						
-						
-
+                            </tr>
+                            
+                            <tr>
+                                <div class="col-9">	
+                                    <div class="row data">
+                                    <td> <li> <b>Preço Venda<span class="asterisk" >*</span>: </b> </td>
+                                    <td> <input type="Preço" name="preco_venda" placeholder="Ex: 10,00" size="20"   maxlength="7" value="<?php echo $exibe['preco_venda']; ?>" required/> <br /> </li> </td>
+                                    </div>
+                                </div>
+                            </tr>
+										
 							<tr>
 								<div class="row data">
 										<div class="col-9">
 											<td><li> <b>Preço de Custo: </b> </td>
-											<td>	<input type="text" name="preco_custo" placeholder="Ex: 9,99" maxlength="7"  /> <br />  </li> </td>
+											<td>	<input type="text" name="preco_custo" placeholder="Ex: 9,99" maxlength="7" value="<?php echo $exibe['preco_custo']; ?>" /> <br />  </li> </td>
 								</div>
 							</div>
-						</tr>
+    						</tr>
 
-						<tr>
-							<div class="row data">
-								<div class="col-9">
-									<td><li> <b>Ano: </b> </td>
-									<td>	<input type="Ano" name="ano" placeholder="Ex: 2001" size="20" maxlength="4" /> <br /> </li> </td>
-								</div>
-							</div>
-						</tr>
+                            <tr>
+                                <div class="row data">
+                                    <div class="col-9">
+                                        <td><li> <b>Ano: </b> </td>
+                                        <td>	<input type="Ano" name="ano" placeholder="Ex: 2001" size="20" maxlength="4" value="<?php echo $exibe['ano']; ?>" /> <br /> </li> </td>
+                                    </div>
+                                </div>
+                            </tr>
+
 							<tr>
 							<div class="row data">
 								<div class="col-9">
 									<td><li> <b>Edição:</b> </td>
-									<td>	<input type="edicao" name="edicao" placeholder="No lugar de 1ª colocar 1 " size="20"  maxlength="3" /> <br /> </li> </td>
+									<td>	<input type="edicao" name="edicao" placeholder="No lugar de 1ª colocar 1 " size="20"  maxlength="3" value="<?php echo $exibe['edicao']; ?>" /> <br /> </li> </td>
 								</div>
 							</div>
-						</tr>
+						    </tr>
 						
-						<tr>
-							<div class="row data">
-								<div class="col-9">
-									<td><li> <b>Peso<span class="asterisk" >*</span>:</b> </td>
-									<td>	<input type="peso" name="peso" placeholder="Gramas Ex: 1000 para 1kg" size="20"  maxlength="4" required/> <br /> </li> </td>
-								</div>
-							</div>
-						</tr>
-						
+                            <tr>
+                                <div class="row data">
+                                    <div class="col-9">
+                                        <td><li> <b>Peso<span class="asterisk" >*</span>:</b> </td>
+                                        <td>	<input type="peso" name="peso" placeholder="Gramas Ex: 1000 para 1kg" size="20"  maxlength="4" value="<?php echo $exibe['peso']; ?>" required/> <br /> </li> </td>
+                                    </div>
+                                </div>
+                            </tr>
+                            
 
 
 
 						<br />
 
-					<tr>
-								<div class="row data">
-									<div class="col-9">
-										<td><li><b> Descrição do livro:</b></td>
-						
-										<td> <p> <i>Aqui você deve descrever o livro conforme o estado de conservação dele.</p>
-											 Se estiver amarelado, com páginas amassadas, grifos, assinaturas e/ou anotações.  <br />
-						 				<p>P.S.: Sugiro que termine sempre a descrição com a seguinte frase:  <br /> </p> 
-						
-										<p> <br /> <b> "Mas nada que impeça uma leitura prazerosa"</b></i><br /> </p>
+                        <tr>
+                                    <div class="row data">
+                                        <div class="col-9">
+                                            <td><li><b> Descrição do livro:</b></td>
+                            
+                                            <td> <p> <i>Aqui você deve descrever o livro conforme o estado de conservação dele.</p>
+                                                Se estiver amarelado, com páginas amassadas, grifos, assinaturas e/ou anotações.  <br />
+                                            <p>P.S.: Sugiro que termine sempre a descrição com a seguinte frase:  <br /> </p> 
+                            
+                                            <p> <br /> <b> "Mas nada que impeça uma leitura prazerosa"</b></i><br /> </p>
 
-								<textarea rows="4" placeholder="Ex: Livro com capa amassada, lateral rasgada, e amarelada, marcas de uso, assinatura do último dono, e autógrafo autor. Mas nada que impeça uma leitura prazerosa." name='descricao' size="50" > </textarea><br /><br /> </li>
-							</td>
+                                    <textarea rows="4" placeholder="Ex: Livro com capa amassada, lateral rasgada, e amarelada, marcas de uso, assinatura do último dono, e autógrafo autor. Mas nada que impeça uma leitura prazerosa." name='descricao' size="50" value="<?php echo $exibe['descricao']; ?>" > </textarea><br /><br /> </li>
+                                </td>
 
-							</div>
-								</div>
-								
-									
-								
-						</div>
-					</tr>
+                                </div>
+                                    </div>
+                                    
+                                        
+                                    
+                            </div>
+                        </tr>
 
-					<tr>
+                        <tr>
 
-						<div class="col-9">
-							<div class="row data">
-							<td><li> <b>	<label for="capa">Capa: </label> </b></td>
-							</div>
-							</div>
-					
-			
-								<div class="col-9">
-									<div class="row">
-							
-										
-											<td>	<b> <span class="upload-box-title">Selecione uma capa para enviar </span>  </b>
-											 <br /> 
-											<br />
-	
-											<input id="capa" accept=".png, .jpg" type="file" name="capa" value="" style="float: center;"
-											data-buttonText="Escolher imagem" data-icon="false"
-											data-format="Por favor, utilize um arquivo no formato PNG ou JPG de até 5MB para o upload da imagem."
-											/> </li>
+                            <div class="col-9">
+                                <div class="row data">
+                                <td><li> <b>	<label for="capa">Capa: </label> </b></td>
+                                </div>
+                                </div>
+                        
+                
+                                    <div class="col-9">
+                                        <div class="row">
+                                
+                                                <td>	<b> <span class="upload-box-title">Selecione uma capa para enviar </span>  </b>
+                                                <br /> 
+                                                <br />
+        
+                                                <input id="capa" accept=".png, .jpg" type="file" name="capa" value="" style="float: center;"
+                                                data-buttonText="Escolher imagem" data-icon="false"
+                                                data-format="Por favor, utilize um arquivo no formato PNG ou JPG de até 5MB para o upload da imagem."
+                                                /> </li>    </td>
+                                    </tr>
 
 
-												<div class="tooltip">
-													<p>
-														Faça o upload do arquivo .png ou .jpg com a foto da capa do livro.
-														O tamanho da imagem não deve ultrapassar 5 Mb.
-													</p>
-												</div>	
 
-											</div>	
-										</div>
-							
-						
-								</div>
-								</div>
-								</div>
+                                                <div class="tooltip">
+                                                        <p>
+                                                            Faça o upload do arquivo .png ou .jpg com a foto da capa do livro.
+                                                            O tamanho da imagem não deve ultrapassar 5 Mb.
+                                                        </p>
+                                                    </div>	
 
-							
-							
-					
-				
-				</td>
-				</tr>
+                                                </div>	
+                                            </div>
+                                
+                            
+                                    </div>
+                                    </div>
+                                    </div>
 
-				<br />
-				<br /> 
+                                
+                                
+                        
+                    
+                    
+                    
+                                    <br />
+                        <br /> 
 
-					<tr>
-						<div class="col-9">
-						
-						
-							<td><p><h5>Salvar Cadastro</h5></p>  <input type="submit" value="Salvar"  /></td>
-						</div>
+                        <tr>
+                            <div class="col-9">
+                             
+                            
+                        <td> <p><h5>Editar Cadastro</h5></p>  
+                            <input type="submit" value="Salvar"  />
+                        </td>
+                            </div>
 							</tr>
 
 						</ul>
@@ -639,20 +683,21 @@
 </div>
 </div>
 
+</div>
+
+</main>
+
+                            <div id="copy-area">
+                                <div class="container">
+
+                                    <div class="col-md-12">
+                                    <p>Desenvolvido por <a href="https://www.n-s-tecnologia.webnode.com" target="_blank">N&S - Tecnologia</a> © 2020</p>
+
+                                    </div>
+                                </div>
+                            </div>
 
 
-	</main>
-
-	<div id="copy-area">
-		<div class="container">
-		  
-			  <div class="col-md-12">
-				<p>Desenvolvido por <a href="https://www.n-s-tecnologia.webnode.com" target="_blank">N&S - Tecnologia</a> © 2020</p>
-			  </div>
-		  </div>
-		</div>
-	  </div>
-	</div>
 </body>
 
 </html>

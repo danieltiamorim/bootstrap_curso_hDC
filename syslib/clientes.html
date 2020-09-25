@@ -38,7 +38,7 @@
 		<div class="container" id="nav-container">
 			<nav class="navbar navbar-expand-lg fixed-top navbar-dark">
 				<a class="navbar-brand" href="index.html"> 
-					<img id="logo" src="logo.png"> SysLib
+					<img id="logo" src="logo.png"> SysLib: Clientes
 				</a>
 
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -53,12 +53,13 @@
 						<a class="nav-item nav-link" id="estoque-menu" href="estoque.html#">Estoque</a>
 						<a class="nav-item nav-link" id="pesquisa-menu" href="pesquisar.html#">Pesquisa</a>
 						<a class="nav-item nav-link" id="pesquisa-menu" href="pedidos.html#">Pedido</a>
+						<a class="nav-item nav-link" id="pesquisa-menu" href="clientes.html#">Clientes</a>
 					</div>
 				</div> 
 			</nav>
 			
 			</div>
-		</header>
+			</header>
 	<br /><br />
 
     <main>
@@ -68,10 +69,10 @@
                 <div class="container"> 
                     <div class="row">
                         <div class="col-12">      
-							 <h4 class="main-title"><u>Pesquisa</u></h4> 
+							 <h4 class="main-title"><u>Pesquisa: Clientes</u></h4> 
         
-                        <form method="POST" action="pesquisar.php">
-                       <input type="text" name="pesquisar" placeholder="ISBN, Autor, Editora ou Título" size="50">
+                        <form method="POST" action="pesquisar_clientes.php">
+                       <input type="text" name="pesquisar" placeholder="Nome, Endereço, Mês ou Ano de Aniversário," size="100">
                         <input type="submit" value="BUSCAR">
                         </form>
                         </div>
@@ -84,34 +85,34 @@
 				<div class="container"> 
 					<div class="row">
 					<div class="col-12">  		
-						<h4 class="main-title"><u>Cadastro de Livros </u></h4> 		
-					  <h5 >Nesta página você pode cadastrar os mais diversos livros;</h5>
+						<h4 class="main-title"><u>Cadastro de Clientes </u></h4> 		
+					  <h5 >Nesta página você pode cadastrar Clientes</h5>
                 	Cheque cada informação e preencha os dados com cuidado; <br />
-                	O Número ISBN é imprescidível, e deve ser usado a máquina leitora de código de barras para a devida leitura dele; <br />
-                	Se for o caso de não ter código de barras, pesquise pelo título na internet e cadastre o livro ou chame o seu supervisor; <br />
+                	O Número de CPF  e CEP é imprescídivel e deve ser usado <br />
+                	Qualquer dúvida por favor, chame o seu supervisor; <br />
 					Ele(a) irá lhe ajudar com essa missão, boa sorte.  <br />
 					<b>P.S.:</b> O que estiver com <b>ASTERISCO *</b> deve ser preenchido com máxima importância. 
 					</div>
 					
 					<table>	
-						<form method="post" action="estoque.php" enctype="multipart/form-data">
-						<tr>
+						<form method="post" action="cadastro_clientes.php" enctype="multipart/form-data">
+												<tr>
 							<ul>
 							
 							<tr>												
 													
 								<div class="row data">
 								<div class="col-9">
-									<td> <li><b>	<label for="form_isbn" >ISBN<span class="asterisk" >*</span>:</label> </b> </td> 
+									<td> <li><b>	<label for="form_cpf" >CPF<span class="asterisk" >*</span>:</label> </b> </td> 
 							
 								
 								<td>
 								
-									<input id="form_isbn" type="text"
+									<input id="form_cpf" type="text"
 									required
-									data-blank="ISBN não preenchido"
-									data-invalid="ISBN inválido"
-									name="isbn" maxlength="16" value=""
+									data-blank="CPF não preenchido"
+									data-invalid="CPF inválido"
+									name="cpf" maxlength="11" value=""
 									placeholder="Ex: 9788532511010 "
 									autocomplete="no"
 									/> <br /> </li> </td>
@@ -124,8 +125,8 @@
 							<tr>								
 							<div class="col-9">
 									<div class="row data">
-										<td> <li><b>Nome do Livro<span class="asterisk">*</span>: </b> </td>
-										<td> <input type="Nome do livro" name="titulo"  placeholder="Ex: Harry Potter e a Pedra Filosofal" size="50" maxlength="100" required/><br /> </li> </td>
+										<td> <li><b>Nome do Cliente<span class="asterisk">*</span>: </b> </td>
+										<td> <input type="Nome do livro" name="nome_cliente"  placeholder="Ex: José Maria do Nascimento" size="50" maxlength="100" required/><br /> </li> </td>
 									</div>
 								</div>
 							</tr>
@@ -141,7 +142,7 @@
 							</tr>
 
 
-							<tr>
+									<tr>
 									<div class="row data">
 										<div class="col-9">
 											<td><li> <b><label for="editora">Editora<span class="asterisk">*</b></span>:</label>
@@ -155,9 +156,9 @@
 										</td>
 										</div>			
 									</div>
-							</tr>
+								</tr>
 
-							<tr>
+								<tr>
 									<div class="row data">
 									<div class="col-9">
 									<td>	<li> <b>	<label for="form_estante">Estante<span class="asterisk">*</span>:</label></b>
@@ -393,7 +394,7 @@
 											</div>
 
 									</div>
-							</tr>
+								</tr>
 
 
 							
@@ -489,13 +490,14 @@
 
 
 						<tr>
+
 								<div class="col-9">	
 								<div class="row data">
 									<td><li> <b>Quantidade<span class="asterisk" >*</span>: </b> </td>
 									<td>	<input type="Quantidade" name="quantidade" placeholder="Ex: 10 - Só número inteiro" size="20"  maxlength="5" required /> <br /> </li> </td>
 								</div>		
 								</div>	
-						</tr>
+							</tr>
 						<tr>
 							<div class="col-9">	
 								<div class="row data">
