@@ -72,10 +72,10 @@
             <div class="container"> 
               <div class="row">
                 <div class="col-12">               
-                 <br> <h4 class="main-title"><u>Pesquisa</u></h4> 
+                 <br> <h4 class="main-title"><u>Pesquisa Estoque</u></h4> 
                 <form method="POST" action="pesquisar.php">
-                Buscar:<input type="text" name="pesquisar" placeholder="ISBN, Autor, Editora ou Título" size="50">
-                  <input type="submit" value="pesquisar">
+                <input type="text" name="pesquisar" placeholder="ISBN, Autor, Editora ou Título" size="50">
+                  <input type="submit" value="Buscar">
                 </form>
                 
 <br>
@@ -124,17 +124,19 @@ header('Content-Type: text/html; charset=utf-8');
   </div>
 </div>
 
+  </main>
 
+<div id="copy-area">
+	<div class="container">
+		<div class="row align-self-end">
+			<div class="col-md-12">
+			  <p>Desenvolvido por <a href="https://www.n-s-tecnologia.webnode.com" target="_blank">N&S - Tecnologia</a> © 2020</p>
+			</div>
+		</div>
+	</div>	 
+</div>	 
 
-
-    <div id="copy-area">
-    <div class="container">
-      
-  <div class="col-md-12">
-  <p>Desenvolvido por <a href="https://www.n-s-tecnologia.webnode.com" target="_blank">N&S - Tecnologia</a> © 2020</p>
-  </div>
-</div>
-</div>
 
 </body>
+
 </html>

@@ -79,7 +79,7 @@
 	//Check it is coming from a form
 	$nome_cliente = $_POST["nome_cliente"]; //set PHP variables like this so we can use them anywhere in code below
 	$cep = $_POST["cep"];
-	$rua = $_POST["rua"];	
+	$logradouro = $_POST["logradouro"];	
 	$bairro = $_POST ["bairro"];
 	$num_casa = $_POST ["num_casa"];
 	$data_nascimento = $_POST ["data_nascimento"];
@@ -88,6 +88,7 @@
 	$telefone2 = $_POST["telefone2"];
 	$cpf = $_POST["cpf"];
 	$rg = $_POST["rg"];
+	
 	
 		
 
@@ -100,8 +101,8 @@ die('Connect Error ('. mysqli_connect_errno() .') '
 }
 
 else{
-$sql = "INSERT INTO clientes (nome_cliente, cep, rua, bairro, num_casa, data_nascimento, email, telefone1, telefone2, cpf , rg)
-values ('$nome_cliente', '$cep', '$rua', '$bairro', '$num_casa', '$data_nascimento', '$email', '$telefone1', '$telefone2', '$cpf', '$rg', '$filename')";
+$sql = "INSERT INTO clientes (nome_cliente, cep, logradouro, bairro, num_casa, data_nascimento, email, telefone1, telefone2, cpf , rg)
+values ('$nome_cliente', '$cep', '$logradouro', '$bairro', '$num_casa', '$data_nascimento', '$email', '$telefone1', '$telefone2', '$cpf', '$rg', '$filename')";
 		  
 	
 

@@ -133,6 +133,23 @@ $exibe = mysqli_fetch_assoc($resultado)
             		<form method="post" action="salvar_edicao.php" enctype="multipart/form-data">
 					<tr>
 						<ul>
+
+
+		
+						<tr>								
+							<div class="col-9">
+									<div class="row data">
+										<td> <li><b>ID - Livro<span class="asterisk">*</span>: </b> </td>
+										<td> <font color='red'><?php echo $exibe['ID_livro']; ?></font> </li>  <input type="hidden" name="ID_livro"  value="<?php echo $exibe['ID_livro']; ?>" required/> </li> </td></td>
+									</div>
+								</div>
+							</tr>
+
+
+
+
+
+
 							<tr>	
 								<div class="row data">	
 								<div class="col-9">
@@ -152,17 +169,7 @@ $exibe = mysqli_fetch_assoc($resultado)
 								</div>
 								</div>
 							</tr>
-							
-							<tr>								
-							<div class="col-9">
-									<div class="row data">
-										<td> <li><b>ID - Livro<span class="asterisk">*</span>: </b> </td>
-										<td> <input type="Nome do livro" name="ID_livro"  placeholder="<?php echo $exibe['ID_livro']; ?>" size="50" maxlength="100" value="<?php echo $exibe['ID_livro']; ?>" required/></li> </td>
-									</div>
-								</div>
-							</tr>
-
-
+					
 
 							<tr>								
 							<div class="col-9">
@@ -536,7 +543,7 @@ $exibe = mysqli_fetch_assoc($resultado)
                             <tr>
 							<div class="row data">
 									<div class="col-9">
-                                    <td> <li> <b>Preço Venda<span class="asterisk" >*</span>: </b> </td>
+									<td><li> <b><font color='blue'>Preço de Venda:</font> </> </b> </td>
                                     <td> <input type="Preço" name="preco_venda" placeholder="Ex: 10,00" size="20"   maxlength="7" value="<?php echo $exibe['preco_venda']; ?>" required/>  </li> </td>
                                     </div>
                                 </div>
@@ -546,8 +553,8 @@ $exibe = mysqli_fetch_assoc($resultado)
 								
 									<div class="row data">
 									<div class="col-9">
-											<td><li> <b>Preço de Custo: </b> </td>
-											<td>	<input type="text" name="preco_custo" placeholder="Ex: 9,99" maxlength="7" value="<?php echo $exibe['preco_custo']; ?>" /></li> </td>
+											<td><li> <b><font color='red'>Preço de Custo:</font> </> </b> </td>
+											<td>	<input type="text" name="preco_custo" placeholder="Ex: 9,99" maxlength="7" value="<?php echo $exibe['preco_custo']; ?>"/></li> </td>
 								</div>
 							</div>
     						</tr>

@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> SysLib: Pesquisa</title>
+    <title> SysLib: Home</title>
 
     <!----- Fonte ----->  
     <link href="https://fonts.googleapis.com/css2?family=Lato&family=Noto+Sans+JP&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
@@ -32,37 +31,40 @@
 
 </head>
 
-
-
 <body>
-  <header> 
+<header> 
     
-		<div class="container" id="nav-container">
-			<nav class="navbar navbar-expand-lg fixed-top navbar-dark">
-				<a class="navbar-brand" href="index.html"> 
-					<img id="logo" src="logo.png"> SysLib
-				</a>
+    <div class="container" id="nav-container">
+        <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+            <a class="navbar-brand" href="home.php"> 
+                <img id="logo" src="logo.png"> SysLib: Home
+            </a>
 
-				<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#navbar-links"
-					aria-controls="navbar-links" aria-expanded="false" 
-					aria-label="toggle navigation">
-					<span class="navbar-toggler-icon"></span> 
-				</button>
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbar-links"
+                aria-controls="navbar-links" aria-expanded="false" 
+                aria-label="toggle navigation">
+                <span class="navbar-toggler-icon"></span> 
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" id="home-menu" href="home.php#"></span>Home</a>
+                    <a class="nav-item nav-link" id="estoque-menu" href="estoque.html#">Estoque</a>
+                    <a class="nav-item nav-link" id="pesquisa-menu" href="cadastro_cliente.html#">Cliente</a>
+                    <a class="nav-item nav-link" id="pesquisa-menu" href="pedidos.html#">Pedido</a>
+                    <a class="nav-item nav-link" id="pesquisa-menu" href="cadastro_usuario.html#">Cadastro de Usuário</a>
+                    <a class="nav-item nav-link" id="pesquisa-menu" href="login.html#"><font color='red'>Logout</font></a>
+                </div>
+            </div> 
+        </nav>
+        
+        </div>
+        </header>
+        
 
-				<div class="collapse navbar-collapse justify-content-end" id="navbar-links">
-					<div class="navbar-nav">
-						<a class="nav-item nav-link" id="home-menu" href="#"></span> Home</a>
-						<a class="nav-item nav-link" id="estoque-menu" href="estoque.html#">Estoque</a>
-						<a class="nav-item nav-link" id="pesquisa-menu" href="pesquisar.html#">Pesquisa</a>
-						<a class="nav-item nav-link" id="pesquisa-menu" href="pedidos.html#">Pedido</a>
-					</div>
-				</div> 
-				
-			</nav>
-			
-			</div>
-	</header>
+        <br> <br> 
+
+
 
 <main>
   <br> <br>
@@ -150,8 +152,8 @@ while($exibe = mysqli_fetch_assoc($resultado)){
 
             $id = $exibe['ID_livro'];
             $isbn = $exibe['isbn'];
-            echo "<button> <td><a href='delete.php?id=$id'>Excluir</a></button> <br> ou <br>";
-            echo "<button> <td><a href='editar.php?id=$id?isbn=$isbn'>Editar</a></button> </p>"; 
+           echo "<button> <td><a href='editar.php?id=$id?isbn=$isbn'>Editar</a></button> <b> OU </b> "; 
+           echo "<button> <td><a href='delete.php?id=$id'><font color='red'>Excluir</font></a></button> </p>";
             
           }
    
