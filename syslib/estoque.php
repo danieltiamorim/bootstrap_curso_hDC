@@ -36,35 +36,32 @@
 		<div class="container" id="nav-container">
 			<nav class="navbar navbar-expand-lg fixed-top navbar-dark">
 				<a class="navbar-brand" href="index.html"> 
-					<img id="logo" src="logo.png"> SysLib
-				</a>
+					<img id="logo" src="logo.png"> SysLib: Inclusão de Produto novo
+					</a>
 
-				<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#navbar-links"
-					aria-controls="navbar-links" aria-expanded="false" 
-					aria-label="toggle navigation">
-					<span class="navbar-toggler-icon"></span> 
-				</button>
-				<div class="collapse navbar-collapse justify-content-end" id="navbar-links">
-					<div class="navbar-nav">
-						<a class="nav-item nav-link" id="home-menu" href="#"></span> Home</a>
-						<a class="nav-item nav-link" id="estoque-menu" href="estoque.html#">Estoque</a>
-						<a class="nav-item nav-link" id="pesquisa-menu" href="pesquisar.html#">Pesquisa</a>
-						<a class="nav-item nav-link" id="pesquisa-menu" href="pedidos.html#">Pedido</a>
-					</div>
-				</div> 
-			</nav>
-			
-			</div>
-			</header>
-	<br /><br />
+<button class="navbar-toggler" type="button" data-toggle="collapse"
+data-target="#navbar-links"
+	aria-controls="navbar-links" aria-expanded="false" 
+	aria-label="toggle navigation">
+	<span class="navbar-toggler-icon"></span> 
+</button>
+<div class="collapse navbar-collapse justify-content-end" id="navbar-links">
+	<div class="navbar-nav">
+		<a class="nav-item nav-link" id="home-menu" href="home.php#"></span>Home</a>
+		<a class="nav-item nav-link" id="estoque-menu" href="estoque.html#">Estoque</a>
+		<a class="nav-item nav-link" id="pesquisa-menu" href="cadastro_cliente.html#">Cliente</a>
+		<a class="nav-item nav-link" id="pesquisa-menu" href="pedidos.html#">Pedido</a>
+		<a class="nav-item nav-link" id="pesquisa-menu" href="cadastro_usuario.html#">Cadastro de Usuário</a>
+		<a class="nav-item nav-link" id="pesquisa-menu" href="login.html#"><font color='red'>Logout</font></a>
+	</div>
+</div> 
+</nav>
 
-
-
+</div>
+</header>
+<br /><br />
 
 			<?php
-
-
 
 			//syslib_cadastro.php
     if ($_SERVER["REQUEST_METHOD"] == "POST") 
@@ -97,21 +94,7 @@
 	  
 		$capas = "capas/".$capa;
 
-		//upload de capa
-	
-  
-		// Execute query 
-	
-		  
-		// Now let's move the uploaded image into the folder: image 
-		
-  
-  
-
-
-
-
-
+		 
 
 if (mysqli_connect_error()){
 die('Connect Error ('. mysqli_connect_errno() .') '
@@ -120,11 +103,8 @@ die('Connect Error ('. mysqli_connect_errno() .') '
 
 else{
 $sql = "INSERT INTO livros (titulo, autor, isbn, preco_custo, preco_venda, quantidade, editora, ano, edicao, estado, idioma , estante, peso, capa)
-values ('$titulo', '$autor', '$isbn', '$preco_custo', '$preco_venda', '$quantidade', '$editora', '$ano', '$edicao', '$estado', '$idioma', '$estante', '$peso', '$filename')";
-		  
+values ('$titulo', '$autor', '$isbn', '$preco_custo', '$preco_venda', '$quantidade', '$editora', '$ano', '$edicao', '$estado', '$idioma', '$estante', '$peso', '$filename')";  
 	
-
-
 }
 
 if (move_uploaded_file($filename, $capas))  { 
@@ -141,12 +121,6 @@ echo "Aí sim! Livro cadastrado com sucesso! </br>";
 }
 
 
-
-
-
-
-
-
 else{
 echo "Error: ". $sql ."
 ". $conn->error;
@@ -154,8 +128,6 @@ echo "Error: ". $sql ."
 $conn->close();
 
 	
-
-
 		?>	
 
 <a href='estoque.html#'> Clique aqui para continuar cadastrando! </a>

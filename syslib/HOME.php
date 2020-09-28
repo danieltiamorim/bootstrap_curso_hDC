@@ -1,8 +1,9 @@
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> SysLib</title>
+    <title> SysLib: Home</title>
 
     <!----- Fonte ----->  
     <link href="https://fonts.googleapis.com/css2?family=Lato&family=Noto+Sans+JP&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
@@ -35,8 +36,8 @@
     
     <div class="container" id="nav-container">
         <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
-            <a class="navbar-brand" href="index.html"> 
-                <img id="logo" src="logo.png"> SysLib
+            <a class="navbar-brand" href="home.php"> 
+                <img id="logo" src="logo.png"> SysLib: Home
             </a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -47,28 +48,43 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link" id="home-menu" href="home.php#"></span> Home</a>
+                    <a class="nav-item nav-link" id="home-menu" href="home.php#"></span>Home</a>
                     <a class="nav-item nav-link" id="estoque-menu" href="estoque.html#">Estoque</a>
-                    <a class="nav-item nav-link" id="pesquisa-menu" href="pesquisar.html#">Pesquisa</a>
+                    <a class="nav-item nav-link" id="pesquisa-menu" href="cadastro_cliente.html#">Cliente</a>
                     <a class="nav-item nav-link" id="pesquisa-menu" href="pedidos.html#">Pedido</a>
                     <a class="nav-item nav-link" id="pesquisa-menu" href="cadastro_usuario.html#">Cadastro de Usuário</a>
+                    <a class="nav-item nav-link" id="pesquisa-menu" href="login.html#"><font color='red'>Logout</font></a>
                 </div>
             </div> 
         </nav>
         
         </div>
         </header>
-	<br /><br />
+        
 
-  
-
-
-
-  </br>
-</br>
+        <br> <br> 
 
 
 
+<main>
+        <div class="container-fluid">
+          <div id="cadastro">
+            <div class="container"> 
+              <div class="row">
+                <div class="col-12">               
+                 <br> <h4 class="main-title"><u>Pesquisa</u></h4> 
+                <form method="POST" action="pesquisar.php">
+                Buscar:<input type="text" name="pesquisar" placeholder="ISBN, Autor, Editora ou Título" size="50">
+                  <input type="submit" value="pesquisar">
+                </form>
+                
+<br>
+              </div>
+               </div>
+
+               <div class="container"> 
+               <div class="row"> 
+               <div class="col-4"> 
 <?php
   $login_cookie = $_COOKIE['login'];
     if(isset($login_cookie)){
@@ -83,40 +99,24 @@
 // Charset UTF-8
 header('Content-Type: text/html; charset=utf-8');
 
-// Detalhes da conexão
 
-
-                               
+                             
     }
 
-
-
-
 ?>
+<br>
+<div class="container"> 
+<button> <a href='estoque.html'>Incluir Novo <font color='red'>Livro</font></a></button> <br>
+<br>
+<button> <a href='cadastro_usuario.html'>Incluir Novo <font color='red'>Usuário</font></a></button> <br>
 
-
-
-
-<main>
-        <div class="container-fluid">
-          <div id="cadastro">
-            <div class="container"> 
-              <div class="row">
-                <div class="col-12">  
-                
-                
-                <h4 class="main-title"><u>Pesquisa</u></h4> 
-
- 
-                <form method="POST" action="pesquisar.php">
-                Buscar:<input type="text" name="pesquisar" placeholder="ISBN, Autor, Editora ou Título" size="50">
-                  <input type="submit" value="pesquisar">
-                </form>
-                
-              </div>
+<br>
+<button> <a href='cadastro_cliente.html'>Incluir Novo <font color='red'>Cliente</font></a></button> <br>
+           
+</div>
             </div>
             </div>
-
+            </div>
 </div>
         </div>
 
@@ -136,8 +136,5 @@ header('Content-Type: text/html; charset=utf-8');
 </div>
 </div>
 
-
-
 </body>
-
 </html>

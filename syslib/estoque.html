@@ -33,8 +33,7 @@
 
 
 <body>
-    <header> 
-    
+    <header>    
 		<div class="container" id="nav-container">
 			<nav class="navbar navbar-expand-lg fixed-top navbar-dark">
 				<a class="navbar-brand" href="index.html"> 
@@ -63,7 +62,7 @@
 
     <main>
 
-		<div class="container-fluid">
+		
             <div id="cadastro">
                 <div class="container"> 
                     <div class="row">
@@ -136,23 +135,18 @@
 										<td> <li> <b>Autor*: </b> </td>
 										<td><input type="Autor" name="autor" placeholder="Ex: J K Rowling S/ PONTOS" size="50" required/> <br /> </li> </td> 
 									</div>
-								
 								</div>
 							</tr>
-
 
 							<tr>
 									<div class="row data">
 										<div class="col-9">
-											<td><li> <b><label for="editora">Editora<span class="asterisk">*</b></span>:</label>
-										
-
-										
+											<td><li> <b><label for="editora">Editora<span class="asterisk">*</b></span>:</label></td>
 											<td> <input type="Editora" name="editora" placeholder="Ex: Rocco" maxlength="30" value=""
                                     		required autocomplete="no" size="50"
                                    			data-empty="Editora não preenchida."
 											data-name="Editora - preenchimento incorreto. Coloque apenas o nome da editora, \n sem repetir 'Editora'. \n  Ex: digite simplesmente 'Cortez', ao invés de 'Cortez Editora'"/> <br /> </li>
-										</td>
+											</td>
 										</div>			
 									</div>
 							</tr>
@@ -160,8 +154,7 @@
 							<tr>
 									<div class="row data">
 									<div class="col-9">
-									<td>	<li> <b>	<label for="form_estante">Estante<span class="asterisk">*</span>:</label></b>
-										</div>
+									<td>	<li> <b>	<label for="form_estante">Estante<span class="asterisk">*</span>:</label></b>								
 									</td>
 
 									<td>
@@ -395,16 +388,16 @@
 									</div>
 							</tr>
 
-
-							
+					
 								
 								
 									<tr>
 										<div class="row data">
 											<div class="col-9">
-											<td> <b>	<li> <label for="form_idioma">Idioma:</label></td> </li> </b>
+											<td> <b>	<li> <label for="form_idioma">Idioma:</label> </li> </b>
+											</td>
 											</div>
-
+											
 											<td>
 										
 												<select id="form_idioma" name="idioma" class="custom_select">
@@ -459,11 +452,11 @@
 																					<option value="Ru" >
 														Russo
 													</option>
-													
-												</select>
+													</select>
+												</td>
 											</div>
 										</div>
-									</td>
+									
 						</tr>
 
 							<tr>
@@ -489,18 +482,18 @@
 
 
 						<tr>
-								<div class="col-9">	
-								<div class="row data">
+							<div class="row data">
+								<div class="col-9">
 									<td><li> <b>Quantidade<span class="asterisk" >*</span>: </b> </td>
 									<td>	<input type="Quantidade" name="quantidade" placeholder="Ex: 10 - Só número inteiro" size="20"  maxlength="5" required /> <br /> </li> </td>
 								</div>		
 								</div>	
 						</tr>
 						<tr>
-							<div class="col-9">	
-								<div class="row data">
+							<div class="row data">
+								<div class="col-9">
 								<td> <li> <b>Preço Venda<span class="asterisk" >*</span>: </b> </td>
-								<td> <input type="Preço" name="preco_venda" placeholder="Ex: 10,00" size="20"   maxlength="7" required/> <br /> </li> </td>
+								<td> <input type="Preço" name="preco_venda" placeholder="Ex: 10,00" size="20"   maxlength="7" required/> </li> </td>
 								</div>
 							</div>
 						</tr>
@@ -512,7 +505,7 @@
 								<div class="row data">
 										<div class="col-9">
 											<td><li> <b>Preço de Custo: </b> </td>
-											<td>	<input type="text" name="preco_custo" placeholder="Ex: 9,99" maxlength="7"  /> <br />  </li> </td>
+											<td>	<input type="text" name="preco_custo" placeholder="Ex: 9,99" maxlength="7"  /> </li> </td>
 								</div>
 							</div>
 						</tr>
@@ -543,11 +536,7 @@
 							</div>
 						</tr>
 						
-
-
-
-						<br />
-
+		
 					<tr>
 								<div class="row data">
 									<div class="col-9">
@@ -556,10 +545,9 @@
 										<td> <p> <i>Aqui você deve descrever o livro conforme o estado de conservação dele.</p>
 											 Se estiver amarelado, com páginas amassadas, grifos, assinaturas e/ou anotações.  <br />
 						 				<p>P.S.: Sugiro que termine sempre a descrição com a seguinte frase:  <br /> </p> 
-						
-										<p> <br /> <b> "Mas nada que impeça uma leitura prazerosa"</b></i><br /> </p>
+										  <b> "Mas nada que impeça uma leitura prazerosa"</b></i> <br>
 
-								<textarea rows="4" placeholder="Ex: Livro com capa amassada, lateral rasgada, e amarelada, marcas de uso, assinatura do último dono, e autógrafo autor. Mas nada que impeça uma leitura prazerosa." name='descricao' size="50" > </textarea><br /><br /> </li>
+								<textarea rows="4" placeholder="Ex: Livro com capa amassada, lateral rasgada, e amarelada, marcas de uso, assinatura do último dono, e autógrafo autor. Mas nada que impeça uma leitura prazerosa." name='descricao' width="100" > </textarea><br /><br /> </li>
 							</td>
 
 							</div>
@@ -572,15 +560,15 @@
 
 					<tr>
 
-						<div class="col-9">
-							<div class="row data">
+						<div class="row data">
+							<div class="col-9">
 							<td><li> <b>	<label for="capa">Capa: </label> </b></td>
 							</div>
 							</div>
 					
 			
+							<div class="row data">
 								<div class="col-9">
-									<div class="row">
 							
 										
 											<td>	<b> <span class="upload-box-title">Selecione uma capa para enviar </span>  </b>
@@ -619,14 +607,14 @@
 				<br /> 
 
 					<tr>
-						<div class="col-9">
-						
-						
-							<td><p><h5>Salvar Cadastro</h5></p>  <input type="submit" value="Salvar"  /></td>
+						<div class="col-9">										
+							<td><p><h5>Salvar Cadastro</h5></p>  
+							<input type="submit" value="Salvar"  />
+							</td>
 						</div>
-							</tr>
+					</tr>
 
-						</ul>
+					</ul>
 					
 					</div>
 						
@@ -645,7 +633,7 @@
 
 	<div id="copy-area">
 		<div class="container">
-		  
+		  <div class="row">
 			  <div class="col-md-12">
 				<p>Desenvolvido por <a href="https://www.n-s-tecnologia.webnode.com" target="_blank">N&S - Tecnologia</a> © 2020</p>
 			  </div>

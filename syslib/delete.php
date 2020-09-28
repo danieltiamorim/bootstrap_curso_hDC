@@ -9,7 +9,7 @@ $delete = (" DELETE  FROM livros  WHERE ID_livro = '$id'");
 if ($conn->query($delete)){
     //print output text
 echo "Livro deletado </br>"; 
-print " <a href='pesquisar.html#'> Pesquisa </a>  Clique aqui para retornar  </br>"; 
+print " <button> <a href='pesquisar.html#'> Clique aqui para retornar </a>  </button>  </br>"; 
 }
 
 

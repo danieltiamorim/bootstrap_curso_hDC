@@ -86,7 +86,7 @@
           </div>
         </div>
             
-
+        <button> <td><a href='estoque.html'>Incluir Novo Livro</a></button> <br>
 		
            
 			<div id="cadastro">
@@ -150,8 +150,8 @@ while($exibe = mysqli_fetch_assoc($resultado)){
 
             $id = $exibe['ID_livro'];
             $isbn = $exibe['isbn'];
-            echo "<td><a href='delete.php?id=$id'>Excluir</a><br>";
-            echo "<td><a href='editar.php?id=$id?isbn=$isbn'>Editar</a> </p>"; 
+            echo "<button> <td><a href='delete.php?id=$id'>Excluir</a></button> <br> ou <br>";
+            echo "<button> <td><a href='editar.php?id=$id?isbn=$isbn'>Editar</a></button> </p>"; 
             
           }
    
@@ -192,7 +192,7 @@ while($exibe = mysqli_fetch_assoc($resultado)){
         </div>
 
         <div id="copy-area">
-        <div class="container fixed-bottom">
+        <div class="container">
           
       <div class="col-md-12">
       <p>Desenvolvido por <a href="https://www.n-s-tecnologia.webnode.com" target="_blank">N&S - Tecnologia</a> © 2020</p>

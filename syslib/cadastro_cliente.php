@@ -36,7 +36,7 @@
 		<div class="container" id="nav-container">
 			<nav class="navbar navbar-expand-lg fixed-top navbar-dark">
 				<a class="navbar-brand" href="index.html"> 
-					<img id="logo" src="logo.png"> SysLib
+					<img id="logo" src="logo.png"> SysLib: Cadastro de Clientes
 				</a>
 
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -77,38 +77,19 @@
 	
 		
 	//Check it is coming from a form
-	$titulo = $_POST["titulo"]; //set PHP variables like this so we can use them anywhere in code below
-	$autor = $_POST["autor"];	
-	$isbn = $_POST ["isbn"];
-	$preco_venda = $_POST ["preco_venda"];
-	$preco_custo = $_POST ["preco_custo"];
-	$quantidade = $_POST["quantidade"];
-	$editora = $_POST["editora"];
-	$ano = $_POST["ano"];
-	$edicao = $_POST["edicao"];
-	$estado = $_POST["estado"];
-	$idioma = $_POST["idioma"];
-	$estante = $_POST["estante"];
-	$peso = $_POST["peso"];
-
+	$nome_cliente = $_POST["nome_cliente"]; //set PHP variables like this so we can use them anywhere in code below
+	$cep = $_POST["cep"];
+	$rua = $_POST["rua"];	
+	$bairro = $_POST ["bairro"];
+	$num_casa = $_POST ["num_casa"];
+	$data_nascimento = $_POST ["data_nascimento"];
+	$email = $_POST["email"];
+	$telefone1 = $_POST["telefone1"];
+	$telefone2 = $_POST["telefone2"];
+	$cpf = $_POST["cpf"];
+	$rg = $_POST["rg"];
 	
-
-	$filename = $_FILES["capa"]["name"]; 
-	  
-		$capas = "capas/".$capa;
-
-		//upload de capa
-	
-  
-		// Execute query 
-	
-		  
-		// Now let's move the uploaded image into the folder: image 
 		
-  
-  
-
-
 
 
 
@@ -119,8 +100,8 @@ die('Connect Error ('. mysqli_connect_errno() .') '
 }
 
 else{
-$sql = "INSERT INTO livros (titulo, autor, isbn, preco_custo, preco_venda, quantidade, editora, ano, edicao, estado, idioma , estante, peso, capa)
-values ('$titulo', '$autor', '$isbn', '$preco_custo', '$preco_venda', '$quantidade', '$editora', '$ano', '$edicao', '$estado', '$idioma', '$estante', '$peso', '$filename')";
+$sql = "INSERT INTO clientes (nome_cliente, cep, rua, bairro, num_casa, data_nascimento, email, telefone1, telefone2, cpf , rg)
+values ('$nome_cliente', '$cep', '$rua', '$bairro', '$num_casa', '$data_nascimento', '$email', '$telefone1', '$telefone2', '$cpf', '$rg', '$filename')";
 		  
 	
 
