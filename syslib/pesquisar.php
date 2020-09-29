@@ -115,13 +115,13 @@
                                 
                                 $pesquisar = $_POST['pesquisar'];
                                 
-                                    // tentativa de paginação
+                                    // Botão de exportação Excel
                             
                                   
-                                   
+                                    echo "<button><b>  <td><a href='imprimir.php?pesquisar=$pesquisar'>Imprimir resultados</a></button>  </b> ";                          
                              
 
-$limit = 5;
+$limit = 500;
 $ini   =  $limit;                                     
 $result_livros = "SELECT * FROM livros WHERE titulo LIKE '%$pesquisar%' or
 autor LIKE '%$pesquisar%' or
@@ -157,7 +157,7 @@ while($exibe = mysqli_fetch_assoc($resultado)){
             
           }
    
-          $delete = $conn-> query("DELETE * FROM livros  WHERE id='$id'"); // ESSA QUERY DELETA
+         
           
 
           $sql2 = "SELECT count(*) as count FROM livros ";
@@ -174,12 +174,12 @@ while($exibe = mysqli_fetch_assoc($resultado)){
 
 <div>
     <ul class="pagination pagination-sm pull-right">
-        <li><a href="pesquisar.php?page=<?php echo $num_paginas -1?>" id="anterior"><<</a></li>
+        <li><a href="pesquisar.php?page=<?php echo $num_paginas -1?>" id="anterior"><button><< Anterior </button></a></li>
         <?php
             for($i = 1; $i <= $num_paginas; $i++){ ?>
-                <li><a href="pesquisar.php?page=<?php echo $i - 1;?>"><?php echo $i;?></a></li>
+                <li><a href="pesquisar.php?page=<?php echo $i - 1;?>"> <?php echo $i;?>  </a>    </li>
         <?php }?>   
-        <li><a href="pesquisar.php?page=0">>></a></li>
+        <li><a href="pesquisar.php?page=0"><button>Próxima>> </button></a></li>
     </ul>
 </div> 
 
