@@ -88,11 +88,10 @@ data-target="#navbar-links"
 	$estante = $_POST["estante"];
 	$peso = $_POST["peso"];
 
-	
 
-	$filename = $_FILES["capa"]["name"]; 
-	  
-		$capas = "capas/".$capa;
+	$filename_temp=$_FILES["capa"]["tmp_name"];
+	$filename_real=$_FILES["capa"]["name"];
+		
 
 		 
 
@@ -103,11 +102,11 @@ die('Connect Error ('. mysqli_connect_errno() .') '
 
 else{
 $sql = "INSERT INTO livros (titulo, autor, isbn, preco_custo, preco_venda, quantidade, editora, ano, edicao, estado, idioma , estante, peso, capa)
-values ('$titulo', '$autor', '$isbn', '$preco_custo', '$preco_venda', '$quantidade', '$editora', '$ano', '$edicao', '$estado', '$idioma', '$estante', '$peso', '$filename')";  
+values ('$titulo', '$autor', '$isbn', '$preco_custo', '$preco_venda', '$quantidade', '$editora', '$ano', '$edicao', '$estado', '$idioma', '$estante', '$peso','capas/$isbn.$filename_real' )";  
 	
 }
 
-if (move_uploaded_file($filename, $capas))  { 
+if (copy($filename_temp,"capas/$filename_real"))  { 
 	$msg = "Image uploaded successfully"; 
 }else{ 
 	$msg = "Failed to upload image"; 

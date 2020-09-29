@@ -92,12 +92,11 @@
 	$estante = $_POST["estante"];
     $peso = $_POST["peso"];
     $descricao = $_POST ["descricao"];
-    $capa = $_FILES ["capa"];
+    
 	
 
-	$filename = $_FILES["capa"]["name"]; 
-	  
-		$capas = "capas/".$capa;
+	$filename_temp=$_FILES["capa"]["tmp_name"];
+	$filename_real=$_FILES["capa"]["name"];
 
 		//upload de capa
 	
@@ -120,22 +119,34 @@ die('Connect Error ('. mysqli_connect_errno() .') '
 . mysqli_connect_error());
 }
 
-else{
+
+
+ 
+{
+	
+	
 $sql = "UPDATE  livros  SET titulo = '$titulo',  autor = '$autor', isbn = '$isbn',  preco_custo = '$preco_custo', 
 preco_venda = '$preco_venda' , quantidade = '$quantidade',  editora = '$editora',  ano =  '$ano', 
- edicao = '$edicao', estado = '$estado' , idioma = '$idioma', estante = '$estante', peso=   '$peso'
- WHERE ID_livro='$id' ";
-		  
-	
+edicao = '$edicao', estado = '$estado' , idioma = '$idioma', estante = '$estante', peso=   '$peso', capa= 'capas/$isbn.$filename_real'  
+WHERE ID_livro='$id' ";
 
+if (copy($filename_temp,"capas/$filename_real")) ; 
+
+} 
+
+
+{ 	
+	$sql = "UPDATE  livros  SET titulo = '$titulo',  autor = '$autor', isbn = '$isbn',  preco_custo = '$preco_custo', 
+preco_venda = '$preco_venda' , quantidade = '$quantidade',  editora = '$editora',  ano =  '$ano', 
+ edicao = '$edicao', estado = '$estado' , idioma = '$idioma', estante = '$estante', peso=   '$peso'  WHERE ID_livro='$id' ";
 
 }
 
-if (move_uploaded_file($filename, $capas))  { 
-	$msg = "Image uploaded successfully"; 
-}else{ 
-	$msg = "Failed to upload image"; 
-} 
+
+
+
+
+
 
 
 if ($conn->query($sql)){

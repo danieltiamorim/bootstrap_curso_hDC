@@ -596,7 +596,7 @@ $exibe = mysqli_fetch_assoc($resultado)
 						 				<p>P.S.: Sugiro que termine sempre a descrição com a seguinte frase:  <br /> </p> 
 										  <b> "Mas nada que impeça uma leitura prazerosa"</b></i> <br>
 
-                                    <textarea rows="4" placeholder="Ex: Livro com capa amassada, lateral rasgada, e amarelada, marcas de uso, assinatura do último dono, e autógrafo autor. Mas nada que impeça uma leitura prazerosa." name='descricao' width="100" value="<?php echo $exibe['descricao']; ?>" > </textarea><br /><br /> </li>
+                                    <textarea rows="4" cols="50" placeholder="Ex: Livro com capa amassada, lateral rasgada, e amarelada, marcas de uso, assinatura do último dono, e autógrafo autor. Mas nada que impeça uma leitura prazerosa." name='descricao' width="100" value="<?php echo $exibe['descricao']; ?>" > </textarea><br /><br /> </li>
                                 </td>
 
                                 </div>
@@ -608,6 +608,7 @@ $exibe = mysqli_fetch_assoc($resultado)
                         </tr>
 
                         <tr>
+						
 
 						<div class="row data">
 									<div class="col-9">
@@ -620,9 +621,10 @@ $exibe = mysqli_fetch_assoc($resultado)
 									<div class="col-9">
 							
 										
-											<td>	<b> <span class="upload-box-title">Selecione uma capa para enviar </span>  </b> 
+											<td>	<img src="<?php  echo $exibe['capa']; ?>" alt="<?php  echo $exibe['isbn']; ?>" widht="140" height="220"/>
 								</br>
 								<br />
+
 											<input id="capa" accept=".png, .jpg" type="file" name="capa" value="" style="float: center;"
 											data-buttonText="Escolher imagem" data-icon="false"
 											data-format="Por favor, utilize um arquivo no formato PNG ou JPG de até 5MB para o upload da imagem."
@@ -654,8 +656,8 @@ $exibe = mysqli_fetch_assoc($resultado)
 					<tr>
 						<div class="col-9">
 						                           
-                        <td> <p><h5>Editar Cadastro</h5></p>  
-							<input type="submit" value="Salvar"  />
+                        <td><font color='blue'> <p><h5>Salvar Edição</h5></p></font> 
+						<input type="submit" value="Enviar Mudanças"  />
                         </td>
 						</div>
 					</tr>
