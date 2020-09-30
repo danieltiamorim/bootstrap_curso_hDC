@@ -118,10 +118,10 @@
                                     // Botão de exportação Excel
                             
                                   
-                                    echo "<button><b>  <td><a href='imprimir.php?pesquisar=$pesquisar'>Imprimir resultados</a></button>  </b> ";                          
+                                    echo "<button><b>  <td><a href='imprimir.php?pesquisar=$pesquisar'>Imprimir resultados</a></button></b>  <button><b>  <td><a href='exportar_estante.php'>Exportar Planilha - Estante (Completa) resultados</a></button>  </b> ";                                              
                              
 
-$limit = 500;
+$limit = 150;
 $ini   =  $limit;                                     
 $result_livros = "SELECT * FROM livros WHERE quantidade > 0 and titulo LIKE '%$pesquisar%' or
 autor LIKE '%$pesquisar%' or

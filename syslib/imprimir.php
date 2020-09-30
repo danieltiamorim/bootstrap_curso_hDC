@@ -2,7 +2,7 @@
 
 $pesquisar = $_GET['pesquisar'];
 
-$dadosxls = "";
+$dadosxls = "<meta charset='utf-8'>";
 $dadosxls .= "<table border='1'>";
 $dadosxls .=" <tr>";
 $dadosxls .="   <th> ID_livro </th>";
