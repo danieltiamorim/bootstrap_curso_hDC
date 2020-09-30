@@ -31,33 +31,40 @@
 </head>
 
 <body>
-  <header> 
+<header> 
     
-		<div class="container" id="nav-container">
-			<nav class="navbar navbar-expand-lg fixed-top navbar-dark">
-				<a class="navbar-brand" href="index.html"> 
-					<img id="logo" src="logo.png"> SysLib: Cadastro de Clientes
-				</a>
+    <div class="container" id="nav-container">
+        <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+            <a class="navbar-brand" href="home.php"> 
+                <img id="logo" src="logo.png"> SysLib: Home
+            </a>
 
-				<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#navbar-links"
-					aria-controls="navbar-links" aria-expanded="false" 
-					aria-label="toggle navigation">
-					<span class="navbar-toggler-icon"></span> 
-				</button>
-				<div class="collapse navbar-collapse justify-content-end" id="navbar-links">
-					<div class="navbar-nav">
-						<a class="nav-item nav-link" id="home-menu" href="#"></span> Home</a>
-						<a class="nav-item nav-link" id="estoque-menu" href="estoque.html#">Estoque</a>
-						<a class="nav-item nav-link" id="pesquisa-menu" href="pesquisar.html#">Pesquisa</a>
-						<a class="nav-item nav-link" id="pesquisa-menu" href="pedidos.html#">Pedido</a>
-					</div>
-				</div> 
-			</nav>
-			
-			</div>
-			</header>
-	<br /><br />
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbar-links"
+                aria-controls="navbar-links" aria-expanded="false" 
+                aria-label="toggle navigation">
+                <span class="navbar-toggler-icon"></span> 
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" id="home-menu" href="home.php#"></span>Home</a>
+                    <a class="nav-item nav-link" id="estoque-menu" href="estoque.html#">Estoque</a>
+                    <a class="nav-item nav-link" id="pesquisa-menu" href="cadastro_cliente.html#">Cliente</a>
+                    <a class="nav-item nav-link" id="pesquisa-menu" href="pedidos.html#">Pedido</a>
+                    <a class="nav-item nav-link" id="pesquisa-menu" href="cadastro_usuario.html#">Cadastro de Usuário</a>
+                    <a class="nav-item nav-link" id="pesquisa-menu" href="login.html#"><font color='red'>Logout</font></a>
+                </div>
+            </div> 
+        </nav>
+        
+        </div>
+        </header>
+        
+
+        <br> <br> 
+
+
+	
 
 
 
@@ -86,14 +93,11 @@
 	$email = $_POST["email"];
 	$telefone1 = $_POST["telefone1"];
 	$telefone2 = $_POST["telefone2"];
-	$cpf = $_POST["cpf"];
-	$rg = $_POST["rg"];
+    $cpf = $_POST["cpf"];
+    $complemento = $_POST["complemento"];
+    $uf = $_POST["uf"];
 	
 	
-		
-
-
-
 
 if (mysqli_connect_error()){
 die('Connect Error ('. mysqli_connect_errno() .') '
@@ -101,32 +105,15 @@ die('Connect Error ('. mysqli_connect_errno() .') '
 }
 
 else{
-$sql = "INSERT INTO clientes (nome_cliente, cep, logradouro, bairro, num_casa, data_nascimento, email, telefone1, telefone2, cpf , rg)
-values ('$nome_cliente', '$cep', '$logradouro', '$bairro', '$num_casa', '$data_nascimento', '$email', '$telefone1', '$telefone2', '$cpf', '$rg', '$filename')";
-		  
-	
+$sql = "INSERT INTO clientes (nome_cliente, cep, logradouro, bairro, num_casa, data_nascimento, email, telefone1, telefone2, cpf, complemento, uf)
+values ('$nome_cliente', '$cep', '$logradouro', '$bairro', '$num_casa', '$data_nascimento', '$email', '$telefone1', '$telefone2', '$cpf', '$complemento', '$uf')";
+  }
 
-
+  if ($conn->query($sql)){
+    //print output text
+echo "Cliente cadastrado com sucesso! </br>"; 
+print "<a href='cadastro_cliente.html#'> Clique aqui para continuar cadastrando! </a>"; 
 }
-
-if (move_uploaded_file($filename, $capas))  { 
-	$msg = "Image uploaded successfully"; 
-}else{ 
-	$msg = "Failed to upload image"; 
-} 
-
-
-if ($conn->query($sql)){
-		//print output text
-echo "Aí sim! Livro cadastrado com sucesso! </br>"; 
-	print " Clique aqui para cadastrar mais um super livro </br>"; 
-}
-
-
-
-
-
-
 
 
 else{
@@ -135,12 +122,10 @@ echo "Error: ". $sql ."
 }
 $conn->close();
 
-	
+
+	?>	
 
 
-		?>	
-
-<a href='estoque.html#'> Clique aqui para continuar cadastrando! </a>
 
 
 <div id='copy-area'>

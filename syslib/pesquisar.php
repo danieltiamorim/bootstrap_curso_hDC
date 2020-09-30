@@ -123,7 +123,7 @@
 
 $limit = 500;
 $ini   =  $limit;                                     
-$result_livros = "SELECT * FROM livros WHERE titulo LIKE '%$pesquisar%' or
+$result_livros = "SELECT * FROM livros WHERE quantidade > 0 and titulo LIKE '%$pesquisar%' or
 autor LIKE '%$pesquisar%' or
 editora LIKE '%$pesquisar%' or  
 isbn LIKE '%$pesquisar%' ORDER BY titulo limit  $limit ";
