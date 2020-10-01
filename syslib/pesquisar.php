@@ -88,7 +88,7 @@
           </div>
         </div>
             
-        <button> <td><a href='estoque.html'>Incluir Novo Livro</a></button> <br>
+        <button> <td><a href='estoque.html'>Incluir Novo Livro</a></button>    <button><b>  <td><a href='exportar_estante.php'>Exportar Planilha "Estante Virtual" (Completa)</a></button> </b> 
 		
            
 			<div id="cadastro">
@@ -118,7 +118,7 @@
                                     // Botão de exportação Excel
                             
                                   
-                                    echo "<button><b>  <td><a href='imprimir.php?pesquisar=$pesquisar'>Imprimir resultados</a></button></b>  <button><b>  <td><a href='exportar_estante.php'>Exportar Planilha - Estante (Completa) resultados</a></button>  </b> ";                                              
+                                    echo "<button><b>  <td><a href='imprimir.php?pesquisar=$pesquisar'>Imprimir resultados</a></button></b>";                                         
                              
 
 $limit = 150;
