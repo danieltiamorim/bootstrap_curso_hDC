@@ -87,9 +87,10 @@
             </div>
           </div>
         </div>
-            
+       
+        <button> <td><a href='pesquisa_tabela.php'>Visualização em Tabela</a></button>  
         <button> <td><a href='estoque.html'>Incluir Novo Livro</a></button>    <button><b>  <td><a href='exportar_estante.php'>Exportar Planilha "Estante Virtual" (Completa)</a></button> </b> 
-		
+  
            
 			<div id="cadastro">
 				<div class="row">
@@ -136,7 +137,7 @@ $resultado= mysqli_query($conn, $result_livros);
 while($exibe = mysqli_fetch_assoc($resultado)){
     echo   "<table>",
                                     
-    "</p>  <b>Nome do livro:</b> ".$exibe ['titulo']."<br>",
+    "</p>  <b>Nome do livro:</b> ".$exibe ['titulo']."<br><img src=".$exibe['capa']." alt=" .$exibe['isbn']." widht='140' height='220'/><br>",
         "  <b> Autor: </b> ".$exibe ['autor']."<br>",
         "  <b> Preço de Venda: </b> ".$exibe ['preco_venda']."<br>",
         "  <b> Editora: </b> ".$exibe ['editora']."<br>",

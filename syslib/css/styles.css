@@ -2,7 +2,7 @@
 body {
   height: 100%;
   background-repeat: no-repeat;
-  background-image: linear-gradient(to bottom right, #ffffcc 0%, #cc9900 87%);
+  background-image: linear-gradient(to bottom right, #ffffcc 0%, #fce5a2 87%);
     font-family: 'Roboto', sans-serif;
 }
 
@@ -80,7 +80,7 @@ width: 50px;
 #cadastro{
   height: 100%;
   background-repeat: no-repeat;
-  background-image: linear-gradient(to bottom right, #ffffcc 0%, #cc9900 100%);
+  background-image: linear-gradient(to bottom right, #ffffcc 0%, #fce5a2 100%);
   }
   
     .main-title {
@@ -92,7 +92,7 @@ width: 50px;
   
   .container {
     text-align: left;
-    color:linear-gradient(to bottom right, #ffffcc 0%, #cc9900 100%);
+    color:linear-gradient(to bottom right, #ffffcc 0%, #fce5a2 100%);
     margin: 1 1 20px 1;
     font-size: 14px;
 
