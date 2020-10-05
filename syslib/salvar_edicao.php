@@ -130,7 +130,7 @@ preco_venda = '$preco_venda' , quantidade = '$quantidade',  editora = '$editora'
 edicao = '$edicao', estado = '$estado' , idioma = '$idioma', estante = '$estante', peso=   '$peso', capa= 'capas/$isbn.$filename_real'  
 WHERE ID_livro='$id' ";
 
-if (copy($filename_temp,"capas/$filename_real")) ; 
+if (copy($filename_temp,"capas/$isbn.$filename_real")) ; 
 
 } 
 

@@ -73,6 +73,9 @@ data-target="#navbar-links"
 	$conn = new mysqli ($host, $dbusername, $dbpassword, $dbname);
 	
 		
+	
+	
+	
 	//Check it is coming from a form
 	$titulo = $_POST["titulo"]; //set PHP variables like this so we can use them anywhere in code below
 	$autor = $_POST["autor"];	
@@ -86,8 +89,8 @@ data-target="#navbar-links"
 	$estado = $_POST["estado"];
 	$idioma = $_POST["idioma"];
 	$estante = $_POST["estante"];
-	$peso = $_POST["peso"];
-
+    $peso = $_POST["peso"];
+    $descricao = $_POST ["descricao"];
 
 	$filename_temp=$_FILES["capa"]["tmp_name"];
 	$filename_real=$_FILES["capa"]["name"];
@@ -101,8 +104,8 @@ die('Connect Error ('. mysqli_connect_errno() .') '
 }
 
 else{
-$sql = "INSERT INTO livros (titulo, autor, isbn, preco_custo, preco_venda, quantidade, editora, ano, edicao, estado, idioma , estante, peso, capa)
-values ('$titulo', '$autor', '$isbn', '$preco_custo', '$preco_venda', '$quantidade', '$editora', '$ano', '$edicao', '$estado', '$idioma', '$estante', '$peso','capas/$isbn.$filename_real' )";  
+$sql = "INSERT INTO livros (titulo, autor, isbn, preco_custo, preco_venda, quantidade, editora, ano, edicao, estado, idioma , estante, peso, capa, descricao)
+values ('$titulo', '$autor', '$isbn', '$preco_custo', '$preco_venda', '$quantidade', '$editora', '$ano', '$edicao', '$estado', '$idioma', '$estante', '$peso','capas/$isbn.$filename_real', '$descricao' )";  
 	
 }
 

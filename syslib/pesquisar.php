@@ -117,36 +117,43 @@
                                 $pesquisar = $_POST['pesquisar'];
                                 
                                     // Botão de exportação Excel
-                            
-                                  
-                                    echo "<button><b>  <td><a href='imprimir.php?pesquisar=$pesquisar'>Imprimir resultados</a></button></b>";                                         
                              
-
+                                    echo "<button><b>  <td><a href='imprimir.php?pesquisar=$pesquisar'>Imprimir resultados</a></button></b>";
+                             
+                                   
 $limit = 150;
-$ini   =  $limit;                                     
-$result_livros = "SELECT * FROM livros WHERE quantidade > 0 and titulo LIKE '%$pesquisar%' or
+if (isset($_GET['pagina'])){
+$pagina = $_GET['pagina'];
+} 
+else {
+
+  $pagina=1;
+};
+
+$start_from = ($pagina-1) * $limit; 
+
+$result = mysqli_query($conn,"SELECT * FROM livros WHERE 
+titulo LIKE '%$pesquisar%' or
 autor LIKE '%$pesquisar%' or
 editora LIKE '%$pesquisar%' or  
-isbn LIKE '%$pesquisar%' ORDER BY titulo limit  $limit ";
-
-$resultado= mysqli_query($conn, $result_livros);
-
+isbn LIKE '%$pesquisar%' 
+ORDER BY titulo ASC LIMIT $start_from, $limit");
 
 
 
-while($exibe = mysqli_fetch_assoc($resultado)){
+while($exibe = mysqli_fetch_array($result)) {
     echo   "<table>",
                                     
-    "</p>  <b>Nome do livro:</b> ".$exibe ['titulo']."<br><img src=".$exibe['capa']." alt=" .$exibe['isbn']." widht='140' height='220'/><br>",
-        "  <b> Autor: </b> ".$exibe ['autor']."<br>",
-        "  <b> Preço de Venda: </b> ".$exibe ['preco_venda']."<br>",
-        "  <b> Editora: </b> ".$exibe ['editora']."<br>",
-        "  <b> Peso: </b> ".$exibe ['peso']."<br>",
-        "  <b> Estado: </b> ".$exibe ['estado']."<br>",
-        "  <b> Estante: </b> ".$exibe ['estante']."<br>",
-        "  <b> Idioma: </b> ".$exibe ['idioma']."<br>",
-        "  <b> ISBN: </b> ".$exibe ['isbn']."<br>",                                                                     
-        "  <b> ID: </b> ".$exibe ['ID_livro']."<br>",   
+    "</p>  <b>Nome do livro:</b> ".$exibe ['titulo'],"<br><img src=".$exibe['capa']," alt=" .$exibe['isbn']." widht='140' height='220'/><br>",
+    "  <b> Autor: </b> ".$exibe ['autor']."<br>",
+    "  <b> Preço de Venda: </b> ".$exibe ['preco_venda']."<br>",
+    "  <b> Editora: </b> ".$exibe ['editora']."<br>",
+    "  <b> Peso: </b> ".$exibe ['peso']."<br>",
+    "  <b> Estado: </b> ".$exibe ['estado']."<br>",
+    "  <b> Estante: </b> ".$exibe ['estante']."<br>",
+    "  <b> Idioma: </b> ".$exibe ['idioma']."<br>",
+    "  <b> ISBN: </b> ".$exibe ['isbn']."<br>",                                                                
+    "  <b> ID: </b> ".$exibe ['ID_livro']."<br>",
 
      
             "</table>";
@@ -156,33 +163,28 @@ while($exibe = mysqli_fetch_assoc($resultado)){
            echo "<button> <td><a href='editar.php?id=$id?isbn=$isbn'>Editar</a></button> <b> OU </b> "; 
            echo "<button> <td><a href='delete.php?id=$id'><font color='red'>Excluir</font></a></button> </p>";
             
+          };
+
+          $result_db = mysqli_query($conn,"SELECT COUNT(ID_livro) FROM livros WHERE 
+          titulo LIKE '%$pesquisar%' or
+          autor LIKE '%$pesquisar%' or
+          editora LIKE '%$pesquisar%' or  
+          isbn LIKE '%$pesquisar%' "); 
+
+          $row_db = mysqli_fetch_row($result_db);  
+          $total_records = $row_db[0];  
+          $total_pages = ceil($total_records / $limit); 
+          /* echo  $total_pages; */
+          $pagLink = "<ul class='pagination'>";  
+          for ($i=1; $i<=$total_pages; $i++) {
+                        $pagLink .= "<li class='page-item'><a class='page-link' href='pesquisar.php?pagina=".$i."'>".$i."</a></li>";	
           }
-   
+          echo $pagLink . "</ul>";  
          
           
-
-          $sql2 = "SELECT count(*) as count FROM livros ";
-          $resultado2 = mysqli_query($conn, $sql2); 
-          $row  = mysqli_fetch_assoc($resultado2);
-          $total_registros = $row['count'];
-          $num_paginas     = ceil($total_registros / $limit);
-     
-
-
                           ?>
 
 
-
-<div>
-    <ul class="pagination pagination-sm pull-right">
-        <li><a href="pesquisar.php?page=<?php echo $num_paginas -1?>" id="anterior"><button><< Anterior </button></a></li>
-        <?php
-            for($i = 1; $i <= $num_paginas; $i++){ ?>
-                <li><a href="pesquisar.php?page=<?php echo $i - 1;?>"> <?php echo $i;?>  </a>    </li>
-        <?php }?>   
-        <li><a href="pesquisar.php?page=0"><button>Próxima>> </button></a></li>
-    </ul>
-</div> 
 
 
 

@@ -77,8 +77,8 @@
                 <h4 class="main-title"><u>Pesquisa</u></h4> 
 
  
-                <form method="POST" action="pesquisar.php">
-                Pesquisar:<input type="text" name="pesquisar" placeholder="ISBN, Autor, Editora ou Título" size="50">
+                <form method="POST" action="pesquisar_clientes.php">
+                Pesquisar:<input type="text" name="pesquisar" placeholder="Nome Cliente, CPF, E-mail, Endereço, " size="50">
                   <input type="submit" value="BUSCAR">
                 </form>
               </div>
@@ -117,14 +117,21 @@
                             
                                   
                                    
-                             
-$page  = (isset($_POST['pesquisar'])) ? (int)$_GET['page'] : 1;
-$limit = 5;
-$ini   = $page * $limit;                                     
-$result_livros = "SELECT * FROM livros WHERE titulo LIKE '%$pesquisar%' or
-autor LIKE '%$pesquisar%' or
-editora LIKE '%$pesquisar%' or  
-isbn LIKE '%$pesquisar%'  limit $ini, $limit";
+                                     
+                                
+$result_livros = "SELECT * FROM clientes WHERE nome_cliente LIKE '%$pesquisar%' or
+cpf LIKE '%$pesquisar%' or
+logradouro LIKE '%$pesquisar%' or  
+cep LIKE '%$pesquisar%'   or  
+email LIKE '%$pesquisar%'  or  
+uf LIKE '%$pesquisar%'  or  
+bairro LIKE '%$pesquisar%' ";
+
+  $limit = 15;
+
+  $ini   = $page * $limit;       
+  limit  $ini, $limit
+
 
 $resultado= mysqli_query($conn, $result_livros);
 
@@ -161,12 +168,12 @@ while($exibe = mysqli_fetch_assoc($resultado)){
 
 <div>
     <ul class="pagination pagination-sm pull-right">
-        <li><a href="pesquisar.php?page=<?php echo $num_paginas -1?>" id="anterior"><<</a></li>
+    <button> <li><a href="pesquisar.php?page=<?php echo $num_paginas -1?>" id="page"><< Anterior</a></li>/<button>
         <?php
             for($i = 1; $i <= $num_paginas; $i++){ ?>
-                <li><a href="pesquisar.php?page=<?php echo $i - 1;?>"><?php echo $i;?></a></li>
+                <li><a href="pesquisar.php?page=<?php echo $i - 1;?>" id="page"><?php echo $i;?></a></li>
         <?php }?>   
-        <li><a href="pesquisar.php?page=0">>></a></li>
+        <button><li><a href="pesquisar.php?page=0">Próximo>></a></li> </button>
     </ul>
 </div> 
 
