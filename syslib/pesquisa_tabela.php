@@ -207,12 +207,12 @@
                         <th>Autor</th>
 						<th>Editora</th>									
 						<th>Estante</th>
-						<th>Preço</th>
-						<th>Custo</th>
+						<th>...Preço...</th>
+						<th>...Custo...</th>
 						<th>Quantidade</th>
 						<th>Ano</th>
 						<th>Idioma</th>
-						<th>Descrição</th>
+						<th>................Descrição................</th>
 						<th>Estado</th>
 						<th>Edição</th>
 						<th>Peso</th>
@@ -242,15 +242,15 @@ while($exibe = mysqli_fetch_assoc($resultado)){
   "   <td>".$exibe['autor']."</td>",
     "   <td>".$exibe['editora']."</td>", 
     "   <td>".$exibe['estante']."</td>",
-      "   <td>".$exibe['preco_venda']."</td>",
-      "   <td>".$exibe['preco_custo']."</td>",
+      "   <td> R$ ".$exibe['preco_venda']."</td>",
+      "   <td> R$ ".$exibe['preco_custo']."</td>",
      "   <td>".$exibe['quantidade']."</td>",
       "   <td>".$exibe['ano']."</td>",
       "   <td>".$exibe['idioma']."</td>",
       "   <td>".$exibe['descricao']."</td>",
       "   <td>".$exibe['estado']."</td>",
       "   <td>".$exibe['edicao']."</td>",
-       "   <td>".$exibe['peso']."</td>",
+       "   <td>".$exibe['peso']." Gramas</td>",
        "   <td>".$exibe['ID_estante']."</td>",
       " </tr>";
 }
@@ -271,7 +271,7 @@ while($exibe = mysqli_fetch_assoc($resultado)){
 						<th>Quantidade</th>
 						<th>Ano</th>
 						<th>Idioma</th>
-						<th>Descrição</th>
+						<th>................Descrição................</th>
 						<th>Estado</th>
 						<th>Edição</th>
 						<th>Peso</th>

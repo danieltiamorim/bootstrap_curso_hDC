@@ -121,7 +121,7 @@
                                     echo "<button><b>  <td><a href='imprimir.php?pesquisar=$pesquisar'>Imprimir resultados</a></button></b>";
                              
                                    
-$limit = 150;
+$limit = 50;
 if (isset($_GET['pagina'])){
 $pagina = $_GET['pagina'];
 } 
@@ -132,23 +132,23 @@ else {
 
 $start_from = ($pagina-1) * $limit; 
 
-$result = mysqli_query($conn,"SELECT * FROM livros WHERE 
-titulo LIKE '%$pesquisar%' or
-autor LIKE '%$pesquisar%' or
-editora LIKE '%$pesquisar%' or  
+$result = mysqli_query($conn,"SELECT * FROM livros WHERE quantidade > 0 AND
+titulo LIKE '%$pesquisar%' or quantidade > 0 AND
+autor LIKE '%$pesquisar%' or quantidade > 0 AND
+editora LIKE '%$pesquisar%' or  quantidade > 0 AND
 isbn LIKE '%$pesquisar%' 
-ORDER BY titulo ASC LIMIT $start_from, $limit");
+ORDER BY titulo DESC LIMIT $start_from, $limit");
 
 
 
 while($exibe = mysqli_fetch_array($result)) {
     echo   "<table>",
                                     
-    "</p>  <b>Nome do livro:</b> ".$exibe ['titulo'],"<br><img src=".$exibe['capa']," alt=" .$exibe['isbn']." widht='140' height='220'/><br>",
+    "</p>  <b>Nome do livro:</b> ".$exibe ['titulo'],"<br><img src=".$exibe['capa']," alt=" .$exibe['isbn']." widht='140' height='220' /> <br> ",
     "  <b> Autor: </b> ".$exibe ['autor']."<br>",
-    "  <b> Preço de Venda: </b> ".$exibe ['preco_venda']."<br>",
+    "  <b> Preço de Venda: </b> R$ ".$exibe ['preco_venda']."<br>",
     "  <b> Editora: </b> ".$exibe ['editora']."<br>",
-    "  <b> Peso: </b> ".$exibe ['peso']."<br>",
+    "  <b> Peso: </b> ".$exibe ['peso']." Gramas<br>",
     "  <b> Estado: </b> ".$exibe ['estado']."<br>",
     "  <b> Estante: </b> ".$exibe ['estante']."<br>",
     "  <b> Idioma: </b> ".$exibe ['idioma']."<br>",
@@ -165,10 +165,10 @@ while($exibe = mysqli_fetch_array($result)) {
             
           };
 
-          $result_db = mysqli_query($conn,"SELECT COUNT(ID_livro) FROM livros WHERE 
-          titulo LIKE '%$pesquisar%' or
-          autor LIKE '%$pesquisar%' or
-          editora LIKE '%$pesquisar%' or  
+          $result_db = mysqli_query($conn,"SELECT COUNT(ID_livro) FROM livros WHERE quantidade > 0 AND
+          titulo LIKE '%$pesquisar%' or quantidade > 0 AND
+          autor LIKE '%$pesquisar%' or quantidade > 0 AND
+          editora LIKE '%$pesquisar%' or  quantidade > 0 AND
           isbn LIKE '%$pesquisar%' "); 
 
           $row_db = mysqli_fetch_row($result_db);  
