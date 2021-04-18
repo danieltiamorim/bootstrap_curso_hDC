@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> SysLib: Pesquisa</title>
+    <title> SysLib: Home</title>
 
     <!----- Fonte ----->  
     <link href="https://fonts.googleapis.com/css2?family=Lato&family=Noto+Sans+JP&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
@@ -32,121 +31,180 @@
 
 </head>
 
-
 <body>
-  <header> <br /><br />
+<header> 
     
-		<div class="container" id="nav-container">
-			<nav class="navbar navbar-expand-lg fixed-top navbar-dark">
-			<a class="navbar-brand" href="index.html"> 
-				<img id="logo" src="logo.png"> SysLib
-			</a>
+    <div class="container" id="nav-container">
+        <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+            <a class="navbar-brand" href="home.php"> 
+                <img id="logo" src="logo.png"> SysLib: Home
+            </a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse"
-             data-target="#navbar-links"
+            data-target="#navbar-links"
                 aria-controls="navbar-links" aria-expanded="false" 
                 aria-label="toggle navigation">
                 <span class="navbar-toggler-icon"></span> 
-			</button>
-
-           <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
-				<div class="navbar-nav">
-                <a class="nav-item nav-link" id="home-menu" href="#"></span> Home</a>
-                <a class="nav-item nav-link" id="cadastro-menu" href="http://localhost/danieltiamorim.github.io/syslib/index.html#">Cadastro</a>
-                <a class="nav-item nav-link" id="pesquisa-menu" href="http://localhost/danieltiamorim.github.io/syslib/pesquisar.html#">Pesquisa</a>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" id="home-menu" href="home.php#"></span>Home</a>
+                    <a class="nav-item nav-link" id="estoque-menu" href="estoque.html#">Estoque</a>
+                    <a class="nav-item nav-link" id="pesquisa-menu" href="cadastro_cliente.html#">Cliente</a>
+                    <a class="nav-item nav-link" id="pesquisa-menu" href="pedidos.html#">Pedido</a>
+                    <a class="nav-item nav-link" id="pesquisa-menu" href="cadastro_usuario.html#">Cadastro de Usuário</a>
+                    <a class="nav-item nav-link" id="pesquisa-menu" href="login.html#"><font color='red'>Logout</font></a>
                 </div>
-			</div> 
-				
-			</nav>
-						
-		</div>
-    </header>
+            </div> 
+        </nav>
+        
+        </div>
+        </header>
+        
+
+        <br> <br> 
 
 
 
 <main>
-
+  <br> <br>
+   
     <div class="container-fluid">
-            <div id="cadastro">
-                <div class="container"> 
-                    <div class="row">
-                        <div class="col-12">      
-                        <h4 class="main-title"><u>Pesquisa</u></h4> 
+          <div id="cadastro">
+            <div class="container"> 
+              <div class="row">
+                <div class="col-12">  
+                
+                
+                <h4 class="main-title"><u>Pesquisa</u></h4> 
 
-        
-                        <form method="POST" action="pesquisar.php">
-                        Pesquisar:<input type="text" name="pesquisar" placeholder="PESQUISAR">
-                        <input type="submit" value="ENVIAR">
-                        </form>
-                        </div>
-                    </div>
-                </div>
-            </div>                      
-            
-
-		
+ 
+                <form method="POST" action="pesquisar.php">
+                Pesquisar:<input type="text" name="pesquisar" placeholder="ISBN, Autor, Editora ou Título" size="50">
+                  <input type="submit" value="BUSCAR">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+       
+        <button> <td><a href='pesquisa_tabela.php'>Visualização em Tabela</a></button>  
+        <button> <td><a href='estoque.html'>Incluir Novo Livro</a></button>    <button><b>  <td><a href='exportar_estante.php'>Exportar Planilha "Estante Virtual" (Completa)</a></button> </b> 
+  
            
 			<div id="cadastro">
 				<div class="row">
-					<div class="col-12">      
+					<div class="col-12">  
+                    <div class="container">     
 						<h4 class="main-title"><u>Resultados</u></h4> 
+                    
 
-
-                        
-
-
-
-
-
-                            <?php
-                            //syslib_cadastro.php
-
-
-                            if ($_SERVER["REQUEST_METHOD"] == "POST") 
-                                $host = "localhost";
-                                $dbusername = "root";
-                                $dbpassword = "";
-                                $dbname = 'livraria' ;
+                          <?php
+                            //pesquisar.php
+                            
+                            // Inclui os detalhes da conexão
+                            require 'conexao.php';
+                            
+                            // Tenta conectar e executar a configuração
+                             
+                                // Cria o objeto da conexão PDO
                                 
+                                
+
                                 //Criar a conexao
                                 $conn = new mysqli ($host, $dbusername, $dbpassword, $dbname);
                                 
                                 $pesquisar = $_POST['pesquisar'];
-                                $result_livros = "SELECT * FROM livros WHERE titulo LIKE '%$pesquisar%' or
-                                    autor LIKE '%$pesquisar%' or
-                                editora LIKE '%$pesquisar%' or  
-                                isbn LIKE '%$pesquisar%' ";
-                                $resultado= mysqli_query($conn, $result_livros);
-                            
-                            while ($row = mysqli_fetch_array($resultado)) {
-                                    echo "<table></p> <b>Nome do livro:</b> ".$row ['titulo']."<br>",
-                                    "<b> Autor: </b>".$row ['autor']."<br>",
-                                    "<b> Preço de Venda: </b>".$row ['preco_venda']."<br>",
-                                    "<b> Editora: </b>".$row ['editora']."<br>",
-                                    "<b> ISBN: </b>".$row ['isbn']."</table></p><br>";
-                                    
-
-                            
                                 
-                                    
-                            }
+                                    // Botão de exportação Excel
+                             
+                                    echo "<button><b>  <td><a href='imprimir.php?pesquisar=$pesquisar'>Imprimir resultados</a></button></b>";
+                             
+                                   
+$limit = 50;
+if (isset($_GET['pagina'])){
+$pagina = $_GET['pagina'];
+} 
+else {
 
-                            ?>      
+  $pagina=1;
+};
+
+$start_from = ($pagina-1) * $limit; 
+
+$result = mysqli_query($conn,"SELECT * FROM livros WHERE quantidade > 0 AND
+titulo LIKE '%$pesquisar%' or quantidade > 0 AND
+autor LIKE '%$pesquisar%' or quantidade > 0 AND
+editora LIKE '%$pesquisar%' or  quantidade > 0 AND
+isbn LIKE '%$pesquisar%' 
+ORDER BY titulo DESC LIMIT $start_from, $limit");
+
+
+
+while($exibe = mysqli_fetch_array($result)) {
+    echo   "<table>",
+                                    
+    "</p>  <b>Nome do livro:</b> ".$exibe ['titulo'],"<br><img src=".$exibe['capa']," alt=" .$exibe['isbn']." widht='140' height='220' /> <br> ",
+    "  <b> Autor: </b> ".$exibe ['autor']."<br>",
+    "  <b> Preço de Venda: </b> R$ ".$exibe ['preco_venda']."<br>",
+    "  <b> Editora: </b> ".$exibe ['editora']."<br>",
+    "  <b> Peso: </b> ".$exibe ['peso']." Gramas<br>",
+    "  <b> Estado: </b> ".$exibe ['estado']."<br>",
+    "  <b> Estante: </b> ".$exibe ['estante']."<br>",
+    "  <b> Idioma: </b> ".$exibe ['idioma']."<br>",
+    "  <b> ISBN: </b> ".$exibe ['isbn']."<br>",                                                                
+    "  <b> ID: </b> ".$exibe ['ID_livro']."<br>",
+
+     
+            "</table>";
+
+            $id = $exibe['ID_livro'];
+            $isbn = $exibe['isbn'];
+           echo "<button> <td><a href='editar.php?id=$id?isbn=$isbn'>Editar</a></button> <b> OU </b> "; 
+           echo "<button> <td><a href='delete.php?id=$id'><font color='red'>Excluir</font></a></button> </p>";
+            
+          };
+
+          $result_db = mysqli_query($conn,"SELECT COUNT(ID_livro) FROM livros WHERE quantidade > 0 AND
+          titulo LIKE '%$pesquisar%' or quantidade > 0 AND
+          autor LIKE '%$pesquisar%' or quantidade > 0 AND
+          editora LIKE '%$pesquisar%' or  quantidade > 0 AND
+          isbn LIKE '%$pesquisar%' "); 
+
+          $row_db = mysqli_fetch_row($result_db);  
+          $total_records = $row_db[0];  
+          $total_pages = ceil($total_records / $limit); 
+          /* echo  $total_pages; */
+          $pagLink = "<ul class='pagination'>";  
+          for ($i=1; $i<=$total_pages; $i++) {
+                        $pagLink .= "<li class='page-item'><a class='page-link' href='pesquisar.php?pagina=".$i."'>".$i."</a></li>";	
+          }
+          echo $pagLink . "</ul>";  
+         
+          
+                          ?>
+
+
+
+
+
+                        
                     </div>
+                </div>
                 </div>
             </div>
 
         </div>
-                
-        
-<div id="copy-area">
-		<div class="container">
-		  
-			  <div class="col-md-12">
-				<p>Desenvolvido por <a href="https://www.n-s-tecnologia.webnode.com" target="_blank">N&S - Tecnologia</a> © 2020</p>
-			  </div>
-		  </div>
-		</div>
+
+        <div id="copy-area">
+        <div class="container">
+          
+      <div class="col-md-12">
+      <p>Desenvolvido por <a href="https://www.n-s-tecnologia.webnode.com" target="_blank">N&S - Tecnologia</a> © 2020</p>
+      </div>
+    </div>
+  </div>
+
 
 
 </body>

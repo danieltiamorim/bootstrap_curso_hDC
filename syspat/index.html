@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> SysLib</title>
+    <title> SysLib: Home</title>
 
     <!----- Fonte ----->  
     <link href="https://fonts.googleapis.com/css2?family=Lato&family=Noto+Sans+JP&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
@@ -29,604 +30,133 @@
     <!----- Parallax ----->
     <script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
 
-</head>
 
+   
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+</head>
 
 
 <body>
   <header> 
     
 		<div class="container" id="nav-container">
-			<nav class="navbar navbar-expand-lg fixed-top navbar-dark">
-				<a class="navbar-brand" href="index.html"> 
-					<img id="logo" src="logo.png"> SysLib
-				</a>
+			<nav class="navbar navbar-expand-lg navbar-dark">
+			<a class="navbar-brand" href="index.html"> 
+				<img id="logo" src="logo.png"> SysLib: Home
+			</a>
 
-				<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#navbar-links"
-					aria-controls="navbar-links" aria-expanded="false" 
-					aria-label="toggle navigation">
-					<span class="navbar-toggler-icon"></span> 
-				</button>
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+             data-target="#navbar-links"
+                aria-controls="navbar-links" aria-expanded="false" 
+                aria-label="toggle navigation">
+                <span class="navbar-toggler-icon"></span> 
+			</button>
 
-				<div class="collapse navbar-collapse justify-content-end" id="navbar-links">
-					<div class="navbar-nav">
-						<a class="nav-item nav-link" id="home-menu" href="#"></span> Home</a>
-						<a class="nav-item nav-link" id="cadastro-menu" href="http://localhost/danieltiamorim.github.io/syslib/index.html#">Cadastro</a>
-						<a class="nav-item nav-link" id="pesquisa-menu" href="http://localhost/danieltiamorim.github.io/syslib/pesquisar.html#">Pesquisa</a>
-					</div>
-				</div> 
-				
+      <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" id="home-menu" href="index.html"></span> Home</a>
+          <a class="nav-item nav-link" id="sobre-menu" href="sobre.html#">Sobre</a>
+          <a class="nav-item nav-link" id="pesquisa-menu" href="contato.html#">Contato</a>
+          <button><a class="nav-item nav-link" id="pesquisa-menu" href="login.html#"><font color='blue'>LOGIN</font></a> </button>
+
+        </div>
+      </div> 
+        
+      
+      
 			</nav>
 			
-			</div>
-    </header>
-	<br /><br />
-
-    <main>
-
-
-
-
-		
-		<div class="container-fluid">
-			<div id="cadastro">
-				<div class="container"> 
-					<div class="row">
-					<div class="col-12">  		
-					<p>	<h4 class="main-title"><u>Cadastro de Livros </u></h4> </p>			
-					<p>  <h5 class="about-cadastro">Nesta página você pode cadastrar os mais diversos livros;</h5></p>
-                	<p>Cheque cada informação e preencha os dados com cuidado; <br />
-                	O Número ISBN é imprescidível, e deve ser usado a máquina leitora de código de barras para a devida leitura dele; <br />
-                	Se for o caso de não ter código de barras, pesquise pelo título na internet e cadastre o livro ou chame o seu supervisor; <br />
-					Ele(a) irá lhe ajudar com essa missão, boa sorte.  <br />
-					<b>P.S.:</b> O que estiver com <b>ASTERISCO *</b> deve ser preenchido com máxima importância. </p>
-					</div>
-					
-					<table>	
-						<form method="post" action="syslib_cadastro.php">
-						<div class="tabela">
-						<tr>
-							<ul>
-								<tr>
-								<div class="col-9">
-									<div class="row data">
-										<td> <li><b>Nome do Livro<span class="asterisk">*</span>: </b> </td>
-										<td> <input type="Nome do livro" name="titulo" placeholder="Ex: Harry Potter e a Pedra Filosofal" /><br /> </li> </td>
-									</div>
-								</div>
-							</tr>
-
-							<tr>
-								<div class="col-9">	
-									<div class="row data">
-										<td> <li> <b>Autor: </b> </td>
-										<td><input type="Autor" name="autor" placeholder="Ex: J K Rowling S/ PONTOS" /> <br /> </li> </td> 
-									</div>
-								
-								</div>
-							</tr>
-
-
-							<tr>
-								<div class="col-9">	
-									<div class="row data">
-									
-																	
-							</tr>
-							<div class="row data">
-								<div class="col-9">
-									<td> <li><b>	<label for="form_isbn" >ISBN<span class="asterisk">*</span>:</label> </b> </td> 
-								</div>
-								
-								<td>
-								
-									<input id="form_isbn" type="text"
-									data-blank="ISBN não preenchido"
-									data-invalid="ISBN inválido"
-									name="isbn" maxlength="16" value=""
-									placeholder="Ex: 9788532511010 "
-									autocomplete="no"
-									/> <br /> </li> </td>
-
-								</div>
-								</div>
-							<tr>
-								<div class="col-9">	
-									<div class="row data">
-									<td> <li> <b>Preço Venda: </b> </td>
-									<td> <input type="Preço" name="preco_venda" placeholder="Ex: 10,00" /> <br /> </li> </td>
-									</div>
-								</div>
-							</tr>
-							
-							<tr>
-								<div class="col-9">	
-									<div class="row data">
-										<td><li> <b>Quantidade: </b> </td>
-										<td>	<input type="Quantidade" name="quantidade" placeholder="Ex: 10 - Só número inteiro" /> <br /> </li> </td>
-									</div>		
-									</div>	
-								</tr>
-
-								<tr>
-									<div class="row data">
-									<div class="col-9">
-									<td>	<li> <b>	<label for="form_estante">Estante<span class="asterisk">*</span>:</label></b>
-										</div>
-									</td>
-
-									<td>
-										
-											<select id="form_estante" name="estante" class="custom_select"
-											data-empty="Estante não selecionada. Escolha uma estante de destino para o seu livro."
-											>
-											<div class="col-9">	
-											<option value=""> Estante de destino  </option>
-																			<option value="Administração" >
-												Administração
-											</option>
-																			<option value="Agricultura" >
-												Agricultura
-											</option>
-																			<option value="Antropologia" >
-												Antropologia
-											</option>
-																			<option value="Arqueologia" >
-												Arqueologia
-											</option>
-																			<option value="Arquitetura" >
-												Arquitetura
-											</option>
-																			<option value="Artes" >
-												Artes
-											</option>
-																			<option value="Artesanato" >
-												Artesanato
-											</option>
-																			<option value="Astronomia" >
-												Astronomia
-											</option>
-																			<option value="Auto Ajuda" >
-												Auto Ajuda
-											</option>
-																			<option value="Biografias" >
-												Biografias
-											</option>
-																			<option value="Biologia" >
-												Biologia
-											</option>
-																			<option value="Botânica" >
-												Botânica
-											</option>
-																			<option value="Brasil" >
-												Brasil
-											</option>
-																			<option value="Cinema" >
-												Cinema
-											</option>
-																			<option value="Ciência Política" >
-												Ciência Política
-											</option>
-																			<option value="Ciências Exatas" >
-												Ciências Exatas
-											</option>
-																			<option value="Coleções" >
-												Coleções
-											</option>
-																			<option value="Comportamento" >
-												Comportamento
-											</option>
-																			<option value="Comunicação" >
-												Comunicação
-											</option>
-																			<option value="Contabilidade" >
-												Contabilidade
-											</option>
-																			<option value="Contos" >
-												Contos
-											</option>
-																			<option value="Crítica Literária" >
-												Crítica Literária
-											</option>
-																			<option value="Culinária" >
-												Culinária
-											</option>
-																			<option value="Decoração" >
-												Decoração
-											</option>
-																			<option value="Dicionários" >
-												Dicionários
-											</option>
-																			<option value="Didáticos" >
-												Didáticos
-											</option>
-																			<option value="Direito" >
-												Direito
-											</option>
-																			<option value="Documentos" >
-												Documentos
-											</option>
-																			<option value="Ecologia" >
-												Ecologia
-											</option>
-																			<option value="Economia" >
-												Economia
-											</option>
-																			<option value="Enciclopédias" >
-												Enciclopédias
-											</option>
-																			<option value="Engenharia" >
-												Engenharia
-											</option>
-																			<option value="Ensino de Idiomas" >
-												Ensino de Idiomas
-											</option>
-																			<option value="Esoterismo" >
-												Esoterismo
-											</option>
-																			<option value="Esportes" >
-												Esportes
-											</option>
-																			<option value="Ficção Científica" >
-												Ficção Científica
-											</option>
-																			<option value="Filosofia" >
-												Filosofia
-											</option>
-																			<option value="Folclore" >
-												Folclore
-											</option>
-																			<option value="Fotografia" >
-												Fotografia
-											</option>
-																			<option value="Genealogia" >
-												Genealogia
-											</option>
-																			<option value="Geografia" >
-												Geografia
-											</option>
-																			<option value="Gibis" >
-												Gibis
-											</option>
-																			<option value="Guerra" >
-												Guerra
-											</option>
-																			<option value="História Geral" >
-												História Geral
-											</option>
-																			<option value="História do Brasil" >
-												História do Brasil
-											</option>
-																			<option value="Hobbies" >
-												Hobbies
-											</option>
-																			<option value="Humor" >
-												Humor
-											</option>
-																			<option value="Infanto Juvenis" >
-												Infanto Juvenis
-											</option>
-																			<option value="Informática" >
-												Informática
-											</option>
-																			<option value="Jogos" >
-												Jogos
-											</option>
-																			<option value="Jornais" >
-												Jornais
-											</option>
-																			<option value="Linguística" >
-												Linguística
-											</option>
-																			<option value="Literatura Brasileira" >
-												Literatura Brasileira
-											</option>
-																			<option value="Literatura Estrangeira" >
-												Literatura Estrangeira
-											</option>
-																			<option value="Livros Raros" >
-												Livros Raros
-											</option>
-																			<option value="Manuscritos" >
-												Manuscritos
-											</option>
-																			<option value="Medicina" >
-												Medicina
-											</option>
-																			<option value="Moda" >
-												Moda
-											</option>
-																			<option value="Música" >
-												Música
-											</option>
-																			<option value="Outros Assuntos" >
-												Outros Assuntos
-											</option>
-																			<option value="Pecuária" >
-												Pecuária
-											</option>
-																			<option value="Pedagogia" >
-												Pedagogia
-											</option>
-																			<option value="Pintura" >
-												Pintura
-											</option>
-																			<option value="Poesia" >
-												Poesia
-											</option>
-																			<option value="Psicologia" >
-												Psicologia
-											</option>
-																			<option value="Religião" >
-												Religião
-											</option>
-																			<option value="Revistas" >
-												Revistas
-											</option>
-																			<option value="Saúde" >
-												Saúde
-											</option>
-																			<option value="Sexualidade" >
-												Sexualidade
-											</option>
-																			<option value="Sociologia" >
-												Sociologia
-											</option>
-																			<option value="Teatro" >
-												Teatro
-											</option>
-																			<option value="Turismo" >
-												Turismo
-											</option>
-																		</select>
-										
-											</td>							
-											</div>
-
-									</div>
-								</tr>
-
-
-							
-									<tr>
-									<div class="row data">
-										<div class="col-9">
-											<td><li> <b><label for="editora">Editora<span class="asterisk">*</b></span>:</label>
-										
-
-										
-											<td> <input type="Editora" name="editora" placeholder="Ex: Rocco" maxlength="30" value=""
-                                    		required autocomplete="no"
-                                   			data-empty="Editora não preenchida."
-											data-name="Editora - preenchimento incorreto. Coloque apenas o nome da editora, \n sem repetir 'Editora'. \n  Ex: digite simplesmente 'Cortez', ao invés de 'Cortez Editora'"/> <br /> </li>
-										</td>
-										</div>			
-									</div>
-								</tr>
-								
-								<tr>
-									<div class="row data">
-										<div class="col-9">
-											<td><li> <b>Ano: </b> </td>
-											<td>	<input type="Ano" name="ano" placeholder="Ex: 2001" /> <br /> </li> </td>
-										</div>
-									</div>
-								</tr>
-									<tr>
-									<div class="row data">
-										<div class="col-9">
-											<td><li> <b>Edição:</b> </td>
-											<td>	<input type="edicao" name="edicao" placeholder="No lugar de 1ª colocar 1 "/> <br /> </li> </td>
-										</div>
-									</div>
-								</tr>
-								
-									<tr>
-										<div class="row data">
-											<div class="col-9">
-											<td> <b>	<li> <label for="form_idioma">Idioma:</label></td> </li> </b>
-											</div>
-
-											<td>
-										
-												<select id="form_idioma" name="idioma" class="custom_select">
-																					<option value="De" >
-														Alemão
-													</option>
-																					<option value="Ch" >
-														Chinês
-													</option>
-																					<option value="Co" >
-														Coreano
-													</option>
-																					<option value="Da" >
-														Dinamarquês
-													</option>
-																					<option value="Es" >
-														Espanhol
-													</option>
-																					<option value="Fr" >
-														Francês
-													</option>
-																					<option value="El" >
-														Grego
-													</option>
-																					<option value="He" >
-														Hebraico
-													</option>
-																					<option value="Ho" >
-														Holandês
-													</option>
-																					<option value="Hu" >
-														Húngaro
-													</option>
-																					<option value="En" >
-														Inglês
-													</option>
-																					<option value="It" >
-														Italiano
-													</option>
-																					<option value="Jp" >
-														Japonês
-													</option>
-																					<option value="La" >
-														Latim
-													</option>
-																					<option value="Pl" >
-														Polonês
-													</option>
-																					<option value="Pt" selected="selected">
-														Português
-													</option>
-																					<option value="Ru" >
-														Russo
-													</option>
-													
-												</select>
-											</div>
-										</div>
-									</td>
-						</tr>
-
-							<tr>
-								<div class="row data">
-									<div class="col-9">
-										<td><li> <label for='estado'>  <b>Estado do Livro </b> </label>:  </td> 
-									
-											<td><select name="estado" id="estado"> </li> 
-												<option value="">Escolha a opção:</option>
-										<option value="novo">Novo</option>
-							
-										<option value="usado_novo"> Usado - Como Novo</option>
-							
-										<option value="usado_bom"> Usado - Bom Estado </option>
-							
-										<option value=" usado_aceitavel"> Usado - Aceitável</option>
-										</select>
-											</td>
-									<br />
-								</div>
-							</div>
-						</tr>
-
-							<tr>
-								<div class="row data">
-										<div class="col-9">
-											<td><li> <b>Preço de Custo: </b> </td>
-											<td>	<input type="text" name="preco_custo" placeholder="Ex: 9,99" /> <br /> <br /> </li> </td>
-								</div>
-							</div>
-						</tr>
-
-					<tr>
-								<div class="row data">
-									<div class="col-9">
-										<td><li><b> Descrição do livro:</b></td>
-						
-										<td> <p> <i>Aqui você deve descrever o livro conforme o estado de conservação dele.</p>
-											 Se estiver amarelado, com páginas amassadas, grifos, assinaturas e/ou anotações.  <br />
-						 				<p>P.S.: Sugiro que termine sempre a descrição com a seguinte frase:  <br /> </p> 
-						
-										<p> <br /> <b> "Mas nada que impeça uma leitura prazerosa"</b></i><br /> </p>
-
-								<textarea rows="4" placeholder="Ex: Livro com capa amassada, lateral rasgada, e amarelada, marcas de uso, assinatura do último dono, e autógrafo autor. Mas nada que impeça uma leitura prazerosa." name='descricao' > </textarea><br /><br /> </li>
-							</td>
-
-							</div>
-								</div>
-								
-									
-								
-						</div>
-					</tr>
-
-					<tr>
-
-						<div class="col-9">
-							<div class="row data">
-							<td><li> <b>	<label for="form_capa">Capa: </label> </b></td>
-							</div>
-							</div>
-					
 			
-								<div class="col-9">
-
-							
-								<div class="cover-area js-cover-area">
-								<input type="hidden" class="domain" value="" />
-								<input type="hidden" class="saved" value="" />
-
-								<div class="row">
-									<div class="state col-9"></div>
-								</div>
-
-								<div class="row">
-									<div class="image-div col-9"></div>
-
-									<div class="image-uploader-box js-uploader-box col-9">
-										<td>	<span class="upload-box-title">Selecione uma capa para enviar </span>  
-										 <br /> 
-										<br />
-										<input id="form_capa" accept=".png, .jpg" type="file" name="capa" value="" style="float: center;"
-											class="jfilestyle" data-buttonText="Escolher imagem" data-icon="false"
-											data-format="Por favor, utilize um arquivo no formato PNG ou JPG de até 5MB para o upload da imagem."
-										/> </li>
-									</div>
-								</div>
-								</div>
-								</div>
-
-							
-							
-					
-					<div class="tooltip">
-						<p>
-							Faça o upload do arquivo .png ou .jpg com a foto da capa do livro.
-							O tamanho da imagem não deve ultrapassar 5 Mb.
-						</p>
-					</div>	
-				</td>
-				</tr>
-
-				<br />
-				<br /> 
-
-					<tr>
-						<div class="col-9">
-						
-						
-							<td><p><h5>Salvar Cadastro</h5></p>  <input type="submit" value="Salvar"  /></td>
-						</div>
-							</tr>
-
-						</ul>
-					
-					</div>
-						
-				</table>
-			</form>
-		
-					
 		</div>
-	</div>
-</div>
-</div>
+    </header>
+    <br /><br />
+
+
+    <main> 
+        <div class="container-fluid">
+
+
+           <div id="mainSlider" class="carousel slide" data-ride="carousel"> 
+                <ol class="carousel-indicators">
+                    <li data-target="#mainSlider" data-slide-to=0 class="active"> </li>
+                    <li data-target="#mainSlider" data-slide-to=1> </li>
+                    <li data-target="#mainSlider" data-slide-to=2> </li>
+                </ol>
+                
+                <div class="carousel-inner">
+
+                    <div class="carousel-item active">
+                        <img src="img/banner1.jpg" class="d-block w-100" alt="Projetos e-commerce"> 
+                        
+                        <div class="carousel-caption align-self-center " >
+                            <h2>Gerencie sua livraria, e saia na frente!</h2> 
+                            <p>  </p>
+                            <a href="sobre.html#" class="main-btn"> Ver Sobre o SysLib</a>
+                        </div>
+                    </div>
+                                           
+                    <div class="carousel-item">
+                    <img src="img/banner2.jpg" class="d-block w-100"  alt="Gerencie seus pedidos em um clique">
+                    <div class="carousel-caption d-md-block">
+                        <h2>Gerencie seus pedidos em um clique!</h2> 
+                        <p> </p>
+                        <a href="sobre.html#" class="main-btn"> Conheça a Solução</a>
+                    </div>
+                    </div>  
+                    
+                    <div class="carousel-item">
+                    <img src="img/banner3.jpg" class="d-block w-100"  alt="Cadastro de Clientes">
+                    <div class="carousel-caption d-md-block">
+                    <h2>Cadastre todos os seus clientes!</h2> 
+                    <p>  </p>
+                    <a href="#" class="main-btn"> Entre em contato - faça um orçamento</a>
+                    </div>
+                    </div>
+                
+
+
+                    <a href="#mainSlider" class="carousel-control-prev" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"> </span> 
+                    <span class="sr-only">Previous</span>
+                    </a>   
+                    
+
+                    
+                    <a href="#mainSlider" class="carousel-control-next" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"> </span> 
+                    <span class="sr-only">Next</span>
+                    </a>     
+                </div>
+
+            </div>
+
+
+           
+        </div>   
+    </main>
 
 
 
-	</main>
 
-	<div id="copy-area">
-		<div class="container">
-		  
-			  <div class="col-md-12">
-				<p>Desenvolvido por <a href="https://www.n-s-tecnologia.webnode.com" target="_blank">N&S - Tecnologia</a> © 2020</p>
-			  </div>
-		  </div>
-		</div>
-	  </div>
-	</div>
-</body>
+    
+    <script src="js/scritpts.js"> </script>
+<div id="copy-area">
+    <div class="container">
+        
+            <div class="col-md-12">
+              <p>Desenvolvido por <a href="https://www.n-s-tecnologia.webnode.com" target="_blank">N&S - Tecnologia</a> © 2020</p>
+            </div>
+        </div>
+        
+  </div>
+     
+  
+  
+  
+  
+  </body>
+  </html>
 
-</html>
